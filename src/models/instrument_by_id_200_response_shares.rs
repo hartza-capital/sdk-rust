@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct InstrumentById200ResponseShares {
     /// Divisor is the divisor used to calculate the index. It is used to normalize the index.
     #[serde(rename = "divisor", skip_serializing_if = "Option::is_none")]
-    pub divisor: Option<f32>,
+    pub divisor: Option<f64>,
     /// Float is the number of shares that are available for trading. It is the number of shares that are not held by insiders, restricted stockholders, and the company's employee stock ownership plan.
     #[serde(rename = "float", skip_serializing_if = "Option::is_none")]
     pub float: Option<i64>,

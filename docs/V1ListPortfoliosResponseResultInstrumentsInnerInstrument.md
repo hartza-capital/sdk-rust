@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**i64**> | Id is the unique identifier for the instrument. | [optional]
+**id** | Option<**String**> | Id is the unique identifier for the instrument. | [optional]
 **ticker** | Option<**String**> | Ticker is the unique identifier for the instrument. | [optional]
 **exchange** | Option<**String**> | Exchange is the exchange where the instrument is traded. | [optional]
 **asset** | Option<**String**> | Asset is the asset class of the instrument. | [optional]

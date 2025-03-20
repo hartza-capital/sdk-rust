@@ -15,10 +15,10 @@ use serde::{Deserialize, Serialize};
 pub struct V1ListPortfoliosResponseResultInstrumentsInnerPerformance {
     /// Percent is the performance percentage.
     #[serde(rename = "percent", skip_serializing_if = "Option::is_none")]
-    pub percent: Option<f32>,
+    pub percent: Option<f64>,
     /// Money is the performance money.
     #[serde(rename = "money", skip_serializing_if = "Option::is_none")]
-    pub money: Option<f32>,
+    pub money: Option<f64>,
 }
 
 impl V1ListPortfoliosResponseResultInstrumentsInnerPerformance {

@@ -49,141 +49,82 @@ Class | Method | HTTP request | Description
 *AccountsOrdersApi* | [**create_orders**](docs/AccountsOrdersApi.md#create_orders) | **POST** /v1/orders | Create Orders by Account
 *AccountsOrdersApi* | [**options_orders**](docs/AccountsOrdersApi.md#options_orders) | **OPTIONS** /v1/orders | Options Orders
 *AccountsOrdersApi* | [**orders**](docs/AccountsOrdersApi.md#orders) | **GET** /v1/orders | List Orders by Account
-*AccountsPortfoliosApi* | [**options_portfolio_analysis**](docs/AccountsPortfoliosApi.md#options_portfolio_analysis) | **OPTIONS** /v1/portfolios/analysis | Options Portfolios Analysis
-*AccountsPortfoliosApi* | [**options_portfolio_by_ticker**](docs/AccountsPortfoliosApi.md#options_portfolio_by_ticker) | **OPTIONS** /v1/portfolio/{ticker} | Options Account Portfolio properties
-*AccountsPortfoliosApi* | [**options_portfolios**](docs/AccountsPortfoliosApi.md#options_portfolios) | **OPTIONS** /v1/portfolios | Options Portfolios methods
-*AccountsPortfoliosApi* | [**portfolio_analysis**](docs/AccountsPortfoliosApi.md#portfolio_analysis) | **GET** /v1/portfolios/analysis | Get Account Portfolio Analysis
-*AccountsPortfoliosApi* | [**portfolio_by_ticker**](docs/AccountsPortfoliosApi.md#portfolio_by_ticker) | **GET** /v1/portfolio/{ticker} | Get Account Portfolio properties by Ticker
-*AccountsPortfoliosApi* | [**portfolios**](docs/AccountsPortfoliosApi.md#portfolios) | **GET** /v1/portfolios | List Portfolios
-*AccountsPortfoliosCurrenciesQuotesApi* | [**last_quote_portfolio_by_ticker**](docs/AccountsPortfoliosCurrenciesQuotesApi.md#last_quote_portfolio_by_ticker) | **GET** /v1/portfolio/{ticker}/currencies/last | Last Quote for Account Portfolio by Currency
-*AccountsPortfoliosCurrenciesQuotesApi* | [**options_last_quote_portfolio_by_ticker**](docs/AccountsPortfoliosCurrenciesQuotesApi.md#options_last_quote_portfolio_by_ticker) | **OPTIONS** /v1/portfolio/{ticker}/currencies/last | Options Last Quote for Instrument
-*AccountsPortfoliosCurrenciesQuotesApi* | [**options_quotes_portfolio_currencies**](docs/AccountsPortfoliosCurrenciesQuotesApi.md#options_quotes_portfolio_currencies) | **OPTIONS** /v1/portfolio/currencies | Options Quotes by currency and period
-*AccountsPortfoliosCurrenciesQuotesApi* | [**search_quotes_portfolio_currencies**](docs/AccountsPortfoliosCurrenciesQuotesApi.md#search_quotes_portfolio_currencies) | **POST** /v1/portfolio/currencies | Search Quotes by currency and period
-*AccountsPortfoliosHistogramApi* | [**options_search_quotes_portfolio_histogram**](docs/AccountsPortfoliosHistogramApi.md#options_search_quotes_portfolio_histogram) | **OPTIONS** /v1/portfolios/histogram | Options Portfolios Histogram
-*AccountsPortfoliosQuotesApi* | [**search_quotes_portfolio_histogram**](docs/AccountsPortfoliosQuotesApi.md#search_quotes_portfolio_histogram) | **POST** /v1/portfolios/histogram | Search Quotes Histogram by Portfolio and period
-*AccountsPortfoliosQuotesApi* | [**search_quotes_portfolios**](docs/AccountsPortfoliosQuotesApi.md#search_quotes_portfolios) | **POST** /v1/portfolios | Search Quotes by Portfolio and period
-*CommoditiesApi* | [**commodity_by_ticker**](docs/CommoditiesApi.md#commodity_by_ticker) | **GET** /v1/commodity/{ticker} | Get Commodity properties
-*CommoditiesApi* | [**options_commodities**](docs/CommoditiesApi.md#options_commodities) | **OPTIONS** /v1/commodities | Options Search Commodities
-*CommoditiesApi* | [**options_commodity_by_ticker**](docs/CommoditiesApi.md#options_commodity_by_ticker) | **OPTIONS** /v1/commodity/{ticker} | Options Commodity
-*CommoditiesApi* | [**options_quotes_commodities**](docs/CommoditiesApi.md#options_quotes_commodities) | **OPTIONS** /v1/eod/commodities | Options Search Commodities Quotes
-*CommoditiesApi* | [**search_commodities**](docs/CommoditiesApi.md#search_commodities) | **POST** /v1/commodities | Search Commodities
-*CommoditiesApi* | [**search_quotes_commodities**](docs/CommoditiesApi.md#search_quotes_commodities) | **POST** /v1/eod/commodities | Search Quotes for Commodities
-*CommoditiesBacktestApi* | [**backtest_commodities**](docs/CommoditiesBacktestApi.md#backtest_commodities) | **POST** /v1/backtest/commodities | Backtest Strategy for commodities
-*CommoditiesBacktestApi* | [**last_backtest_commodity**](docs/CommoditiesBacktestApi.md#last_backtest_commodity) | **GET** /v1/backtest/{strategy}/commodity/{ticker}/last | Get last trend available
-*CommoditiesBacktestApi* | [**lasts_backtest_commodities**](docs/CommoditiesBacktestApi.md#lasts_backtest_commodities) | **POST** /v1/backtest/commodities/lasts | Get lasts backtest available
-*CommoditiesBacktestApi* | [**options_backtest_commodities**](docs/CommoditiesBacktestApi.md#options_backtest_commodities) | **OPTIONS** /v1/backtest/commodities | Options Backtest Strategy for commodities
-*CommoditiesBacktestApi* | [**options_last_backtest_commodity**](docs/CommoditiesBacktestApi.md#options_last_backtest_commodity) | **OPTIONS** /v1/backtest/{strategy}/commodity/{ticker}/last | Options last trend available
-*CommoditiesBacktestApi* | [**options_lasts_backtest_commodities**](docs/CommoditiesBacktestApi.md#options_lasts_backtest_commodities) | **OPTIONS** /v1/backtest/commodities/lasts | Options lasts backtest available
-*CommoditiesQuotesApi* | [**last_quote_commodity_by_ticker**](docs/CommoditiesQuotesApi.md#last_quote_commodity_by_ticker) | **GET** /v1/eod/commodity/{ticker}/last | Last Quote for Instrument
-*CommoditiesQuotesApi* | [**lasts_quotes_commodities**](docs/CommoditiesQuotesApi.md#lasts_quotes_commodities) | **GET** /v1/eod/commodities/lasts | Lasts Commodity Quotes
-*CommoditiesQuotesApi* | [**options_last_quote_commodity_by_ticker**](docs/CommoditiesQuotesApi.md#options_last_quote_commodity_by_ticker) | **OPTIONS** /v1/eod/commodity/{ticker}/last | Options Last Quote for Commodity
-*CommoditiesQuotesApi* | [**options_lasts_quotes_commodities**](docs/CommoditiesQuotesApi.md#options_lasts_quotes_commodities) | **OPTIONS** /v1/eod/commodities/lasts | Options Lasts Commodity Quotes
-*CommoditiesQuotesApi* | [**options_quotes_commodity_histogram**](docs/CommoditiesQuotesApi.md#options_quotes_commodity_histogram) | **OPTIONS** /v1/eod/commodities/histogram | Options Commodities Quotes Histogram
-*CommoditiesQuotesApi* | [**search_quotes_commodity_histogram**](docs/CommoditiesQuotesApi.md#search_quotes_commodity_histogram) | **POST** /v1/eod/commodities/histogram | Search Commodity Quotes Histogram
-*CommoditiesStrategiesApi* | [**last_quote_commodity_by_ticker_and_strategy**](docs/CommoditiesStrategiesApi.md#last_quote_commodity_by_ticker_and_strategy) | **GET** /v1/eod/commodity/{ticker}/strategy/{strategy}/last | Last Strategy Quote for commodity
-*CommoditiesStrategiesApi* | [**lasts_quotes_commodities_strategies**](docs/CommoditiesStrategiesApi.md#lasts_quotes_commodities_strategies) | **POST** /v1/eod/commodities/strategy/lasts | Lasts Strategy Quotes for Commodities
-*CommoditiesStrategiesApi* | [**options_last_quote_commodity_by_ticker_and_strategy**](docs/CommoditiesStrategiesApi.md#options_last_quote_commodity_by_ticker_and_strategy) | **OPTIONS** /v1/eod/commodity/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote for commodity
-*CommoditiesStrategiesApi* | [**options_lasts_quotes_commodities_strategies**](docs/CommoditiesStrategiesApi.md#options_lasts_quotes_commodities_strategies) | **OPTIONS** /v1/eod/commodities/strategy/lasts | Options Lasts Strategy Quotes for Commodities
-*CommoditiesStrategiesApi* | [**options_quotes_commodities_strategies**](docs/CommoditiesStrategiesApi.md#options_quotes_commodities_strategies) | **OPTIONS** /v1/eod/commodities/strategies | Options Strategy Quotes for Commodities
-*CommoditiesStrategiesApi* | [**search_quotes_commodities_strategies**](docs/CommoditiesStrategiesApi.md#search_quotes_commodities_strategies) | **POST** /v1/eod/commodities/strategies | Search Strategy Quotes for Commodities
-*CountriesApi* | [**country_by_ticker**](docs/CountriesApi.md#country_by_ticker) | **GET** /v1/country/{ticker} | Get Country properties
-*CountriesApi* | [**country_indicators_events_by_ticker**](docs/CountriesApi.md#country_indicators_events_by_ticker) | **GET** /v1/country/{ticker}/events | List Country Events properties
-*CountriesApi* | [**options_countries**](docs/CountriesApi.md#options_countries) | **OPTIONS** /v1/countries | Options Search Countries
-*CountriesApi* | [**options_country_by_ticker**](docs/CountriesApi.md#options_country_by_ticker) | **OPTIONS** /v1/country/{ticker} | Options Country properties
-*CountriesApi* | [**options_country_indicators_events_by_ticker**](docs/CountriesApi.md#options_country_indicators_events_by_ticker) | **OPTIONS** /v1/country/{ticker}/events | Options Country Events properties
-*CountriesApi* | [**search_countries**](docs/CountriesApi.md#search_countries) | **POST** /v1/countries | Search Countries
+*BacktestApi* | [**backtest**](docs/BacktestApi.md#backtest) | **POST** /v1/backtest | Backtest Strategy for instruments by interval and arguments
+*BacktestApi* | [**last_backtest**](docs/BacktestApi.md#last_backtest) | **GET** /v1/backtest/{strategy}/{ticker}/last | Get last trend available
+*BacktestApi* | [**lasts_backtest**](docs/BacktestApi.md#lasts_backtest) | **POST** /v1/backtest/lasts | List lasts backtest available for instruments and strategies
+*BacktestApi* | [**options_backtest**](docs/BacktestApi.md#options_backtest) | **OPTIONS** /v1/backtest | Options Backtest Strategy
+*BacktestApi* | [**options_last_backtest**](docs/BacktestApi.md#options_last_backtest) | **OPTIONS** /v1/backtest/{strategy}/{ticker}/last | Options last trend available
+*BacktestApi* | [**options_lasts_backtest**](docs/BacktestApi.md#options_lasts_backtest) | **OPTIONS** /v1/backtest/lasts | Options lasts backtest available
+*CommoditiesApi* | [**commodity**](docs/CommoditiesApi.md#commodity) | **GET** /v1/commodity/{ticker} | Get Commodity properties
+*CommoditiesApi* | [**options_commodity**](docs/CommoditiesApi.md#options_commodity) | **OPTIONS** /v1/commodity/{ticker} | Options Commodity
+*CountriesApi* | [**country**](docs/CountriesApi.md#country) | **GET** /v1/country/{ticker} | Get Country properties
+*CountriesApi* | [**country_events**](docs/CountriesApi.md#country_events) | **GET** /v1/country/{ticker}/events | List Country Events properties
+*CountriesApi* | [**options_country**](docs/CountriesApi.md#options_country) | **OPTIONS** /v1/country/{ticker} | Options Country properties
+*CountriesApi* | [**options_country_events**](docs/CountriesApi.md#options_country_events) | **OPTIONS** /v1/country/{ticker}/events | Options Country Events properties
 *CountryIndicatorsQuotesApi* | [**last_quote_country_indicator**](docs/CountryIndicatorsQuotesApi.md#last_quote_country_indicator) | **GET** /v1/country/indicator/{ticker}/last | Last Country Indicators Quote
 *CountryIndicatorsQuotesApi* | [**lasts_quotes_country_indicators**](docs/CountryIndicatorsQuotesApi.md#lasts_quotes_country_indicators) | **GET** /v1/country/indicators/lasts | Get Lasts Quotes for Country Indicators
 *CountryIndicatorsQuotesApi* | [**options_last_quote_country_indicators**](docs/CountryIndicatorsQuotesApi.md#options_last_quote_country_indicators) | **OPTIONS** /v1/country/indicator/{ticker}/last | Options Last Country Indicators Quote
 *CountryIndicatorsQuotesApi* | [**options_lasts_quotes_country_indicators**](docs/CountryIndicatorsQuotesApi.md#options_lasts_quotes_country_indicators) | **OPTIONS** /v1/country/indicators/lasts | Options Lasts Strategy Quotes for Commodities
-*CountryIndicatorsQuotesApi* | [**options_quotes_country_indicators**](docs/CountryIndicatorsQuotesApi.md#options_quotes_country_indicators) | **OPTIONS** /v1/country/indicators | Options Search Quotes for Country Indicators
+*CountryIndicatorsQuotesApi* | [**options_search_quotes_country_indicators**](docs/CountryIndicatorsQuotesApi.md#options_search_quotes_country_indicators) | **OPTIONS** /v1/country/indicators | Options Search Quotes for Country Indicators
 *CountryIndicatorsQuotesApi* | [**search_quotes_country_indicators**](docs/CountryIndicatorsQuotesApi.md#search_quotes_country_indicators) | **POST** /v1/country/indicators | Search Quotes for Country Indicators
-*CurrenciesApi* | [**currency_by_ticker**](docs/CurrenciesApi.md#currency_by_ticker) | **GET** /v1/currency/{ticker} | Get Currency properties by Ticker
-*CurrenciesApi* | [**options_currency_by_ticker**](docs/CurrenciesApi.md#options_currency_by_ticker) | **OPTIONS** /v1/currency/{ticker} | Options Currency properties
-*ExchangesApi* | [**exchange_by_ticker**](docs/ExchangesApi.md#exchange_by_ticker) | **GET** /v1/exchange/{ticker} | Get Exchange properties
+*CurrenciesApi* | [**currency**](docs/CurrenciesApi.md#currency) | **GET** /v1/currency/{ticker} | Get Currency properties by Ticker
+*CurrenciesApi* | [**options_currency**](docs/CurrenciesApi.md#options_currency) | **OPTIONS** /v1/currency/{ticker} | Options Currency properties
+*DataQuotesApi* | [**last_quote_by_ticker**](docs/DataQuotesApi.md#last_quote_by_ticker) | **GET** /v1/quotes/{ticker}/last | Last Quote for Instrument by Ticker
+*DataQuotesApi* | [**lasts_quotes**](docs/DataQuotesApi.md#lasts_quotes) | **POST** /v1/quotes/lasts | List lasts quote for Instruments
+*DataQuotesApi* | [**option_intraday_quotes**](docs/DataQuotesApi.md#option_intraday_quotes) | **OPTIONS** /v1/quotes/intraday | Options Search Quotes by Instruments and period
+*DataQuotesApi* | [**options_last_quote_by_ticker**](docs/DataQuotesApi.md#options_last_quote_by_ticker) | **OPTIONS** /v1/quotes/{ticker}/last | Options Last Quote for Instrument by Ticker
+*DataQuotesApi* | [**options_lasts_quotes**](docs/DataQuotesApi.md#options_lasts_quotes) | **OPTIONS** /v1/quotes/lasts | Options List lasts quote for Instruments
+*DataQuotesApi* | [**options_search_quotes**](docs/DataQuotesApi.md#options_search_quotes) | **OPTIONS** /v1/quotes | Options Search Quotes by Instruments and period
+*DataQuotesApi* | [**options_search_quotes_histogram**](docs/DataQuotesApi.md#options_search_quotes_histogram) | **OPTIONS** /v1/quotes/histogram | Options Search Quotes Histogram for Instruments
+*DataQuotesApi* | [**search_intraday_quotes**](docs/DataQuotesApi.md#search_intraday_quotes) | **POST** /v1/quotes/intraday | Search Quotes by Instruments and period
+*DataQuotesApi* | [**search_quotes**](docs/DataQuotesApi.md#search_quotes) | **POST** /v1/quotes | Search Quotes by Instruments and period
+*DataQuotesApi* | [**search_quotes_histogram**](docs/DataQuotesApi.md#search_quotes_histogram) | **POST** /v1/quotes/histogram | Search Quotes Histogram by Instruments and period
+*ExchangesApi* | [**exchange**](docs/ExchangesApi.md#exchange) | **GET** /v1/exchange/{ticker} | Get Exchange properties
 *ExchangesApi* | [**exchanges_status**](docs/ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchanges Status
-*ExchangesApi* | [**options_exchange_by_ticker**](docs/ExchangesApi.md#options_exchange_by_ticker) | **OPTIONS** /v1/exchange/{ticker} | Options Exchange properties
-*ExchangesApi* | [**options_exchanges**](docs/ExchangesApi.md#options_exchanges) | **OPTIONS** /v1/exchanges | Options Search Exchanges
-*ExchangesApi* | [**options_list_exchanges_status**](docs/ExchangesApi.md#options_list_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchanges Status
-*ExchangesApi* | [**search_exchanges**](docs/ExchangesApi.md#search_exchanges) | **POST** /v1/exchanges | Search Exchanges with queries or filters
+*ExchangesApi* | [**options_exchange**](docs/ExchangesApi.md#options_exchange) | **OPTIONS** /v1/exchange/{ticker} | Options Exchange properties
+*ExchangesApi* | [**options_exchanges_status**](docs/ExchangesApi.md#options_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchanges Status
 *FilingsApi* | [**filings_by_cik**](docs/FilingsApi.md#filings_by_cik) | **GET** /v1/filings/us/{proxy} | Get US Filings by CIK (Central Index Key)
 *FilingsApi* | [**options_filings_by_cik**](docs/FilingsApi.md#options_filings_by_cik) | **OPTIONS** /v1/filings/us/{proxy} | Options US Filings
-*ForexApi* | [**forex_by_ticker**](docs/ForexApi.md#forex_by_ticker) | **GET** /v1/forex/{ticker} | Get Forex properties by Ticker
-*ForexApi* | [**options_forex**](docs/ForexApi.md#options_forex) | **OPTIONS** /v1/forex | Options Search Forex
-*ForexApi* | [**options_forex_by_ticker**](docs/ForexApi.md#options_forex_by_ticker) | **OPTIONS** /v1/forex/{ticker} | Options Forex properties
-*ForexApi* | [**search_forex**](docs/ForexApi.md#search_forex) | **POST** /v1/forex | Search Forex with queries or filters
-*ForexBacktestApi* | [**backtest_forex**](docs/ForexBacktestApi.md#backtest_forex) | **POST** /v1/backtest/forex | Search Backtest Strategy for forex by Ticker and Strategy
-*ForexBacktestApi* | [**get_last_backtest_forex**](docs/ForexBacktestApi.md#get_last_backtest_forex) | **GET** /v1/backtest/{strategy}/forex/{ticker}/last | Get Last Backtest for Forex by Ticker and Strategy
-*ForexBacktestApi* | [**lasts_backtest_forex**](docs/ForexBacktestApi.md#lasts_backtest_forex) | **POST** /v1/backtest/forex/lasts | Lasts backtest available for Forex by Tickers and Strategy
-*ForexBacktestApi* | [**options_backtest_forex**](docs/ForexBacktestApi.md#options_backtest_forex) | **OPTIONS** /v1/backtest/forex | Options Backtest Strategy for forex
-*ForexBacktestApi* | [**options_last_backtest_forex**](docs/ForexBacktestApi.md#options_last_backtest_forex) | **OPTIONS** /v1/backtest/{strategy}/forex/{ticker}/last | Options last trend available
-*ForexBacktestApi* | [**options_lasts_backtest_forex**](docs/ForexBacktestApi.md#options_lasts_backtest_forex) | **OPTIONS** /v1/backtest/forex/lasts | Options lasts backtest available
-*ForexHistogramApi* | [**options_search_quotes_forex_histogram**](docs/ForexHistogramApi.md#options_search_quotes_forex_histogram) | **OPTIONS** /v1/eod/forex/histogram | Options Search Forex Quotes Histogram
-*ForexHistogramApi* | [**search_quotes_forex_histogram**](docs/ForexHistogramApi.md#search_quotes_forex_histogram) | **POST** /v1/eod/forex/histogram | Search Quotes Histogram
-*ForexQuotesApi* | [**last_quote_forex_by_ticker**](docs/ForexQuotesApi.md#last_quote_forex_by_ticker) | **GET** /v1/eod/forex/{ticker}/last | Get Last Quote for Forex
-*ForexQuotesApi* | [**lasts_quotes_forex_by_tickers**](docs/ForexQuotesApi.md#lasts_quotes_forex_by_tickers) | **GET** /v1/eod/forex/lasts | Get Lasts Forex Quotes
-*ForexQuotesApi* | [**options_last_quote_forex_by_ticker**](docs/ForexQuotesApi.md#options_last_quote_forex_by_ticker) | **OPTIONS** /v1/eod/forex/{ticker}/last | Options Last Quote for Forex
-*ForexQuotesApi* | [**options_lasts_forex_quotes**](docs/ForexQuotesApi.md#options_lasts_forex_quotes) | **OPTIONS** /v1/eod/forex/lasts | Options Lasts Forex Quotes
-*ForexQuotesApi* | [**options_search_forex_quotes**](docs/ForexQuotesApi.md#options_search_forex_quotes) | **OPTIONS** /v1/eod/forex | Options Search Forex Quotes
-*ForexQuotesApi* | [**search_quotes_forex_by_tickers**](docs/ForexQuotesApi.md#search_quotes_forex_by_tickers) | **POST** /v1/eod/forex | Search Quotes Forex with queries or filters
-*ForexStrategiesApi* | [**last_quote_forex_by_ticker_and_strategy**](docs/ForexStrategiesApi.md#last_quote_forex_by_ticker_and_strategy) | **GET** /v1/eod/forex/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote for Forex
-*ForexStrategiesApi* | [**lasts_quotes_forex_by_tickers_and_strategy**](docs/ForexStrategiesApi.md#lasts_quotes_forex_by_tickers_and_strategy) | **POST** /v1/eod/forex/strategy/lasts | Get Lasts Strategy Quotes for Forex
-*ForexStrategiesApi* | [**options_get_lasts_quotes_forex_by_tickers_and_strategy**](docs/ForexStrategiesApi.md#options_get_lasts_quotes_forex_by_tickers_and_strategy) | **OPTIONS** /v1/eod/forex/strategy/lasts | Options Lasts Strategy Quotes for Forex
-*ForexStrategiesApi* | [**options_last_quote_forex_by_ticker_and_strategy**](docs/ForexStrategiesApi.md#options_last_quote_forex_by_ticker_and_strategy) | **OPTIONS** /v1/eod/forex/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote for Forex
-*ForexStrategiesApi* | [**options_search_quotes_forexby_ticker_and_strategy**](docs/ForexStrategiesApi.md#options_search_quotes_forexby_ticker_and_strategy) | **OPTIONS** /v1/eod/forex/strategies | Options Strategy Quotes for Forex
-*ForexStrategiesApi* | [**search_quotes_forex_by_ticker_and_strategy**](docs/ForexStrategiesApi.md#search_quotes_forex_by_ticker_and_strategy) | **POST** /v1/eod/forex/strategies | Search Quotes for Forex by Ticker and Strategy
-*IndexesApi* | [**index_by_ticker**](docs/IndexesApi.md#index_by_ticker) | **GET** /v1/index/{ticker} | Get Index by Ticker
-*IndexesApi* | [**options_index_by_ticker**](docs/IndexesApi.md#options_index_by_ticker) | **OPTIONS** /v1/index/{ticker} | Options Get Index
-*IndexesApi* | [**options_search_indexes**](docs/IndexesApi.md#options_search_indexes) | **OPTIONS** /v1/indexes | Options Search Indexes
-*IndexesApi* | [**search_indexes**](docs/IndexesApi.md#search_indexes) | **POST** /v1/indexes | Search Indexes
-*IndexesQuotesApi* | [**last_quote_index_by_ticker**](docs/IndexesQuotesApi.md#last_quote_index_by_ticker) | **GET** /v1/eod/index/{ticker}/last | Last Quote for Instrument
-*IndexesQuotesApi* | [**lasts_quotes_index**](docs/IndexesQuotesApi.md#lasts_quotes_index) | **GET** /v1/eod/indexes/lasts | Lasts Indexes Quotes
-*IndexesQuotesApi* | [**options_index_quote**](docs/IndexesQuotesApi.md#options_index_quote) | **OPTIONS** /v1/eod/index/{ticker}/last | Options Last Quote for Instrument
-*IndexesQuotesApi* | [**options_lasts_quotes_index**](docs/IndexesQuotesApi.md#options_lasts_quotes_index) | **OPTIONS** /v1/eod/indexes/lasts | Options Lasts Indexes Quotes
-*IndexesQuotesApi* | [**options_search_quotes_index**](docs/IndexesQuotesApi.md#options_search_quotes_index) | **OPTIONS** /v1/eod/indexes | Options Search Quotes
-*IndexesQuotesApi* | [**options_search_quotes_indexes_histogram**](docs/IndexesQuotesApi.md#options_search_quotes_indexes_histogram) | **OPTIONS** /v1/eod/indexes/histogram | Options Search Indexes Quotes Histogram
-*IndexesQuotesApi* | [**search_quotes_index**](docs/IndexesQuotesApi.md#search_quotes_index) | **POST** /v1/eod/indexes | Search Quotes
-*IndexesQuotesApi* | [**search_quotes_indexes_histogram**](docs/IndexesQuotesApi.md#search_quotes_indexes_histogram) | **POST** /v1/eod/indexes/histogram | Search Indexes Quotes Histogram
+*ForexApi* | [**forex**](docs/ForexApi.md#forex) | **GET** /v1/forex/{ticker} | Get Forex properties by Ticker
+*ForexApi* | [**options_forex**](docs/ForexApi.md#options_forex) | **OPTIONS** /v1/forex/{ticker} | Options Forex properties
+*IndexesApi* | [**index**](docs/IndexesApi.md#index) | **GET** /v1/index/{ticker} | Get Index by Ticker
+*IndexesApi* | [**options_index**](docs/IndexesApi.md#options_index) | **OPTIONS** /v1/index/{ticker} | Options Get Index
 *InstrumentsApi* | [**instrument_by_id**](docs/InstrumentsApi.md#instrument_by_id) | **GET** /v1/instrument/{id} | Get properties Instrument by ID
 *InstrumentsApi* | [**options_instrument_by_id**](docs/InstrumentsApi.md#options_instrument_by_id) | **OPTIONS** /v1/instrument/{id} | Options Get Instrument by ID
-*InstrumentsApi* | [**options_instruments**](docs/InstrumentsApi.md#options_instruments) | **OPTIONS** /v1/instruments | Options Search Instruments
-*InstrumentsApi* | [**search_instruments**](docs/InstrumentsApi.md#search_instruments) | **POST** /v1/instruments | Search Instruments with queries or filters
-*InstrumentsBacktestApi* | [**backtest_instruments**](docs/InstrumentsBacktestApi.md#backtest_instruments) | **POST** /v1/backtest/instruments | Backtest Strategy for instruments by interval and arguments
-*InstrumentsBacktestApi* | [**last_backtest_instrument**](docs/InstrumentsBacktestApi.md#last_backtest_instrument) | **GET** /v1/backtest/{strategy}/instrument/{ticker}/last | Get last trend available
-*InstrumentsBacktestApi* | [**lasts_backtest_instruments**](docs/InstrumentsBacktestApi.md#lasts_backtest_instruments) | **POST** /v1/backtest/instruments/lasts | List lasts backtest available for instruments and strategies
-*InstrumentsBacktestApi* | [**options_backtest_instruments**](docs/InstrumentsBacktestApi.md#options_backtest_instruments) | **OPTIONS** /v1/backtest/instruments | Options Backtest Strategy for instruments
-*InstrumentsBacktestApi* | [**options_last_backtest_instrument**](docs/InstrumentsBacktestApi.md#options_last_backtest_instrument) | **OPTIONS** /v1/backtest/{strategy}/instrument/{ticker}/last | Options last trend available
-*InstrumentsBacktestApi* | [**options_lasts_backtest_instruments**](docs/InstrumentsBacktestApi.md#options_lasts_backtest_instruments) | **OPTIONS** /v1/backtest/instruments/lasts | Options lasts backtest available
 *InstrumentsDividendsApi* | [**last_dividend_by_ticker**](docs/InstrumentsDividendsApi.md#last_dividend_by_ticker) | **GET** /v1/dividend/{id}/last | Last Dividend for Instrument
 *InstrumentsDividendsApi* | [**options_dividends**](docs/InstrumentsDividendsApi.md#options_dividends) | **OPTIONS** /v1/dividends | Options Search Dividends for Instrument
 *InstrumentsDividendsApi* | [**options_last_dividend_by_ticker**](docs/InstrumentsDividendsApi.md#options_last_dividend_by_ticker) | **OPTIONS** /v1/dividend/{id}/last | Options Last Dividend for Instrument
 *InstrumentsDividendsApi* | [**search_dividends**](docs/InstrumentsDividendsApi.md#search_dividends) | **POST** /v1/dividends | Search Dividends by interval and arguments
-*InstrumentsHistogramApi* | [**options_quotes_histogram_instruments**](docs/InstrumentsHistogramApi.md#options_quotes_histogram_instruments) | **OPTIONS** /v1/eod/instruments/histogram | Options Search Quotes Histogram for Instruments
-*InstrumentsHistogramApi* | [**search_quotes_histogram_instruments**](docs/InstrumentsHistogramApi.md#search_quotes_histogram_instruments) | **POST** /v1/eod/instruments/histogram | Search Quotes Histogram by Instruments and period
-*InstrumentsQuotesApi* | [**last_quote_instrument_by_ticker**](docs/InstrumentsQuotesApi.md#last_quote_instrument_by_ticker) | **GET** /v1/eod/instrument/{ticker}/last | Last Quote for Instrument by Ticker
-*InstrumentsQuotesApi* | [**lasts_quotes_instruments**](docs/InstrumentsQuotesApi.md#lasts_quotes_instruments) | **GET** /v1/eod/instruments/lasts | List lasts quote for Instruments
-*InstrumentsQuotesApi* | [**options_last_quote_instrument_by_ticker**](docs/InstrumentsQuotesApi.md#options_last_quote_instrument_by_ticker) | **OPTIONS** /v1/eod/instrument/{ticker}/last | Options Last Quote for Instrument
-*InstrumentsQuotesApi* | [**options_lasts_quotes_instruments**](docs/InstrumentsQuotesApi.md#options_lasts_quotes_instruments) | **OPTIONS** /v1/eod/instruments/lasts | Options List lasts quote for Instruments
-*InstrumentsQuotesApi* | [**options_quotes_instruments**](docs/InstrumentsQuotesApi.md#options_quotes_instruments) | **OPTIONS** /v1/eod/instruments | Options Search Quotes by Instruments and period
-*InstrumentsQuotesApi* | [**search_quotes_instruments**](docs/InstrumentsQuotesApi.md#search_quotes_instruments) | **POST** /v1/eod/instruments | Search Quotes by Instruments and period
 *InstrumentsSplitsApi* | [**last_split_by_ticker**](docs/InstrumentsSplitsApi.md#last_split_by_ticker) | **GET** /v1/split/{id}/last | Get Last Split for Instrument
 *InstrumentsSplitsApi* | [**options_last_split_by_ticker**](docs/InstrumentsSplitsApi.md#options_last_split_by_ticker) | **OPTIONS** /v1/split/{id}/last | Options Last Split for Instrument
 *InstrumentsSplitsApi* | [**options_splits**](docs/InstrumentsSplitsApi.md#options_splits) | **OPTIONS** /v1/splits | Options Search Splits for Instrument
 *InstrumentsSplitsApi* | [**search_splits**](docs/InstrumentsSplitsApi.md#search_splits) | **POST** /v1/splits | Search Instruments Splits by interval and arguments
-*InstrumentsStrategiesApi* | [**last_quote_strategy_instrument_by_ticker**](docs/InstrumentsStrategiesApi.md#last_quote_strategy_instrument_by_ticker) | **GET** /v1/eod/instrument/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote for Instrument
-*InstrumentsStrategiesApi* | [**lasts_quotes_instruments_strategy**](docs/InstrumentsStrategiesApi.md#lasts_quotes_instruments_strategy) | **POST** /v1/eod/instruments/strategy/lasts | Get Lasts Strategy Quotes for Instruments
-*InstrumentsStrategiesApi* | [**options_last_quote_strategy_instrument_by_ticker**](docs/InstrumentsStrategiesApi.md#options_last_quote_strategy_instrument_by_ticker) | **OPTIONS** /v1/eod/instrument/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote for Instrument
-*InstrumentsStrategiesApi* | [**options_lasts_quotes_instruments_strategy**](docs/InstrumentsStrategiesApi.md#options_lasts_quotes_instruments_strategy) | **OPTIONS** /v1/eod/instruments/strategy/lasts | Options Lasts Strategy Quotes for Instruments
-*InstrumentsStrategiesApi* | [**options_search_quotes_instruments_strategy**](docs/InstrumentsStrategiesApi.md#options_search_quotes_instruments_strategy) | **OPTIONS** /v1/eod/instruments/strategies | Options Strategy Quotes for Instruments
-*InstrumentsStrategiesApi* | [**search_quotes_instruments_strategy**](docs/InstrumentsStrategiesApi.md#search_quotes_instruments_strategy) | **POST** /v1/eod/instruments/strategies | Search Strategy Quotes for Instruments
-*IntradayQuotesApi* | [**option_quotes_intraday_instruments**](docs/IntradayQuotesApi.md#option_quotes_intraday_instruments) | **OPTIONS** /v1/intraday/instruments | Options Search Intraday Quotes by Instruments and period
-*IntradayQuotesApi* | [**search_quotes_intraday_instruments**](docs/IntradayQuotesApi.md#search_quotes_intraday_instruments) | **POST** /v1/intraday/instruments | Search Intraday Quotes by Instruments and period
 *NewsApi* | [**options_search_news**](docs/NewsApi.md#options_search_news) | **OPTIONS** /v1/news | Options Search News
 *NewsApi* | [**search_news**](docs/NewsApi.md#search_news) | **POST** /v1/news | Search News with queries or filters
+*PortfoliosApi* | [**options_portfolio_analysis**](docs/PortfoliosApi.md#options_portfolio_analysis) | **OPTIONS** /v1/portfolios/analysis | Options Portfolios Analysis
+*PortfoliosApi* | [**options_portfolios**](docs/PortfoliosApi.md#options_portfolios) | **OPTIONS** /v1/portfolios | Options Portfolios methods
+*PortfoliosApi* | [**portfolio_analysis**](docs/PortfoliosApi.md#portfolio_analysis) | **GET** /v1/portfolios/analysis | Get Account Portfolio Analysis
+*PortfoliosApi* | [**portfolios**](docs/PortfoliosApi.md#portfolios) | **GET** /v1/portfolios | List Portfolios
+*PortfoliosQuotesApi* | [**lasts_quotes_portfolios**](docs/PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **POST** /v1/quotes/portfolios/lasts | List lasts quote for Portfolios
+*PortfoliosQuotesApi* | [**options_lasts_portfolios_quotes**](docs/PortfoliosQuotesApi.md#options_lasts_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios/lasts | Options List lasts quote for Portfolios
+*PortfoliosQuotesApi* | [**options_portfolio_last_quote_by_ticker**](docs/PortfoliosQuotesApi.md#options_portfolio_last_quote_by_ticker) | **OPTIONS** /v1/quotes/portfolio/{ticker}/last | Options Last Quote for Account Portfolio by Ticker
+*PortfoliosQuotesApi* | [**options_portfolios_histogram**](docs/PortfoliosQuotesApi.md#options_portfolios_histogram) | **OPTIONS** /v1/quotes/portfolios/histogram | Options Portfolios Histogram
+*PortfoliosQuotesApi* | [**options_portfolios_quotes**](docs/PortfoliosQuotesApi.md#options_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios | Options Quotes by currency and period
+*PortfoliosQuotesApi* | [**portfolio_last_quote_by_ticker**](docs/PortfoliosQuotesApi.md#portfolio_last_quote_by_ticker) | **GET** /v1/quotes/portfolio/{ticker}/last | Last Quote for Account Portfolio by Currency
+*PortfoliosQuotesApi* | [**portfolios_histogram**](docs/PortfoliosQuotesApi.md#portfolios_histogram) | **POST** /v1/quotes/portfolios/histogram | Search Quotes Histogram by Portfolio and period
+*PortfoliosQuotesApi* | [**portfolios_quotes**](docs/PortfoliosQuotesApi.md#portfolios_quotes) | **POST** /v1/quotes/portfolios | Search Quotes by currency and period
+*SearchApi* | [**options_search**](docs/SearchApi.md#options_search) | **OPTIONS** /v1/search | Options Search
+*SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /v1/search | Search with queries or filters
 *StrategiesApi* | [**options_strategies**](docs/StrategiesApi.md#options_strategies) | **OPTIONS** /v1/strategies | Options Strategies
 *StrategiesApi* | [**options_strategy_by_ticker**](docs/StrategiesApi.md#options_strategy_by_ticker) | **OPTIONS** /v1/strategy/{strategy} | Options Strategy properties
 *StrategiesApi* | [**strategies**](docs/StrategiesApi.md#strategies) | **GET** /v1/strategies | List Strategies properties
 *StrategiesApi* | [**strategy_by_ticker**](docs/StrategiesApi.md#strategy_by_ticker) | **GET** /v1/strategy/{strategy} | Get Strategy properties
+*StrategiesQuotesApi* | [**last_strategy_quote**](docs/StrategiesQuotesApi.md#last_strategy_quote) | **GET** /v1/quotes/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote for Instrument
+*StrategiesQuotesApi* | [**lasts_strategy_quotes**](docs/StrategiesQuotesApi.md#lasts_strategy_quotes) | **POST** /v1/quotes/strategy/lasts | Get Lasts Strategy Quotes for Instruments
+*StrategiesQuotesApi* | [**options_last_strategy_quote**](docs/StrategiesQuotesApi.md#options_last_strategy_quote) | **OPTIONS** /v1/quotes/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote for Instrument
+*StrategiesQuotesApi* | [**options_lasts_strategy_quotes**](docs/StrategiesQuotesApi.md#options_lasts_strategy_quotes) | **OPTIONS** /v1/quotes/strategy/lasts | Options Lasts Strategy Quotes for Instruments
+*StrategiesQuotesApi* | [**options_search_strategies_quotes**](docs/StrategiesQuotesApi.md#options_search_strategies_quotes) | **OPTIONS** /v1/quotes/strategies | Options Strategy Quotes for Instruments
+*StrategiesQuotesApi* | [**search_strategies_quotes**](docs/StrategiesQuotesApi.md#search_strategies_quotes) | **POST** /v1/quotes/strategies | Search Strategy Quotes for Instruments
 *TimeApi* | [**options_time**](docs/TimeApi.md#options_time) | **OPTIONS** /v1/time | Options Time
 *TimeApi* | [**time**](docs/TimeApi.md#time) | **GET** /v1/time | Get Time
 *UsersApi* | [**options_user**](docs/UsersApi.md#options_user) | **OPTIONS** /v1/user | Options User methods
@@ -195,29 +136,29 @@ Class | Method | HTTP request | Description
  - [AccountById200Response](docs/AccountById200Response.md)
  - [AccountById404Response](docs/AccountById404Response.md)
  - [Accounts200Response](docs/Accounts200Response.md)
- - [BacktestInstruments200Response](docs/BacktestInstruments200Response.md)
- - [BacktestInstruments200ResponseDataInner](docs/BacktestInstruments200ResponseDataInner.md)
- - [BacktestInstruments200ResponseDataInnerBuy](docs/BacktestInstruments200ResponseDataInnerBuy.md)
- - [BacktestInstruments200ResponseDataInnerSell](docs/BacktestInstruments200ResponseDataInnerSell.md)
- - [BacktestInstruments200ResponseStats](docs/BacktestInstruments200ResponseStats.md)
- - [BacktestInstruments200ResponseStatsMoney](docs/BacktestInstruments200ResponseStatsMoney.md)
- - [BacktestInstruments200ResponseStatsTrades](docs/BacktestInstruments200ResponseStatsTrades.md)
- - [BacktestInstrumentsRequest](docs/BacktestInstrumentsRequest.md)
- - [CommodityByTicker200Response](docs/CommodityByTicker200Response.md)
- - [CountryByTicker200Response](docs/CountryByTicker200Response.md)
- - [CountryByTicker200ResponseEconomic](docs/CountryByTicker200ResponseEconomic.md)
- - [CountryByTicker200ResponseGeographic](docs/CountryByTicker200ResponseGeographic.md)
- - [CountryByTicker200ResponseIndicatorsValue](docs/CountryByTicker200ResponseIndicatorsValue.md)
- - [CountryByTicker200ResponseTelecom](docs/CountryByTicker200ResponseTelecom.md)
- - [CountryIndicatorsEventsByTicker200Response](docs/CountryIndicatorsEventsByTicker200Response.md)
- - [CountryIndicatorsEventsByTicker200ResponseDataInner](docs/CountryIndicatorsEventsByTicker200ResponseDataInner.md)
+ - [Backtest200Response](docs/Backtest200Response.md)
+ - [Backtest200ResponseDataInner](docs/Backtest200ResponseDataInner.md)
+ - [Backtest200ResponseDataInnerBuy](docs/Backtest200ResponseDataInnerBuy.md)
+ - [Backtest200ResponseDataInnerSell](docs/Backtest200ResponseDataInnerSell.md)
+ - [Backtest200ResponseStats](docs/Backtest200ResponseStats.md)
+ - [Backtest200ResponseStatsMoney](docs/Backtest200ResponseStatsMoney.md)
+ - [Backtest200ResponseStatsTrades](docs/Backtest200ResponseStatsTrades.md)
+ - [BacktestRequest](docs/BacktestRequest.md)
+ - [Commodity200Response](docs/Commodity200Response.md)
+ - [Country200Response](docs/Country200Response.md)
+ - [Country200ResponseEconomic](docs/Country200ResponseEconomic.md)
+ - [Country200ResponseGeographic](docs/Country200ResponseGeographic.md)
+ - [Country200ResponseIndicatorsValue](docs/Country200ResponseIndicatorsValue.md)
+ - [Country200ResponseTelecom](docs/Country200ResponseTelecom.md)
+ - [CountryEvents200Response](docs/CountryEvents200Response.md)
+ - [CountryEvents200ResponseDataInner](docs/CountryEvents200ResponseDataInner.md)
  - [CreateAccount409Response](docs/CreateAccount409Response.md)
  - [CreateAccountRequest](docs/CreateAccountRequest.md)
  - [CreateFilterRequest](docs/CreateFilterRequest.md)
  - [CreateOrdersRequest](docs/CreateOrdersRequest.md)
- - [ExchangeByTicker200Response](docs/ExchangeByTicker200Response.md)
- - [ExchangeByTicker200ResponseHolidaysInner](docs/ExchangeByTicker200ResponseHolidaysInner.md)
- - [ExchangeByTicker200ResponseStats](docs/ExchangeByTicker200ResponseStats.md)
+ - [Exchange200Response](docs/Exchange200Response.md)
+ - [Exchange200ResponseHolidaysInner](docs/Exchange200ResponseHolidaysInner.md)
+ - [Exchange200ResponseStats](docs/Exchange200ResponseStats.md)
  - [ExchangesStatus200Response](docs/ExchangesStatus200Response.md)
  - [FilingsByCik200Response](docs/FilingsByCik200Response.md)
  - [FilingsByCik200ResponseAddress](docs/FilingsByCik200ResponseAddress.md)
@@ -235,21 +176,24 @@ Class | Method | HTTP request | Description
  - [FilterReportById200ResponseRef](docs/FilterReportById200ResponseRef.md)
  - [Filters200Response](docs/Filters200Response.md)
  - [Filters200ResponseDataInner](docs/Filters200ResponseDataInner.md)
- - [ForexByTicker200Response](docs/ForexByTicker200Response.md)
- - [ForexByTicker200ResponseStats](docs/ForexByTicker200ResponseStats.md)
- - [IndexByTicker200Response](docs/IndexByTicker200Response.md)
+ - [Forex200Response](docs/Forex200Response.md)
+ - [Forex200ResponseStats](docs/Forex200ResponseStats.md)
+ - [Index200Response](docs/Index200Response.md)
+ - [InlineObject](docs/InlineObject.md)
+ - [InlineObjectDataInner](docs/InlineObjectDataInner.md)
  - [InstrumentById200Response](docs/InstrumentById200Response.md)
  - [InstrumentById200ResponseAddress](docs/InstrumentById200ResponseAddress.md)
  - [InstrumentById200ResponseContact](docs/InstrumentById200ResponseContact.md)
  - [InstrumentById200ResponseShares](docs/InstrumentById200ResponseShares.md)
  - [InstrumentById200ResponseStats](docs/InstrumentById200ResponseStats.md)
  - [InstrumentById200ResponseTax](docs/InstrumentById200ResponseTax.md)
- - [LastsBacktestInstruments200Response](docs/LastsBacktestInstruments200Response.md)
+ - [LastsBacktest200Response](docs/LastsBacktest200Response.md)
  - [LastsQuotesCountryIndicators200Response](docs/LastsQuotesCountryIndicators200Response.md)
- - [LastsQuotesInstruments200Response](docs/LastsQuotesInstruments200Response.md)
- - [LastsQuotesInstrumentsStrategy200Response](docs/LastsQuotesInstrumentsStrategy200Response.md)
- - [LastsQuotesInstrumentsStrategy200ResponseDataValue](docs/LastsQuotesInstrumentsStrategy200ResponseDataValue.md)
- - [LastsQuotesInstrumentsStrategyRequest](docs/LastsQuotesInstrumentsStrategyRequest.md)
+ - [LastsQuotesPortfolios200Response](docs/LastsQuotesPortfolios200Response.md)
+ - [LastsQuotesPortfoliosRequest](docs/LastsQuotesPortfoliosRequest.md)
+ - [LastsStrategyQuotes200Response](docs/LastsStrategyQuotes200Response.md)
+ - [LastsStrategyQuotes200ResponseDataValue](docs/LastsStrategyQuotes200ResponseDataValue.md)
+ - [LastsStrategyQuotesRequest](docs/LastsStrategyQuotesRequest.md)
  - [Orders200Response](docs/Orders200Response.md)
  - [Orders200ResponseDataInner](docs/Orders200ResponseDataInner.md)
  - [Orders200ResponseDataInnerPrice](docs/Orders200ResponseDataInnerPrice.md)
@@ -259,30 +203,19 @@ Class | Method | HTTP request | Description
  - [Orders500Response](docs/Orders500Response.md)
  - [PatchAccountByIdRequest](docs/PatchAccountByIdRequest.md)
  - [Portfolios200Response](docs/Portfolios200Response.md)
- - [SearchCommodities200Response](docs/SearchCommodities200Response.md)
- - [SearchCommodities200ResponseDataInner](docs/SearchCommodities200ResponseDataInner.md)
- - [SearchCountries200Response](docs/SearchCountries200Response.md)
- - [SearchCountries200ResponseDataInner](docs/SearchCountries200ResponseDataInner.md)
+ - [PortfoliosHistogram200Response](docs/PortfoliosHistogram200Response.md)
+ - [PortfoliosHistogram200ResponseData](docs/PortfoliosHistogram200ResponseData.md)
+ - [PortfoliosHistogram200ResponseDataDistributionInner](docs/PortfoliosHistogram200ResponseDataDistributionInner.md)
+ - [PortfoliosHistogram200ResponseDataPerformanceInner](docs/PortfoliosHistogram200ResponseDataPerformanceInner.md)
+ - [PortfoliosQuotes200Response](docs/PortfoliosQuotes200Response.md)
+ - [Search200Response](docs/Search200Response.md)
  - [SearchDividends200Response](docs/SearchDividends200Response.md)
- - [SearchExchanges200Response](docs/SearchExchanges200Response.md)
- - [SearchExchanges200ResponseDataInner](docs/SearchExchanges200ResponseDataInner.md)
- - [SearchForex200Response](docs/SearchForex200Response.md)
- - [SearchForex200ResponseDataInner](docs/SearchForex200ResponseDataInner.md)
- - [SearchIndexes200Response](docs/SearchIndexes200Response.md)
- - [SearchIndexes200ResponseDataInner](docs/SearchIndexes200ResponseDataInner.md)
- - [SearchInstruments200Response](docs/SearchInstruments200Response.md)
- - [SearchInstrumentsRequest](docs/SearchInstrumentsRequest.md)
+ - [SearchIntradayQuotesRequest](docs/SearchIntradayQuotesRequest.md)
  - [SearchNews200Response](docs/SearchNews200Response.md)
  - [SearchNews200ResponseDataInner](docs/SearchNews200ResponseDataInner.md)
  - [SearchQuotesCountryIndicators200Response](docs/SearchQuotesCountryIndicators200Response.md)
- - [SearchQuotesInstrumentsStrategy200Response](docs/SearchQuotesInstrumentsStrategy200Response.md)
- - [SearchQuotesIntradayInstrumentsRequest](docs/SearchQuotesIntradayInstrumentsRequest.md)
- - [SearchQuotesPortfolioHistogram200Response](docs/SearchQuotesPortfolioHistogram200Response.md)
- - [SearchQuotesPortfolioHistogram200ResponseData](docs/SearchQuotesPortfolioHistogram200ResponseData.md)
- - [SearchQuotesPortfolioHistogram200ResponseDataDistributionInner](docs/SearchQuotesPortfolioHistogram200ResponseDataDistributionInner.md)
- - [SearchQuotesPortfolioHistogram200ResponseDataPerformanceInner](docs/SearchQuotesPortfolioHistogram200ResponseDataPerformanceInner.md)
- - [SearchQuotesPortfolios200Response](docs/SearchQuotesPortfolios200Response.md)
  - [SearchSplits200Response](docs/SearchSplits200Response.md)
+ - [SearchStrategiesQuotes200Response](docs/SearchStrategiesQuotes200Response.md)
  - [SharesOrder](docs/SharesOrder.md)
  - [StatsResponsePrice](docs/StatsResponsePrice.md)
  - [StatsResponseVolumes](docs/StatsResponseVolumes.md)
@@ -315,11 +248,14 @@ Class | Method | HTTP request | Description
  - [V1ListPortfoliosResponseResultInstrumentsInnerPerformance](docs/V1ListPortfoliosResponseResultInstrumentsInnerPerformance.md)
  - [V1ListPortfoliosResponseResultStats](docs/V1ListPortfoliosResponseResultStats.md)
  - [V1ListPortfoliosResponseResultStatsAllocation](docs/V1ListPortfoliosResponseResultStatsAllocation.md)
+ - [V1MacroCalendarResponse](docs/V1MacroCalendarResponse.md)
+ - [V1MacroCalendarResponseDataInner](docs/V1MacroCalendarResponseDataInner.md)
  - [V1QuoteResponse](docs/V1QuoteResponse.md)
  - [V1ScreenerFilter](docs/V1ScreenerFilter.md)
  - [V1ScreenerIntervalRequest](docs/V1ScreenerIntervalRequest.md)
  - [V1ScreenerNpRequest](docs/V1ScreenerNpRequest.md)
  - [V1ScreenerPagination](docs/V1ScreenerPagination.md)
+ - [V1ScreenerQueryRequest](docs/V1ScreenerQueryRequest.md)
  - [V1ScreenerSort](docs/V1ScreenerSort.md)
  - [V1SearchIndexsResponseResult](docs/V1SearchIndexsResponseResult.md)
  - [V1SplitResponse](docs/V1SplitResponse.md)

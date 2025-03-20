@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> | Id is the unique identifier for the order. | [optional]
-**instrument_id** | Option<**i64**> | InstrumentId is the unique identifier for the instrument. | [optional]
+**r#ref** | Option<**String**> | Ref is the reference of the order. | [optional]
 **ticker** | Option<**String**> | Ticker is the unique identifier for the instrument. | [optional]
 **exchange** | Option<**String**> | Exchange is the exchange where the instrument is traded. | [optional]
 **name** | Option<**String**> | Name is the name of the instrument. | [optional]

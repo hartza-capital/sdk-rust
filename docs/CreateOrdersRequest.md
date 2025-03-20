@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument_id** | Option<**i64**> | InstrumentId is the unique identifier for the instrument. | [optional]
+**r#ref** | Option<**String**> | Ref is the unique identifier for the order. | [optional]
 **action** | Option<**String**> | Action is the action of the order. | [optional]
 **order_type** | Option<**String**> | OrderType is the type of the order. | [optional]
 **size** | Option<**f64**> | Size is the size of the order. | [optional]

@@ -16,10 +16,10 @@ use serde::{Deserialize, Serialize};
 pub struct V1DividendResponse {
     /// Value is the value of the dividend.
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<f32>,
+    pub value: Option<f64>,
     /// Yield is the yield of the dividend.
     #[serde(rename = "yield", skip_serializing_if = "Option::is_none")]
-    pub r#yield: Option<f32>,
+    pub r#yield: Option<f64>,
     /// DeclarationDate is the date at which the dividend was declared.
     #[serde(rename = "declaration_date", skip_serializing_if = "Option::is_none")]
     pub declaration_date: Option<i64>,

@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`country_by_ticker`]
+/// struct for typed errors of method [`country`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CountryByTickerError {
+pub enum CountryError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -26,10 +26,10 @@ pub enum CountryByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`country_indicators_events_by_ticker`]
+/// struct for typed errors of method [`country_events`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CountryIndicatorsEventsByTickerError {
+pub enum CountryEventsError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -37,41 +37,22 @@ pub enum CountryIndicatorsEventsByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_countries`]
+/// struct for typed errors of method [`options_country`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsCountriesError {
-    Status400(models::Orders400Response),
+pub enum OptionsCountryError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_country_by_ticker`]
+/// struct for typed errors of method [`options_country_events`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsCountryByTickerError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`options_country_indicators_events_by_ticker`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsCountryIndicatorsEventsByTickerError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`search_countries`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SearchCountriesError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
-    Status500(models::Orders500Response),
+pub enum OptionsCountryEventsError {
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn country_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::CountryByTicker200Response, Error<CountryByTickerError>> {
+pub async fn country(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Country200Response, Error<CountryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -105,17 +86,17 @@ pub async fn country_by_ticker(configuration: &configuration::Configuration, tic
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CountryByTicker200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CountryByTicker200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Country200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Country200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CountryByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<CountryError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn country_indicators_events_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::CountryIndicatorsEventsByTicker200Response, Error<CountryIndicatorsEventsByTickerError>> {
+pub async fn country_events(configuration: &configuration::Configuration, ticker: &str) -> Result<models::CountryEvents200Response, Error<CountryEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -149,42 +130,18 @@ pub async fn country_indicators_events_by_ticker(configuration: &configuration::
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CountryIndicatorsEventsByTicker200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CountryIndicatorsEventsByTicker200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CountryEvents200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CountryEvents200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CountryIndicatorsEventsByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<CountryEventsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_countries(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsCountriesError>> {
-
-    let uri_str = format!("{}/v1/countries", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsCountriesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_country_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCountryByTickerError>> {
+pub async fn options_country(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCountryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -204,13 +161,13 @@ pub async fn options_country_by_ticker(configuration: &configuration::Configurat
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsCountryByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsCountryError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_country_indicators_events_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCountryIndicatorsEventsByTickerError>> {
+pub async fn options_country_events(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCountryEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -230,52 +187,7 @@ pub async fn options_country_indicators_events_by_ticker(configuration: &configu
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsCountryIndicatorsEventsByTickerError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn search_countries(configuration: &configuration::Configuration, search_instruments_request: Option<models::SearchInstrumentsRequest>) -> Result<models::SearchCountries200Response, Error<SearchCountriesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_search_instruments_request = search_instruments_request;
-
-    let uri_str = format!("{}/v1/countries", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_search_instruments_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SearchCountries200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SearchCountries200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SearchCountriesError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsCountryEventsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

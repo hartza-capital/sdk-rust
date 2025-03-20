@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**i64**> | Id is the unique identifier for the security. | [optional]
+**id** | Option<**String**> | Id is the unique identifier for the security. | [optional]
 **ticker** | Option<**String**> | Ticker is the unique identifier for the security. | [optional]
 **ticker_alternative** | Option<**String**> | TickerAlternative is the alternative identifier for the security. | [optional]
 **name** | Option<**String**> | Name is the name of the security. | [optional]

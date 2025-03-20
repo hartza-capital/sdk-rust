@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`index_by_ticker`]
+/// struct for typed errors of method [`index`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum IndexByTickerError {
+pub enum IndexError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -26,34 +26,16 @@ pub enum IndexByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_index_by_ticker`]
+/// struct for typed errors of method [`options_index`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsIndexByTickerError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`options_search_indexes`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsSearchIndexesError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`search_indexes`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SearchIndexesError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
-    Status500(models::Orders500Response),
+pub enum OptionsIndexError {
     UnknownValue(serde_json::Value),
 }
 
 
 /// This endpoint permit to receive: - General informations (Name, Exchange...), - Activities, - SizeCap (majority), - Last Quote of the day, - Statistics. 
-pub async fn index_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::IndexByTicker200Response, Error<IndexByTickerError>> {
+pub async fn index(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Index200Response, Error<IndexError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -87,18 +69,18 @@ pub async fn index_by_ticker(configuration: &configuration::Configuration, ticke
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IndexByTicker200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IndexByTicker200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Index200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Index200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<IndexByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<IndexError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_index_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsIndexByTickerError>> {
+pub async fn options_index(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsIndexError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -118,76 +100,7 @@ pub async fn options_index_by_ticker(configuration: &configuration::Configuratio
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsIndexByTickerError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_search_indexes(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsSearchIndexesError>> {
-
-    let uri_str = format!("{}/v1/indexes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsSearchIndexesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn search_indexes(configuration: &configuration::Configuration, search_instruments_request: Option<models::SearchInstrumentsRequest>) -> Result<models::SearchIndexes200Response, Error<SearchIndexesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_search_instruments_request = search_instruments_request;
-
-    let uri_str = format!("{}/v1/indexes", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_search_instruments_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SearchIndexes200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SearchIndexes200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SearchIndexesError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsIndexError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

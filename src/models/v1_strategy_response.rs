@@ -31,7 +31,7 @@ pub struct V1StrategyResponse {
     pub description: Option<String>,
     /// Parameters is a map of parameters used by the strategy.
     #[serde(rename = "parameters", skip_serializing_if = "Option::is_none")]
-    pub parameters: Option<std::collections::HashMap<String, f32>>,
+    pub parameters: Option<std::collections::HashMap<String, f64>>,
     /// CreatedAt is the date and time when the strategy was created.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **currency_base** | Option<**String**> | CurrencyBase is the base currency of the account. It is the currency used to calculate the account value. | [optional]
 **filter** | Option<[**models::V1FilterResponse**](v1FilterResponse.md)> |  | [optional]
 **strategy** | Option<[**models::V1StrategyResponse**](v1StrategyResponse.md)> |  | [optional]
-**max_drawdown** | Option<**f32**> | MaxDrawdown is the maximum drawdown of the account. It is the maximum loss from a peak to a trough of a portfolio, before a new peak is attained. | [optional]
+**max_drawdown** | Option<**f64**> | MaxDrawdown is the maximum drawdown of the account. It is the maximum loss from a peak to a trough of a portfolio, before a new peak is attained. | [optional]
 **max_positions** | Option<**i32**> | MaxPositions is the maximum number of positions in the account. It is the maximum number of positions that can be held in the account. | [optional]
 **status** | Option<**String**> | Status is the status of the account. It is the status of the account. | [optional]
 **created_at** | Option<**i64**> | CreatedAt is the creation date of the account. | [optional]

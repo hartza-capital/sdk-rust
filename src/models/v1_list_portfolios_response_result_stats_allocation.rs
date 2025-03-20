@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct V1ListPortfoliosResponseResultStatsAllocation {
     /// TotalPercent is the total allocation percentage.
     #[serde(rename = "total_percent", skip_serializing_if = "Option::is_none")]
-    pub total_percent: Option<f32>,
+    pub total_percent: Option<f64>,
     /// CashPercent is the cash allocation percentage.
     #[serde(rename = "cash_percent", skip_serializing_if = "Option::is_none")]
-    pub cash_percent: Option<f32>,
+    pub cash_percent: Option<f64>,
     /// InstrumentsPercent is the instruments allocation percentage.
     #[serde(rename = "instruments_percent", skip_serializing_if = "Option::is_none")]
-    pub instruments_percent: Option<f32>,
+    pub instruments_percent: Option<f64>,
 }
 
 impl V1ListPortfoliosResponseResultStatsAllocation {

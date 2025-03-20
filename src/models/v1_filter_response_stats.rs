@@ -17,9 +17,9 @@ pub struct V1FilterResponseStats {
     #[serde(rename = "count", skip_serializing_if = "Option::is_none")]
     pub count: Option<i32>,
     #[serde(rename = "currencies", skip_serializing_if = "Option::is_none")]
-    pub currencies: Option<std::collections::HashMap<String, f32>>,
+    pub currencies: Option<std::collections::HashMap<String, f64>>,
     #[serde(rename = "assets", skip_serializing_if = "Option::is_none")]
-    pub assets: Option<std::collections::HashMap<String, f32>>,
+    pub assets: Option<std::collections::HashMap<String, f64>>,
 }
 
 impl V1FilterResponseStats {

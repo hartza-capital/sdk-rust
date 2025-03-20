@@ -18,7 +18,7 @@ pub struct FilterReportById200ResponseCurrencyValue {
     pub instruments: Option<Vec<i64>>,
     /// Percent is the percentage of the currency.
     #[serde(rename = "percent", skip_serializing_if = "Option::is_none")]
-    pub percent: Option<f32>,
+    pub percent: Option<f64>,
 }
 
 impl FilterReportById200ResponseCurrencyValue {

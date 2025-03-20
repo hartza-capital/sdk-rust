@@ -16,9 +16,9 @@ pub struct Orders200ResponseDataInner {
     /// Id is the unique identifier for the order.
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<uuid::Uuid>,
-    /// InstrumentId is the unique identifier for the instrument.
-    #[serde(rename = "instrument_id", skip_serializing_if = "Option::is_none")]
-    pub instrument_id: Option<i64>,
+    /// Ref is the reference of the order.
+    #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]
+    pub r#ref: Option<String>,
     /// Ticker is the unique identifier for the instrument.
     #[serde(rename = "ticker", skip_serializing_if = "Option::is_none")]
     pub ticker: Option<String>,
@@ -56,7 +56,7 @@ impl Orders200ResponseDataInner {
     pub fn new() -> Orders200ResponseDataInner {
         Orders200ResponseDataInner {
             id: None,
-            instrument_id: None,
+            r#ref: None,
             ticker: None,
             exchange: None,
             name: None,

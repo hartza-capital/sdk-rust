@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`currency_by_ticker`]
+/// struct for typed errors of method [`currency`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CurrencyByTickerError {
+pub enum CurrencyError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -26,16 +26,16 @@ pub enum CurrencyByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_currency_by_ticker`]
+/// struct for typed errors of method [`options_currency`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsCurrencyByTickerError {
+pub enum OptionsCurrencyError {
     UnknownValue(serde_json::Value),
 }
 
 
 /// This endpoint allow to receive: - General informations (Ticker, Central Bank...), - Exchanges/Countries where the currency is used. 
-pub async fn currency_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1CurrencyResponse, Error<CurrencyByTickerError>> {
+pub async fn currency(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1CurrencyResponse, Error<CurrencyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -74,13 +74,13 @@ pub async fn currency_by_ticker(configuration: &configuration::Configuration, ti
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CurrencyByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<CurrencyError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_currency_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCurrencyByTickerError>> {
+pub async fn options_currency(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCurrencyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -100,7 +100,7 @@ pub async fn options_currency_by_ticker(configuration: &configuration::Configura
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsCurrencyByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsCurrencyError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

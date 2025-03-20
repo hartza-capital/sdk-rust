@@ -19,19 +19,19 @@ pub struct StatsResponsePrice {
     pub market_cap_usd: Option<i64>,
     /// Start is the price at the beginning of the year.
     #[serde(rename = "start", skip_serializing_if = "Option::is_none")]
-    pub start: Option<f32>,
+    pub start: Option<f64>,
     /// MinAnnual is the minimum price of the security in the year.
     #[serde(rename = "min_annual", skip_serializing_if = "Option::is_none")]
-    pub min_annual: Option<f32>,
+    pub min_annual: Option<f64>,
     /// MaxAnnual is the maximum price of the security in the year.
     #[serde(rename = "max_annual", skip_serializing_if = "Option::is_none")]
-    pub max_annual: Option<f32>,
+    pub max_annual: Option<f64>,
     /// ReturnYear is the return of the security in the year.
     #[serde(rename = "return_year", skip_serializing_if = "Option::is_none")]
-    pub return_year: Option<f32>,
+    pub return_year: Option<f64>,
     /// Beta5y is the beta of the security over the last 5 years.
     #[serde(rename = "beta5y", skip_serializing_if = "Option::is_none")]
-    pub beta5y: Option<f32>,
+    pub beta5y: Option<f64>,
 }
 
 impl StatsResponsePrice {

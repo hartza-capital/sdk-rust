@@ -23,7 +23,7 @@ This endpoint returns the last dividend received by the shareholder for the spec
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i64** | The ID of the instrument to retrieve | [required] |
+**id** | **String** | The ID of the instrument to retrieve | [required] |
 
 ### Return type
 
@@ -80,7 +80,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i64** | The ID of the instrument to retrieve | [required] |
+**id** | **String** | The ID of the instrument to retrieve | [required] |
 
 ### Return type
 

@@ -59,9 +59,9 @@ pub async fn options_search_news(configuration: &configuration::Configuration, )
 }
 
 /// This endpoint allow to use search with complexe queries (keywords, filters, sort etc..) 
-pub async fn search_news(configuration: &configuration::Configuration, search_instruments_request: Option<models::SearchInstrumentsRequest>) -> Result<models::SearchNews200Response, Error<SearchNewsError>> {
+pub async fn search_news(configuration: &configuration::Configuration, v1_screener_query_request: Option<models::V1ScreenerQueryRequest>) -> Result<models::SearchNews200Response, Error<SearchNewsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_search_instruments_request = search_instruments_request;
+    let p_v1_screener_query_request = v1_screener_query_request;
 
     let uri_str = format!("{}/v1/news", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -77,7 +77,7 @@ pub async fn search_news(configuration: &configuration::Configuration, search_in
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_search_instruments_request);
+    req_builder = req_builder.json(&p_v1_screener_query_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

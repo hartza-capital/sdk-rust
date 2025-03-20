@@ -30,7 +30,7 @@ pub struct CreateAccountRequest {
     pub strategy: Option<String>,
     /// MaxDrawdown is the maximum drawdown of the account. It is the maximum loss from a peak to a trough of a portfolio, before a new peak is attained.
     #[serde(rename = "max_drawdown", skip_serializing_if = "Option::is_none")]
-    pub max_drawdown: Option<f32>,
+    pub max_drawdown: Option<f64>,
     /// MaxPositions is the maximum number of positions in the account. It is the maximum number of positions that can be held in the account.
     #[serde(rename = "max_positions", skip_serializing_if = "Option::is_none")]
     pub max_positions: Option<i32>,

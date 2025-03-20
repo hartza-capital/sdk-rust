@@ -23,7 +23,7 @@ This endpoint return the last split received by the shareholder for the specific
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i64** | The ID of the instrument to retrieve | [required] |
+**id** | **String** | The ID of the instrument to retrieve | [required] |
 
 ### Return type
 
@@ -53,7 +53,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i64** | The ID of the instrument to retrieve | [required] |
+**id** | **String** | The ID of the instrument to retrieve | [required] |
 
 ### Return type
 

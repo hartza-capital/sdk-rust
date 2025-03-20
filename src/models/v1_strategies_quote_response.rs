@@ -19,10 +19,10 @@ pub struct V1StrategiesQuoteResponse {
     pub status: Option<String>,
     /// Open is the opening price of the security.
     #[serde(rename = "open", skip_serializing_if = "Option::is_none")]
-    pub open: Option<f32>,
+    pub open: Option<f64>,
     /// Currently is the current price of the security.
     #[serde(rename = "close", skip_serializing_if = "Option::is_none")]
-    pub close: Option<f32>,
+    pub close: Option<f64>,
     /// CreatedAt is the date and time of the quote.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,

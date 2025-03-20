@@ -16,10 +16,10 @@ use serde::{Deserialize, Serialize};
 pub struct SharesOrder {
     /// Min is the minimum number of shares that can be ordered.
     #[serde(rename = "min", skip_serializing_if = "Option::is_none")]
-    pub min: Option<f32>,
+    pub min: Option<f64>,
     /// Increment is the minimum increment of the order.
     #[serde(rename = "increment", skip_serializing_if = "Option::is_none")]
-    pub increment: Option<f32>,
+    pub increment: Option<f64>,
 }
 
 impl SharesOrder {

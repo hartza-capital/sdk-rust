@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct V1ListPortfoliosResponseResultInstrumentsInner {
     /// Id is the unique identifier for the position.
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<i64>,
+    pub id: Option<String>,
     #[serde(rename = "instrument", skip_serializing_if = "Option::is_none")]
     pub instrument: Option<Box<models::V1ListPortfoliosResponseResultInstrumentsInnerInstrument>>,
     /// Currency is the currency of the position.
@@ -23,7 +23,7 @@ pub struct V1ListPortfoliosResponseResultInstrumentsInner {
     pub currency: Option<String>,
     /// Size is the size of the position.
     #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
-    pub size: Option<f32>,
+    pub size: Option<f64>,
     #[serde(rename = "cost", skip_serializing_if = "Option::is_none")]
     pub cost: Option<Box<models::V1ListPortfoliosResponseResultInstrumentsInnerCost>>,
     #[serde(rename = "performance", skip_serializing_if = "Option::is_none")]

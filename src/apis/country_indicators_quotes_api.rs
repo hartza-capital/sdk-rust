@@ -51,10 +51,10 @@ pub enum OptionsLastsQuotesCountryIndicatorsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_quotes_country_indicators`]
+/// struct for typed errors of method [`options_search_quotes_country_indicators`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsQuotesCountryIndicatorsError {
+pub enum OptionsSearchQuotesCountryIndicatorsError {
     UnknownValue(serde_json::Value),
 }
 
@@ -211,7 +211,7 @@ pub async fn options_lasts_quotes_country_indicators(configuration: &configurati
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_quotes_country_indicators(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsQuotesCountryIndicatorsError>> {
+pub async fn options_search_quotes_country_indicators(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsSearchQuotesCountryIndicatorsError>> {
 
     let uri_str = format!("{}/v1/country/indicators", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
@@ -229,7 +229,7 @@ pub async fn options_quotes_country_indicators(configuration: &configuration::Co
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsQuotesCountryIndicatorsError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsSearchQuotesCountryIndicatorsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

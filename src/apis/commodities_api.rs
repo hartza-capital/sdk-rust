@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`commodity_by_ticker`]
+/// struct for typed errors of method [`commodity`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CommodityByTickerError {
+pub enum CommodityError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -26,53 +26,16 @@ pub enum CommodityByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_commodities`]
+/// struct for typed errors of method [`options_commodity`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsCommoditiesError {
+pub enum OptionsCommodityError {
     Status400(models::Orders400Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_commodity_by_ticker`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsCommodityByTickerError {
-    Status400(models::Orders400Response),
-    UnknownValue(serde_json::Value),
-}
 
-/// struct for typed errors of method [`options_quotes_commodities`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsQuotesCommoditiesError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`search_commodities`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SearchCommoditiesError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
-    Status500(models::Orders500Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`search_quotes_commodities`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SearchQuotesCommoditiesError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
-    Status500(models::Orders500Response),
-    UnknownValue(serde_json::Value),
-}
-
-
-pub async fn commodity_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::CommodityByTicker200Response, Error<CommodityByTickerError>> {
+pub async fn commodity(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Commodity200Response, Error<CommodityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -106,42 +69,18 @@ pub async fn commodity_by_ticker(configuration: &configuration::Configuration, t
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommodityByTicker200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommodityByTicker200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Commodity200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Commodity200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CommodityByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<CommodityError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_commodities(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsCommoditiesError>> {
-
-    let uri_str = format!("{}/v1/commodities", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsCommoditiesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_commodity_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCommodityByTickerError>> {
+pub async fn options_commodity(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsCommodityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -161,123 +100,7 @@ pub async fn options_commodity_by_ticker(configuration: &configuration::Configur
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsCommodityByTickerError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_quotes_commodities(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsQuotesCommoditiesError>> {
-
-    let uri_str = format!("{}/v1/eod/commodities", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsQuotesCommoditiesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// This endpoint allow to use search with complexe queries (keywords, filters, sort etc..) 
-pub async fn search_commodities(configuration: &configuration::Configuration, search_instruments_request: Option<models::SearchInstrumentsRequest>) -> Result<models::SearchCommodities200Response, Error<SearchCommoditiesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_search_instruments_request = search_instruments_request;
-
-    let uri_str = format!("{}/v1/commodities", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_search_instruments_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SearchCommodities200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SearchCommodities200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SearchCommoditiesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// This endpoint allow to use search with complexe queries (keywords, filters, sort etc..) 
-pub async fn search_quotes_commodities(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::SearchQuotesPortfolios200Response, Error<SearchQuotesCommoditiesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_v1_screener_interval_request = v1_screener_interval_request;
-
-    let uri_str = format!("{}/v1/eod/commodities", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_v1_screener_interval_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SearchQuotesPortfolios200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SearchQuotesPortfolios200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SearchQuotesCommoditiesError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsCommodityError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

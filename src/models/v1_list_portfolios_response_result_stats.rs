@@ -17,10 +17,10 @@ pub struct V1ListPortfoliosResponseResultStats {
     pub allocation: Option<Box<models::V1ListPortfoliosResponseResultStatsAllocation>>,
     /// TotalMoney is the total money.
     #[serde(rename = "total_money", skip_serializing_if = "Option::is_none")]
-    pub total_money: Option<f32>,
+    pub total_money: Option<f64>,
     /// TotalFX is the total money in the base currency.
     #[serde(rename = "total_fx", skip_serializing_if = "Option::is_none")]
-    pub total_fx: Option<f32>,
+    pub total_fx: Option<f64>,
 }
 
 impl V1ListPortfoliosResponseResultStats {

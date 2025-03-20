@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 pub struct InstrumentById200Response {
     /// Id is the unique identifier for the security.
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<i64>,
+    pub id: Option<String>,
     /// Ticker is the unique identifier for the security.
     #[serde(rename = "ticker", skip_serializing_if = "Option::is_none")]
     pub ticker: Option<String>,

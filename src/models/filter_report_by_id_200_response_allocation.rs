@@ -16,9 +16,9 @@ pub struct FilterReportById200ResponseAllocation {
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
     #[serde(rename = "total_fx", skip_serializing_if = "Option::is_none")]
-    pub total_fx: Option<f32>,
+    pub total_fx: Option<f64>,
     #[serde(rename = "unit_position", skip_serializing_if = "Option::is_none")]
-    pub unit_position: Option<f32>,
+    pub unit_position: Option<f64>,
     #[serde(rename = "max_positions", skip_serializing_if = "Option::is_none")]
     pub max_positions: Option<i32>,
     #[serde(rename = "orders", skip_serializing_if = "Option::is_none")]

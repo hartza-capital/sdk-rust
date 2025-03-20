@@ -25,7 +25,7 @@ pub struct StatsResponseVolumes {
     pub avg_90d: Option<i64>,
     /// Ratio is the ratio of the volume.
     #[serde(rename = "ratio", skip_serializing_if = "Option::is_none")]
-    pub ratio: Option<f32>,
+    pub ratio: Option<f64>,
 }
 
 impl StatsResponseVolumes {

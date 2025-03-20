@@ -15,16 +15,16 @@ use serde::{Deserialize, Serialize};
 pub struct V1ListPortfoliosResponseResultInstrumentsInnerCost {
     /// Unit is the cost per unit.
     #[serde(rename = "unit", skip_serializing_if = "Option::is_none")]
-    pub unit: Option<f32>,
+    pub unit: Option<f64>,
     /// Total is the total cost.
     #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
-    pub total: Option<f32>,
+    pub total: Option<f64>,
     /// TotalFX is the total cost in the base currency.
     #[serde(rename = "total_fx", skip_serializing_if = "Option::is_none")]
-    pub total_fx: Option<f32>,
+    pub total_fx: Option<f64>,
     /// AllocationPercent is the allocation percentage.
     #[serde(rename = "allocation_percent", skip_serializing_if = "Option::is_none")]
-    pub allocation_percent: Option<f32>,
+    pub allocation_percent: Option<f64>,
 }
 
 impl V1ListPortfoliosResponseResultInstrumentsInnerCost {

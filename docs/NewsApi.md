@@ -38,7 +38,7 @@ No authorization required
 
 ## search_news
 
-> models::SearchNews200Response search_news(search_instruments_request)
+> models::SearchNews200Response search_news(v1_screener_query_request)
 Search News with queries or filters
 
 This endpoint allow to use search with complexe queries (keywords, filters, sort etc..) 
@@ -48,7 +48,7 @@ This endpoint allow to use search with complexe queries (keywords, filters, sort
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**search_instruments_request** | Option<[**SearchInstrumentsRequest**](SearchInstrumentsRequest.md)> | Some Description |  |
+**v1_screener_query_request** | Option<[**V1ScreenerQueryRequest**](V1ScreenerQueryRequest.md)> | Some Description |  |
 
 ### Return type
 

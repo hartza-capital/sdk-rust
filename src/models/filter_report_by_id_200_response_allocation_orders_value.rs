@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FilterReportById200ResponseAllocationOrdersValue {
     #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
-    pub from: Option<f32>,
+    pub from: Option<f64>,
     #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
-    pub to: Option<f32>,
+    pub to: Option<f64>,
     #[serde(rename = "percent", skip_serializing_if = "Option::is_none")]
-    pub percent: Option<f32>,
+    pub percent: Option<f64>,
     #[serde(rename = "diff", skip_serializing_if = "Option::is_none")]
-    pub diff: Option<f32>,
+    pub diff: Option<f64>,
 }
 
 impl FilterReportById200ResponseAllocationOrdersValue {

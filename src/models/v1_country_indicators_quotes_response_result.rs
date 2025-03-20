@@ -15,16 +15,16 @@ use serde::{Deserialize, Serialize};
 pub struct V1CountryIndicatorsQuotesResponseResult {
     /// Value is the value of the indicator.
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<f32>,
+    pub value: Option<f64>,
     /// Change is the change in the value of the indicator.
     #[serde(rename = "change", skip_serializing_if = "Option::is_none")]
-    pub change: Option<f32>,
+    pub change: Option<f64>,
     /// Revised is the revised value of the indicator.
     #[serde(rename = "revised", skip_serializing_if = "Option::is_none")]
-    pub revised: Option<f32>,
+    pub revised: Option<f64>,
     /// Forecast is the forecast value of the indicator.
     #[serde(rename = "forecast", skip_serializing_if = "Option::is_none")]
-    pub forecast: Option<f32>,
+    pub forecast: Option<f64>,
     /// CreatedAt is the date and time of the quote.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,

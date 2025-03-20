@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct V1InstrumentsResponse {
     /// Id is the unique identifier for the instrument.
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<i64>,
+    pub id: Option<String>,
     /// Ticker is the unique identifier for the instrument.
     #[serde(rename = "ticker", skip_serializing_if = "Option::is_none")]
     pub ticker: Option<String>,
@@ -54,19 +54,19 @@ pub struct V1InstrumentsResponse {
     pub history: Option<Vec<f32>>,
     /// Change is the change in the price of the instrument.
     #[serde(rename = "change", skip_serializing_if = "Option::is_none")]
-    pub change: Option<f32>,
+    pub change: Option<f64>,
     /// Last is the last price of the instrument.
     #[serde(rename = "last", skip_serializing_if = "Option::is_none")]
-    pub last: Option<f32>,
+    pub last: Option<f64>,
     /// Start is the start price of the instrument.
     #[serde(rename = "start", skip_serializing_if = "Option::is_none")]
-    pub start: Option<f32>,
+    pub start: Option<f64>,
     /// MaxAnnual is the maximum annual price of the instrument.
     #[serde(rename = "max_annual", skip_serializing_if = "Option::is_none")]
-    pub max_annual: Option<f32>,
+    pub max_annual: Option<f64>,
     /// MinAnnual is the minimum annual price of the instrument.
     #[serde(rename = "min_annual", skip_serializing_if = "Option::is_none")]
-    pub min_annual: Option<f32>,
+    pub min_annual: Option<f64>,
     /// Currency is the currency of the instrument.
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,
@@ -84,19 +84,19 @@ pub struct V1InstrumentsResponse {
     pub volume_avg_90d: Option<i64>,
     /// VolumeRatio is the ratio of the volume of the instrument to the average volume over the last 90 days.
     #[serde(rename = "volume_ratio", skip_serializing_if = "Option::is_none")]
-    pub volume_ratio: Option<f32>,
+    pub volume_ratio: Option<f64>,
     /// MarketCapUSD is the market capitalization of the instrument in USD.
     #[serde(rename = "market_cap_usd", skip_serializing_if = "Option::is_none")]
     pub market_cap_usd: Option<i64>,
     /// ReturnYear is the return of the instrument over the last year.
     #[serde(rename = "return_year", skip_serializing_if = "Option::is_none")]
-    pub return_year: Option<f32>,
+    pub return_year: Option<f64>,
     /// DividendYield is the dividend yield of the instrument.
     #[serde(rename = "dividend_yield", skip_serializing_if = "Option::is_none")]
-    pub dividend_yield: Option<f32>,
+    pub dividend_yield: Option<f64>,
     /// Beta5y is the beta of the instrument over the last 5 years.
     #[serde(rename = "beta5y", skip_serializing_if = "Option::is_none")]
-    pub beta5y: Option<f32>,
+    pub beta5y: Option<f64>,
     /// CreatedAt is the date and time of the creation of the instrument.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,

@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 /// V1SplitResponse : SearchSplitsResponseResult is used to specify the response for the SearchSplits API.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1SplitResponse {
-    /// Id is the unique identifier of instrument.
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
+    /// Ref is the unique identifier of instrument.
+    #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]
+    pub r#ref: Option<String>,
     /// From is the number of shares before the split.
     #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
-    pub from: Option<f32>,
+    pub from: Option<f64>,
     /// To is the number of shares after the split.
     #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
-    pub to: Option<f32>,
+    pub to: Option<f64>,
     /// Coef is the coefficient of the split.
     #[serde(rename = "coef", skip_serializing_if = "Option::is_none")]
-    pub coef: Option<f32>,
+    pub coef: Option<f64>,
     /// CreatedAt is the time at which the quote was created.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,
@@ -35,7 +35,7 @@ impl V1SplitResponse {
     /// SearchSplitsResponseResult is used to specify the response for the SearchSplits API.
     pub fn new() -> V1SplitResponse {
         V1SplitResponse {
-            id: None,
+            r#ref: None,
             from: None,
             to: None,
             coef: None,

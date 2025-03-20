@@ -15,13 +15,13 @@ use serde::{Deserialize, Serialize};
 pub struct Orders200ResponseDataInnerPrice {
     /// Unit is the price per unit.
     #[serde(rename = "ask", skip_serializing_if = "Option::is_none")]
-    pub ask: Option<f32>,
+    pub ask: Option<f64>,
     /// Total is the total price.
     #[serde(rename = "bought", skip_serializing_if = "Option::is_none")]
-    pub bought: Option<f32>,
+    pub bought: Option<f64>,
     /// Commission is the commission of the orders.
     #[serde(rename = "commission", skip_serializing_if = "Option::is_none")]
-    pub commission: Option<f32>,
+    pub commission: Option<f64>,
     /// Currency is the currency of the price.
     #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
     pub currency: Option<String>,

@@ -15,19 +15,22 @@ use serde::{Deserialize, Serialize};
 pub struct V1QuoteResponse {
     /// Change is the change in the price of the security.
     #[serde(rename = "change", skip_serializing_if = "Option::is_none")]
-    pub change: Option<f32>,
+    pub change: Option<f64>,
+    /// MarketCap is the market capitalization of the security.
+    #[serde(rename = "market_cap", skip_serializing_if = "Option::is_none")]
+    pub market_cap: Option<f64>,
     /// Open is the opening price of the security.
     #[serde(rename = "open", skip_serializing_if = "Option::is_none")]
-    pub open: Option<f32>,
+    pub open: Option<f64>,
     /// High is the high price of the security.
     #[serde(rename = "high", skip_serializing_if = "Option::is_none")]
-    pub high: Option<f32>,
+    pub high: Option<f64>,
     /// Low is the low price of the security.
     #[serde(rename = "low", skip_serializing_if = "Option::is_none")]
-    pub low: Option<f32>,
+    pub low: Option<f64>,
     /// Close is the closing price of the security.
     #[serde(rename = "close", skip_serializing_if = "Option::is_none")]
-    pub close: Option<f32>,
+    pub close: Option<f64>,
     /// Volume is the volume of the security.
     #[serde(rename = "volume", skip_serializing_if = "Option::is_none")]
     pub volume: Option<i64>,
@@ -40,6 +43,7 @@ impl V1QuoteResponse {
     pub fn new() -> V1QuoteResponse {
         V1QuoteResponse {
             change: None,
+            market_cap: None,
             open: None,
             high: None,
             low: None,

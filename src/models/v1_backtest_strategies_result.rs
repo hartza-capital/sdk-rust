@@ -19,13 +19,13 @@ pub struct V1BacktestStrategiesResult {
     pub status: Option<String>,
     /// Performance is the performance of the strategy. It is the percentage of the performance of the strategy.
     #[serde(rename = "performance", skip_serializing_if = "Option::is_none")]
-    pub performance: Option<f32>,
+    pub performance: Option<f64>,
     /// Open is the opening price of the security.
     #[serde(rename = "open", skip_serializing_if = "Option::is_none")]
-    pub open: Option<f32>,
+    pub open: Option<f64>,
     /// Currently is the current price of the security.
     #[serde(rename = "close", skip_serializing_if = "Option::is_none")]
-    pub close: Option<f32>,
+    pub close: Option<f64>,
     /// Start is the date and time when the backtest started.
     #[serde(rename = "start", skip_serializing_if = "Option::is_none")]
     pub start: Option<i64>,

@@ -15,10 +15,10 @@ use serde::{Deserialize, Serialize};
 pub struct Orders200ResponseDataInnerSize {
     /// Unit is the size per unit.
     #[serde(rename = "ask", skip_serializing_if = "Option::is_none")]
-    pub ask: Option<f32>,
+    pub ask: Option<f64>,
     /// Total is the total size.
     #[serde(rename = "bought", skip_serializing_if = "Option::is_none")]
-    pub bought: Option<f32>,
+    pub bought: Option<f64>,
 }
 
 impl Orders200ResponseDataInnerSize {

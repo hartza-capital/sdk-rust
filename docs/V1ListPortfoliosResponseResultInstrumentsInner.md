@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**i64**> | Id is the unique identifier for the position. | [optional]
+**id** | Option<**String**> | Id is the unique identifier for the position. | [optional]
 **instrument** | Option<[**models::V1ListPortfoliosResponseResultInstrumentsInnerInstrument**](v1ListPortfoliosResponseResult_instruments_inner_instrument.md)> |  | [optional]
 **currency** | Option<**String**> | Currency is the currency of the position. | [optional]
-**size** | Option<**f32**> | Size is the size of the position. | [optional]
+**size** | Option<**f64**> | Size is the size of the position. | [optional]
 **cost** | Option<[**models::V1ListPortfoliosResponseResultInstrumentsInnerCost**](v1ListPortfoliosResponseResult_instruments_inner_cost.md)> |  | [optional]
 **performance** | Option<[**models::V1ListPortfoliosResponseResultInstrumentsInnerPerformance**](v1ListPortfoliosResponseResult_instruments_inner_performance.md)> |  | [optional]
 **created_at** | Option<**i64**> | CreatedAt is the creation date of the position. | [optional]

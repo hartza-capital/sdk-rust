@@ -33,31 +33,13 @@ pub enum OptionsInstrumentByIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_instruments`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsInstrumentsError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`search_instruments`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum SearchInstrumentsError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
-    Status500(models::Orders500Response),
-    UnknownValue(serde_json::Value),
-}
-
 
 /// This endpoint return: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
-pub async fn instrument_by_id(configuration: &configuration::Configuration, id: i64) -> Result<models::InstrumentById200Response, Error<InstrumentByIdError>> {
+pub async fn instrument_by_id(configuration: &configuration::Configuration, id: &str) -> Result<models::InstrumentById200Response, Error<InstrumentByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
-    let uri_str = format!("{}/v1/instrument/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/v1/instrument/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -98,11 +80,11 @@ pub async fn instrument_by_id(configuration: &configuration::Configuration, id: 
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_instrument_by_id(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<OptionsInstrumentByIdError>> {
+pub async fn options_instrument_by_id(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsInstrumentByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
-    let uri_str = format!("{}/v1/instrument/{id}", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/v1/instrument/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
     let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -119,76 +101,6 @@ pub async fn options_instrument_by_id(configuration: &configuration::Configurati
     } else {
         let content = resp.text().await?;
         let entity: Option<OptionsInstrumentByIdError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_instruments(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsInstrumentsError>> {
-
-    let uri_str = format!("{}/v1/instruments", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsInstrumentsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// This endpoint return a list of Instruments with properties: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Quote (1 years monthly), - Dividends (Last 5 years). 
-pub async fn search_instruments(configuration: &configuration::Configuration, search_instruments_request: Option<models::SearchInstrumentsRequest>) -> Result<models::SearchInstruments200Response, Error<SearchInstrumentsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_search_instruments_request = search_instruments_request;
-
-    let uri_str = format!("{}/v1/instruments", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_search_instruments_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SearchInstruments200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SearchInstruments200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<SearchInstrumentsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

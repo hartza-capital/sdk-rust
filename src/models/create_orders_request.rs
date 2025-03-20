@@ -13,9 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateOrdersRequest {
-    /// InstrumentId is the unique identifier for the instrument.
-    #[serde(rename = "instrument_id", skip_serializing_if = "Option::is_none")]
-    pub instrument_id: Option<i64>,
+    /// Ref is the unique identifier for the order.
+    #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]
+    pub r#ref: Option<String>,
     /// Action is the action of the order.
     #[serde(rename = "action", skip_serializing_if = "Option::is_none")]
     pub action: Option<Action>,
@@ -36,7 +36,7 @@ pub struct CreateOrdersRequest {
 impl CreateOrdersRequest {
     pub fn new() -> CreateOrdersRequest {
         CreateOrdersRequest {
-            instrument_id: None,
+            r#ref: None,
             action: None,
             order_type: None,
             size: None,

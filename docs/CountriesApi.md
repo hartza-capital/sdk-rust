@@ -4,18 +4,16 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**country_by_ticker**](CountriesApi.md#country_by_ticker) | **GET** /v1/country/{ticker} | Get Country properties
-[**country_indicators_events_by_ticker**](CountriesApi.md#country_indicators_events_by_ticker) | **GET** /v1/country/{ticker}/events | List Country Events properties
-[**options_countries**](CountriesApi.md#options_countries) | **OPTIONS** /v1/countries | Options Search Countries
-[**options_country_by_ticker**](CountriesApi.md#options_country_by_ticker) | **OPTIONS** /v1/country/{ticker} | Options Country properties
-[**options_country_indicators_events_by_ticker**](CountriesApi.md#options_country_indicators_events_by_ticker) | **OPTIONS** /v1/country/{ticker}/events | Options Country Events properties
-[**search_countries**](CountriesApi.md#search_countries) | **POST** /v1/countries | Search Countries
+[**country**](CountriesApi.md#country) | **GET** /v1/country/{ticker} | Get Country properties
+[**country_events**](CountriesApi.md#country_events) | **GET** /v1/country/{ticker}/events | List Country Events properties
+[**options_country**](CountriesApi.md#options_country) | **OPTIONS** /v1/country/{ticker} | Options Country properties
+[**options_country_events**](CountriesApi.md#options_country_events) | **OPTIONS** /v1/country/{ticker}/events | Options Country Events properties
 
 
 
-## country_by_ticker
+## country
 
-> models::CountryByTicker200Response country_by_ticker(ticker)
+> models::Country200Response country(ticker)
 Get Country properties
 
 ### Parameters
@@ -27,7 +25,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CountryByTicker200Response**](CountryByTicker_200_response.md)
+[**models::Country200Response**](Country_200_response.md)
 
 ### Authorization
 
@@ -41,9 +39,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## country_indicators_events_by_ticker
+## country_events
 
-> models::CountryIndicatorsEventsByTicker200Response country_indicators_events_by_ticker(ticker)
+> models::CountryEvents200Response country_events(ticker)
 List Country Events properties
 
 ### Parameters
@@ -55,7 +53,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CountryIndicatorsEventsByTicker200Response**](CountryIndicatorsEventsByTicker_200_response.md)
+[**models::CountryEvents200Response**](CountryEvents_200_response.md)
 
 ### Authorization
 
@@ -69,36 +67,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_countries
+## options_country
 
-> options_countries()
-Options Search Countries
-
-Options method is used to describe the communication options for the targeted resource.
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## options_country_by_ticker
-
-> options_country_by_ticker(ticker)
+> options_country(ticker)
 Options Country properties
 
 Options method is used to describe the communication options for the targeted resource.
@@ -126,9 +97,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_country_indicators_events_by_ticker
+## options_country_events
 
-> options_country_indicators_events_by_ticker(ticker)
+> options_country_events(ticker)
 Options Country Events properties
 
 Options method is used to describe the communication options for the targeted resource.
@@ -152,34 +123,6 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## search_countries
-
-> models::SearchCountries200Response search_countries(search_instruments_request)
-Search Countries
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**search_instruments_request** | Option<[**SearchInstrumentsRequest**](SearchInstrumentsRequest.md)> | Some Description |  |
-
-### Return type
-
-[**models::SearchCountries200Response**](SearchCountries_200_response.md)
-
-### Authorization
-
-[cog-p-eu-eod-analysis](../README.md#cog-p-eu-eod-analysis)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**lasts_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#lasts_quotes_country_indicators) | **GET** /v1/country/indicators/lasts | Get Lasts Quotes for Country Indicators
 [**options_last_quote_country_indicators**](CountryIndicatorsQuotesApi.md#options_last_quote_country_indicators) | **OPTIONS** /v1/country/indicator/{ticker}/last | Options Last Country Indicators Quote
 [**options_lasts_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#options_lasts_quotes_country_indicators) | **OPTIONS** /v1/country/indicators/lasts | Options Lasts Strategy Quotes for Commodities
-[**options_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#options_quotes_country_indicators) | **OPTIONS** /v1/country/indicators | Options Search Quotes for Country Indicators
+[**options_search_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#options_search_quotes_country_indicators) | **OPTIONS** /v1/country/indicators | Options Search Quotes for Country Indicators
 [**search_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#search_quotes_country_indicators) | **POST** /v1/country/indicators | Search Quotes for Country Indicators
 
 
@@ -128,9 +128,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_quotes_country_indicators
+## options_search_quotes_country_indicators
 
-> options_quotes_country_indicators()
+> options_search_quotes_country_indicators()
 Options Search Quotes for Country Indicators
 
 Options method is used to describe the communication options for the targeted resource.

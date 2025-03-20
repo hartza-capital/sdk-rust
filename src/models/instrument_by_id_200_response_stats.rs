@@ -20,7 +20,7 @@ pub struct InstrumentById200ResponseStats {
     pub market_cap_usd: Option<i64>,
     /// DividendYield is the dividend yield of the security.
     #[serde(rename = "dividend_yield", skip_serializing_if = "Option::is_none")]
-    pub dividend_yield: Option<f32>,
+    pub dividend_yield: Option<f64>,
     #[serde(rename = "price", skip_serializing_if = "Option::is_none")]
     pub price: Option<Box<models::StatsResponsePrice>>,
     #[serde(rename = "volumes", skip_serializing_if = "Option::is_none")]

@@ -25,7 +25,7 @@ pub struct V1StatsResponse {
     pub volumes: Option<Box<models::StatsResponseVolumes>>,
     /// DividendYield is the dividend yield of the security. It is the ratio of a company's annual dividend compared to its share price.
     #[serde(rename = "dividend_yield", skip_serializing_if = "Option::is_none")]
-    pub dividend_yield: Option<f32>,
+    pub dividend_yield: Option<f64>,
     /// UpdatedAt is the date and time when the security was last updated.
     #[serde(rename = "updated_at", skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<i64>,

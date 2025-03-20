@@ -1,0 +1,245 @@
+# \PortfoliosQuotesApi
+
+All URIs are relative to *https://management.api.hartza.capital*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**lasts_quotes_portfolios**](PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **POST** /v1/quotes/portfolios/lasts | List lasts quote for Portfolios
+[**options_lasts_portfolios_quotes**](PortfoliosQuotesApi.md#options_lasts_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios/lasts | Options List lasts quote for Portfolios
+[**options_portfolio_last_quote_by_ticker**](PortfoliosQuotesApi.md#options_portfolio_last_quote_by_ticker) | **OPTIONS** /v1/quotes/portfolio/{ticker}/last | Options Last Quote for Account Portfolio by Ticker
+[**options_portfolios_histogram**](PortfoliosQuotesApi.md#options_portfolios_histogram) | **OPTIONS** /v1/quotes/portfolios/histogram | Options Portfolios Histogram
+[**options_portfolios_quotes**](PortfoliosQuotesApi.md#options_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios | Options Quotes by currency and period
+[**portfolio_last_quote_by_ticker**](PortfoliosQuotesApi.md#portfolio_last_quote_by_ticker) | **GET** /v1/quotes/portfolio/{ticker}/last | Last Quote for Account Portfolio by Currency
+[**portfolios_histogram**](PortfoliosQuotesApi.md#portfolios_histogram) | **POST** /v1/quotes/portfolios/histogram | Search Quotes Histogram by Portfolio and period
+[**portfolios_quotes**](PortfoliosQuotesApi.md#portfolios_quotes) | **POST** /v1/quotes/portfolios | Search Quotes by currency and period
+
+
+
+## lasts_quotes_portfolios
+
+> models::LastsQuotesPortfolios200Response lasts_quotes_portfolios(lasts_quotes_portfolios_request)
+List lasts quote for Portfolios
+
+This endpoint return the lasts quotes received by the shareholder for portfolios. 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**lasts_quotes_portfolios_request** | [**LastsQuotesPortfoliosRequest**](LastsQuotesPortfoliosRequest.md) | Some Description | [required] |
+
+### Return type
+
+[**models::LastsQuotesPortfolios200Response**](LastsQuotesPortfolios_200_response.md)
+
+### Authorization
+
+[cog-p-eu-eod-analysis](../README.md#cog-p-eu-eod-analysis)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## options_lasts_portfolios_quotes
+
+> options_lasts_portfolios_quotes()
+Options List lasts quote for Portfolios
+
+Options method is used to describe the communication options for the targeted resource.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## options_portfolio_last_quote_by_ticker
+
+> options_portfolio_last_quote_by_ticker(ticker)
+Options Last Quote for Account Portfolio by Ticker
+
+Options method is used to describe the communication options for the targeted resource.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**ticker** | **String** | ticker name of currency | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## options_portfolios_histogram
+
+> options_portfolios_histogram()
+Options Portfolios Histogram
+
+Options method is used to describe the communication options for the targeted resource.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## options_portfolios_quotes
+
+> options_portfolios_quotes()
+Options Quotes by currency and period
+
+Options method is used to describe the communication options for the targeted resource.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## portfolio_last_quote_by_ticker
+
+> models::V1QuoteResponse portfolio_last_quote_by_ticker(ticker)
+Last Quote for Account Portfolio by Currency
+
+Last Quote permit to get the last quote for a currency
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**ticker** | **String** | ticker name of currency | [required] |
+
+### Return type
+
+[**models::V1QuoteResponse**](v1QuoteResponse.md)
+
+### Authorization
+
+[cog-p-eu-eod-analysis](../README.md#cog-p-eu-eod-analysis)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## portfolios_histogram
+
+> models::PortfoliosHistogram200Response portfolios_histogram(v1_screener_interval_request)
+Search Quotes Histogram by Portfolio and period
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**v1_screener_interval_request** | [**V1ScreenerIntervalRequest**](V1ScreenerIntervalRequest.md) | Body of the request to search quotes histogram by Portfolio and period | [required] |
+
+### Return type
+
+[**models::PortfoliosHistogram200Response**](PortfoliosHistogram_200_response.md)
+
+### Authorization
+
+[cog-p-eu-eod-analysis](../README.md#cog-p-eu-eod-analysis)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## portfolios_quotes
+
+> models::PortfoliosQuotes200Response portfolios_quotes(v1_screener_interval_request)
+Search Quotes by currency and period
+
+Search Quotes permit to search quotes for a currency
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**v1_screener_interval_request** | [**V1ScreenerIntervalRequest**](V1ScreenerIntervalRequest.md) | Body of the request to search quotes by currency and period | [required] |
+
+### Return type
+
+[**models::PortfoliosQuotes200Response**](PortfoliosQuotes_200_response.md)
+
+### Authorization
+
+[cog-p-eu-eod-analysis](../README.md#cog-p-eu-eod-analysis)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
