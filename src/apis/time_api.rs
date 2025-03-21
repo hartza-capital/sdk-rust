@@ -58,7 +58,7 @@ pub async fn options_time(configuration: &configuration::Configuration, ) -> Res
     }
 }
 
-/// This endpoint return the current time of the server. 
+/// Permits to get the current time
 pub async fn time(configuration: &configuration::Configuration, timezone: Option<&str>) -> Result<models::Time200Response, Error<TimeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_timezone = timezone;

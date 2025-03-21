@@ -58,7 +58,7 @@ pub async fn options_search_news(configuration: &configuration::Configuration, )
     }
 }
 
-/// This endpoint allow to use search with complexe queries (keywords, filters, sort etc..) 
+/// Permits to search news by query
 pub async fn search_news(configuration: &configuration::Configuration, v1_screener_query_request: Option<models::V1ScreenerQueryRequest>) -> Result<models::SearchNews200Response, Error<SearchNewsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_query_request = v1_screener_query_request;

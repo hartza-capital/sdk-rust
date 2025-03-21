@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | Option<[**Vec<models::V1InstrumentsResponse>**](v1InstrumentsResponse.md)> | Data is the list of indexes. | [optional]
+**data** | Option<[**Vec<models::V1SearchResponse>**](v1SearchResponse.md)> | Data is the list of indexes. | [optional]
 **items** | Option<**i32**> | Items is the total number of results. | [optional]
 **total_items** | Option<**i32**> | TotalItems is the total number of results. | [optional]
 **page** | Option<**i32**> | Page is the current page number. | [optional]

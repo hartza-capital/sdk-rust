@@ -4,7 +4,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**forex**](ForexApi.md#forex) | **GET** /v1/forex/{ticker} | Get Forex properties by Ticker
+[**forex**](ForexApi.md#forex) | **GET** /v1/forex/{ticker} | Get Forex properties
 [**options_forex**](ForexApi.md#options_forex) | **OPTIONS** /v1/forex/{ticker} | Options Forex properties
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 ## forex
 
 > models::Forex200Response forex(ticker)
-Get Forex properties by Ticker
+Get Forex properties
 
-This endpoint return: - Global informations (Central Bank, Exchanges/Countries where the currency is used...), - Last Quote (last End of Day (EOD)), - Stats (Pricing). 
+Permits to get the forex properties
 
 ### Parameters
 

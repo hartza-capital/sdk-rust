@@ -15,28 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`options_portfolio_analysis`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsPortfolioAnalysisError {
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`options_portfolios`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OptionsPortfoliosError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`portfolio_analysis`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PortfolioAnalysisError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
-    Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,30 +33,6 @@ pub enum PortfoliosError {
     UnknownValue(serde_json::Value),
 }
 
-
-/// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_portfolio_analysis(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsPortfolioAnalysisError>> {
-
-    let uri_str = format!("{}/v1/portfolios/analysis", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsPortfolioAnalysisError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
 
 /// Options method is used to describe the communication options for the targeted resource.
 pub async fn options_portfolios(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsPortfoliosError>> {
@@ -100,50 +58,7 @@ pub async fn options_portfolios(configuration: &configuration::Configuration, ) 
     }
 }
 
-/// Get Account Portfolio Analysis permit to launch the analysis of the portfolio 
-pub async fn portfolio_analysis(configuration: &configuration::Configuration, ) -> Result<serde_json::Value, Error<PortfolioAnalysisError>> {
-
-    let uri_str = format!("{}/v1/portfolios/analysis", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PortfolioAnalysisError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// List Portfolios and their positions cost and value
+/// Permits to list positions, cash and value of the portfolios
 pub async fn portfolios(configuration: &configuration::Configuration, x_account: &str) -> Result<models::Portfolios200Response, Error<PortfoliosError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;

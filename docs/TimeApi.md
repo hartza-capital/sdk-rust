@@ -41,7 +41,7 @@ No authorization required
 > models::Time200Response time(timezone)
 Get Time
 
-This endpoint return the current time of the server. 
+Permits to get the current time
 
 ### Parameters
 

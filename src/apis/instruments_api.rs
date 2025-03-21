@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`instrument_by_id`]
+/// struct for typed errors of method [`instrument`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum InstrumentByIdError {
+pub enum InstrumentError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -26,16 +26,16 @@ pub enum InstrumentByIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_instrument_by_id`]
+/// struct for typed errors of method [`options_instrument`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsInstrumentByIdError {
+pub enum OptionsInstrumentError {
     UnknownValue(serde_json::Value),
 }
 
 
-/// This endpoint return: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
-pub async fn instrument_by_id(configuration: &configuration::Configuration, id: &str) -> Result<models::InstrumentById200Response, Error<InstrumentByIdError>> {
+/// This endpoint returns the properties of the instrument: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
+pub async fn instrument(configuration: &configuration::Configuration, id: &str) -> Result<models::Instrument200Response, Error<InstrumentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -69,18 +69,18 @@ pub async fn instrument_by_id(configuration: &configuration::Configuration, id: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InstrumentById200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InstrumentById200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Instrument200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Instrument200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<InstrumentByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<InstrumentError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_instrument_by_id(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsInstrumentByIdError>> {
+pub async fn options_instrument(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsInstrumentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -100,7 +100,7 @@ pub async fn options_instrument_by_id(configuration: &configuration::Configurati
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsInstrumentByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsInstrumentError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

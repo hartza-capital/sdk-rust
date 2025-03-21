@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct Search200Response {
     /// Data is the list of indexes.
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Vec<models::V1InstrumentsResponse>>,
+    pub data: Option<Vec<models::V1SearchResponse>>,
     /// Items is the total number of results.
     #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
     pub items: Option<i32>,

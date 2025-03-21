@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`last_dividend_by_ticker`]
+/// struct for typed errors of method [`last_dividend`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum LastDividendByTickerError {
+pub enum LastDividendError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -33,10 +33,10 @@ pub enum OptionsDividendsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_last_dividend_by_ticker`]
+/// struct for typed errors of method [`options_last_dividend`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsLastDividendByTickerError {
+pub enum OptionsLastDividendError {
     UnknownValue(serde_json::Value),
 }
 
@@ -52,8 +52,8 @@ pub enum SearchDividendsError {
 }
 
 
-/// This endpoint returns the last dividend received by the shareholder for the specific instrument. 
-pub async fn last_dividend_by_ticker(configuration: &configuration::Configuration, id: &str) -> Result<models::V1DividendResponse, Error<LastDividendByTickerError>> {
+/// Permits to get the last dividend received by the shareholder for the specific instrument.
+pub async fn last_dividend(configuration: &configuration::Configuration, id: &str) -> Result<models::V1DividendResponse, Error<LastDividendError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -92,7 +92,7 @@ pub async fn last_dividend_by_ticker(configuration: &configuration::Configuratio
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<LastDividendByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<LastDividendError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -122,7 +122,7 @@ pub async fn options_dividends(configuration: &configuration::Configuration, ) -
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_last_dividend_by_ticker(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsLastDividendByTickerError>> {
+pub async fn options_last_dividend(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsLastDividendError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -142,12 +142,12 @@ pub async fn options_last_dividend_by_ticker(configuration: &configuration::Conf
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsLastDividendByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsLastDividendError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// This endpoint return: - List Dividends aggregated by interval (monthly, quartely, yearly), - Yield (is a financial ratio that tells you the percentage of a company's share price that it pays out in dividends each year) 
+/// This endpoint return a list of dividends (Amount, Date, Currency and Type).
 pub async fn search_dividends(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::SearchDividends200Response, Error<SearchDividendsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_interval_request = v1_screener_interval_request;

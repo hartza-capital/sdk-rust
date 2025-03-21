@@ -26,7 +26,7 @@ pub struct V1FilterResponse {
     #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
     pub sort: Option<Box<models::V1ScreenerSort>>,
     #[serde(rename = "results", skip_serializing_if = "Option::is_none")]
-    pub results: Option<Vec<models::V1InstrumentsResponse>>,
+    pub results: Option<Vec<models::V1SearchResponse>>,
     #[serde(rename = "stats", skip_serializing_if = "Option::is_none")]
     pub stats: Option<Box<models::V1FilterResponseStats>>,
     /// UUID of report

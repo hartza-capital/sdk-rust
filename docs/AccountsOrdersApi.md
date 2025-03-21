@@ -15,7 +15,7 @@ Method | HTTP request | Description
 > models::Orders200Response create_orders(x_account, create_orders_request)
 Create Orders by Account
 
-Create Orders permit to create Orders properties and strategy applicated on the portfolios
+Permits to create Orders on the portfolios
 
 ### Parameters
 
@@ -73,7 +73,7 @@ No authorization required
 > models::Orders200Response orders(x_account)
 List Orders by Account
 
-List Orders permit to receive Orders properties and strategy applicated on the portfolios
+Permits to list Orders status on the portfolios
 
 ### Parameters
 

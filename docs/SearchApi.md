@@ -5,7 +5,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**options_search**](SearchApi.md#options_search) | **OPTIONS** /v1/search | Options Search
-[**search**](SearchApi.md#search) | **POST** /v1/search | Search with queries or filters
+[**search**](SearchApi.md#search) | **POST** /v1/search | Search Instruments, Exchanges, Index, ETFs, Funds, Bonds, Options, Futures, Currencies, Cryptocurrencies
 
 
 
@@ -39,9 +39,9 @@ No authorization required
 ## search
 
 > models::Search200Response search(v1_screener_query_request)
-Search with queries or filters
+Search Instruments, Exchanges, Index, ETFs, Funds, Bonds, Options, Futures, Currencies, Cryptocurrencies
 
-This endpoint return a list of Instruments with properties: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Quote (1 years monthly), - Dividends (Last 5 years). 
+Permits to search instruments, exchanges, index, etfs, funds, bonds, options, futures, currencies, cryptocurrencies by query
 
 ### Parameters
 

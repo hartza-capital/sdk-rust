@@ -22,10 +22,10 @@ pub enum OptionsStrategiesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_strategy_by_ticker`]
+/// struct for typed errors of method [`options_strategy`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsStrategyByTickerError {
+pub enum OptionsStrategyError {
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum StrategiesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`strategy_by_ticker`]
+/// struct for typed errors of method [`strategy`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum StrategyByTickerError {
+pub enum StrategyError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -77,7 +77,7 @@ pub async fn options_strategies(configuration: &configuration::Configuration, ) 
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_strategy_by_ticker(configuration: &configuration::Configuration, strategy: &str) -> Result<(), Error<OptionsStrategyByTickerError>> {
+pub async fn options_strategy(configuration: &configuration::Configuration, strategy: &str) -> Result<(), Error<OptionsStrategyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_strategy = strategy;
 
@@ -97,12 +97,12 @@ pub async fn options_strategy_by_ticker(configuration: &configuration::Configura
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsStrategyByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsStrategyError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// List Strategies permit to list all strategies with pagination.
+/// Permits to list strategies for the account
 pub async fn strategies(configuration: &configuration::Configuration, items: i64, page: i64) -> Result<models::Strategies200Response, Error<StrategiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_items = items;
@@ -150,8 +150,8 @@ pub async fn strategies(configuration: &configuration::Configuration, items: i64
     }
 }
 
-/// Get Strategy permit to receive properties
-pub async fn strategy_by_ticker(configuration: &configuration::Configuration, strategy: &str) -> Result<models::V1StrategyResponse, Error<StrategyByTickerError>> {
+/// Permits to get properties of strategy for the account
+pub async fn strategy(configuration: &configuration::Configuration, strategy: &str) -> Result<models::V1StrategyResponse, Error<StrategyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_strategy = strategy;
 
@@ -190,7 +190,7 @@ pub async fn strategy_by_ticker(configuration: &configuration::Configuration, st
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<StrategyByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<StrategyError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

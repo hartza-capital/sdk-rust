@@ -4,7 +4,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**index**](IndexesApi.md#index) | **GET** /v1/index/{ticker} | Get Index by Ticker
+[**index**](IndexesApi.md#index) | **GET** /v1/index/{ticker} | Get Index properties
 [**options_index**](IndexesApi.md#options_index) | **OPTIONS** /v1/index/{ticker} | Options Get Index
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 ## index
 
 > models::Index200Response index(ticker)
-Get Index by Ticker
+Get Index properties
 
-This endpoint permit to receive: - General informations (Name, Exchange...), - Activities, - SizeCap (majority), - Last Quote of the day, - Statistics. 
+Permits to get the index properties
 
 ### Parameters
 

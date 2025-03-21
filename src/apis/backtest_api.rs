@@ -70,7 +70,7 @@ pub enum OptionsLastsBacktestError {
 }
 
 
-/// This endpoint return the backtest received by the shareholder for instruments and strategies. 
+/// Permits to backtest a strategy
 pub async fn backtest(configuration: &configuration::Configuration, x_account: &str, backtest_request: models::BacktestRequest, accumulation: Option<bool>) -> Result<models::Backtest200Response, Error<BacktestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
@@ -122,6 +122,7 @@ pub async fn backtest(configuration: &configuration::Configuration, x_account: &
     }
 }
 
+/// Permits to get the last trend received by the shareholder for instruments and strategies.
 pub async fn last_backtest(configuration: &configuration::Configuration, ticker: &str, strategy: &str) -> Result<models::V1BacktestStrategiesResult, Error<LastBacktestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
@@ -167,7 +168,7 @@ pub async fn last_backtest(configuration: &configuration::Configuration, ticker:
     }
 }
 
-/// This endpoint return the lasts backtest received by the shareholder for instruments and strategies. 
+/// Permits to get the last trends received by the shareholder for instruments and strategies.
 pub async fn lasts_backtest(configuration: &configuration::Configuration, lasts_strategy_quotes_request: models::LastsStrategyQuotesRequest) -> Result<models::LastsBacktest200Response, Error<LastsBacktestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_lasts_strategy_quotes_request = lasts_strategy_quotes_request;

@@ -15,24 +15,24 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`filter_report_by_id`]
+/// struct for typed errors of method [`filter_report`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FilterReportByIdError {
+pub enum FilterReportError {
     Status404(models::AccountById404Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_filter_report_by_id`]
+/// struct for typed errors of method [`options_filter_report`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsFilterReportByIdError {
+pub enum OptionsFilterReportError {
     UnknownValue(serde_json::Value),
 }
 
 
-/// Get Account Filter Report permit to receive properties
-pub async fn filter_report_by_id(configuration: &configuration::Configuration, proxy: &str) -> Result<models::FilterReportById200Response, Error<FilterReportByIdError>> {
+/// Permits to get properties of filter report
+pub async fn filter_report(configuration: &configuration::Configuration, proxy: &str) -> Result<models::FilterReport200Response, Error<FilterReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_proxy = proxy;
 
@@ -66,18 +66,18 @@ pub async fn filter_report_by_id(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FilterReportById200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FilterReportById200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FilterReport200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FilterReport200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FilterReportByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<FilterReportError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_filter_report_by_id(configuration: &configuration::Configuration, proxy: &str) -> Result<(), Error<OptionsFilterReportByIdError>> {
+pub async fn options_filter_report(configuration: &configuration::Configuration, proxy: &str) -> Result<(), Error<OptionsFilterReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_proxy = proxy;
 
@@ -97,7 +97,7 @@ pub async fn options_filter_report_by_id(configuration: &configuration::Configur
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsFilterReportByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsFilterReportError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

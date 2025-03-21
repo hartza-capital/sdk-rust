@@ -5,7 +5,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**options_search_news**](NewsApi.md#options_search_news) | **OPTIONS** /v1/news | Options Search News
-[**search_news**](NewsApi.md#search_news) | **POST** /v1/news | Search News with queries or filters
+[**search_news**](NewsApi.md#search_news) | **POST** /v1/news | Search News
 
 
 
@@ -39,9 +39,9 @@ No authorization required
 ## search_news
 
 > models::SearchNews200Response search_news(v1_screener_query_request)
-Search News with queries or filters
+Search News
 
-This endpoint allow to use search with complexe queries (keywords, filters, sort etc..) 
+Permits to search news by query
 
 ### Parameters
 

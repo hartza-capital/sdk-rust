@@ -45,7 +45,7 @@ pub enum OrdersError {
 }
 
 
-/// Create Orders permit to create Orders properties and strategy applicated on the portfolios
+/// Permits to create Orders on the portfolios
 pub async fn create_orders(configuration: &configuration::Configuration, x_account: &str, create_orders_request: models::CreateOrdersRequest) -> Result<models::Orders200Response, Error<CreateOrdersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
@@ -117,7 +117,7 @@ pub async fn options_orders(configuration: &configuration::Configuration, ) -> R
     }
 }
 
-/// List Orders permit to receive Orders properties and strategy applicated on the portfolios
+/// Permits to list Orders status on the portfolios
 pub async fn orders(configuration: &configuration::Configuration, x_account: &str) -> Result<models::Orders200Response, Error<OrdersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;

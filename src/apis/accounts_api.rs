@@ -84,7 +84,7 @@ pub enum PatchAccountByIdError {
 }
 
 
-/// Get Account permit to receive Account properties and strategy applicated on the portfolios
+/// Permits to get Account properties, filters and strategy applicated on the portfolios
 pub async fn account_by_id(configuration: &configuration::Configuration, x_account: &str) -> Result<models::AccountById200Response, Error<AccountByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
@@ -130,7 +130,7 @@ pub async fn account_by_id(configuration: &configuration::Configuration, x_accou
     }
 }
 
-/// List Accounts permit to list all account with pagination.
+/// Permits to list positions, cash and value of the portfolios
 pub async fn accounts(configuration: &configuration::Configuration, items: i64, page: i64) -> Result<models::Accounts200Response, Error<AccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_items = items;
@@ -178,7 +178,7 @@ pub async fn accounts(configuration: &configuration::Configuration, items: i64, 
     }
 }
 
-/// Archive Account permit to archive Account properties and strategy applicated on the portfolios
+/// Permits to archive Account and disable strategy applicated on the portfolios
 pub async fn archive_account_by_id(configuration: &configuration::Configuration, x_account: &str) -> Result<models::AccountById200Response, Error<ArchiveAccountByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
@@ -318,7 +318,7 @@ pub async fn options_accounts(configuration: &configuration::Configuration, ) ->
     }
 }
 
-/// Patch Account permit to update Account properties and strategy applicated on the portfolios
+/// Permits to patch Account properties, filters and strategy applicated on the portfolios
 pub async fn patch_account_by_id(configuration: &configuration::Configuration, x_account: &str, patch_account_by_id_request: Option<models::PatchAccountByIdRequest>) -> Result<models::AccountById200Response, Error<PatchAccountByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;

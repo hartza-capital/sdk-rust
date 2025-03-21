@@ -14,6 +14,8 @@ Method | HTTP request | Description
 > models::Commodity200Response commodity(ticker)
 Get Commodity properties
 
+Permits to get the commodity properties
+
 ### Parameters
 
 

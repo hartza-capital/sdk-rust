@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`filings_by_cik`]
+/// struct for typed errors of method [`filings_us`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FilingsByCikError {
+pub enum FilingsUsError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -34,8 +34,8 @@ pub enum OptionsFilingsByCikError {
 }
 
 
-/// This endpoint return the list of US Filings by CIK (Central Index Key). 
-pub async fn filings_by_cik(configuration: &configuration::Configuration, proxy: &str) -> Result<models::FilingsByCik200Response, Error<FilingsByCikError>> {
+/// Permits to get the US filings by CIK
+pub async fn filings_us(configuration: &configuration::Configuration, proxy: &str) -> Result<models::FilingsUs200Response, Error<FilingsUsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_proxy = proxy;
 
@@ -69,12 +69,12 @@ pub async fn filings_by_cik(configuration: &configuration::Configuration, proxy:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FilingsByCik200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FilingsByCik200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FilingsUs200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FilingsUs200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FilingsByCikError> = serde_json::from_str(&content).ok();
+        let entity: Option<FilingsUsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

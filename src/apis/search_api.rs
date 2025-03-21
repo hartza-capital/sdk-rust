@@ -58,7 +58,7 @@ pub async fn options_search(configuration: &configuration::Configuration, ) -> R
     }
 }
 
-/// This endpoint return a list of Instruments with properties: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Quote (1 years monthly), - Dividends (Last 5 years). 
+/// Permits to search instruments, exchanges, index, etfs, funds, bonds, options, futures, currencies, cryptocurrencies by query
 pub async fn search(configuration: &configuration::Configuration, v1_screener_query_request: Option<models::V1ScreenerQueryRequest>) -> Result<models::Search200Response, Error<SearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_query_request = v1_screener_query_request;

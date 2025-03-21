@@ -35,6 +35,7 @@ pub enum OptionsCommodityError {
 }
 
 
+/// Permits to get the commodity properties
 pub async fn commodity(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Commodity200Response, Error<CommodityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;

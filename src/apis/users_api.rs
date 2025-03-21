@@ -57,6 +57,7 @@ pub async fn options_user(configuration: &configuration::Configuration, ) -> Res
     }
 }
 
+/// Permits to get the user information
 pub async fn user(configuration: &configuration::Configuration, ) -> Result<models::User200Response, Error<UserError>> {
 
     let uri_str = format!("{}/v1/user", configuration.base_path);

@@ -4,8 +4,8 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**last_quote_country_indicator**](CountryIndicatorsQuotesApi.md#last_quote_country_indicator) | **GET** /v1/country/indicator/{ticker}/last | Last Country Indicators Quote
-[**lasts_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#lasts_quotes_country_indicators) | **GET** /v1/country/indicators/lasts | Get Lasts Quotes for Country Indicators
+[**last_quote_country_indicator**](CountryIndicatorsQuotesApi.md#last_quote_country_indicator) | **GET** /v1/country/indicator/{ticker}/last | Last Quote for Country Indicators
+[**lasts_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#lasts_quotes_country_indicators) | **GET** /v1/country/indicators/lasts | Lasts Quotes for Country Indicators
 [**options_last_quote_country_indicators**](CountryIndicatorsQuotesApi.md#options_last_quote_country_indicators) | **OPTIONS** /v1/country/indicator/{ticker}/last | Options Last Country Indicators Quote
 [**options_lasts_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#options_lasts_quotes_country_indicators) | **OPTIONS** /v1/country/indicators/lasts | Options Lasts Strategy Quotes for Commodities
 [**options_search_quotes_country_indicators**](CountryIndicatorsQuotesApi.md#options_search_quotes_country_indicators) | **OPTIONS** /v1/country/indicators | Options Search Quotes for Country Indicators
@@ -16,7 +16,9 @@ Method | HTTP request | Description
 ## last_quote_country_indicator
 
 > models::V1CountryIndicatorsQuotesResponseResult last_quote_country_indicator(ticker)
-Last Country Indicators Quote
+Last Quote for Country Indicators
+
+Permits to get the last quote for the targeted Country Indicators.
 
 ### Parameters
 
@@ -44,9 +46,9 @@ Name | Type | Description  | Required | Notes
 ## lasts_quotes_country_indicators
 
 > models::LastsQuotesCountryIndicators200Response lasts_quotes_country_indicators(tickers)
-Get Lasts Quotes for Country Indicators
+Lasts Quotes for Country Indicators
 
-This endpoint return the lasts quotes received by the shareholder for the targeted Country Indicators. 
+Permits to get the lasts quotes for the targeted Country Indicators.
 
 ### Parameters
 
@@ -160,7 +162,7 @@ No authorization required
 > models::SearchQuotesCountryIndicators200Response search_quotes_country_indicators(v1_screener_np_request)
 Search Quotes for Country Indicators
 
-This endpoint permit to receive the quotes of the day for the targeted Country Indicators. 
+Permits to search quotes for the targeted Country Indicators.
 
 ### Parameters
 

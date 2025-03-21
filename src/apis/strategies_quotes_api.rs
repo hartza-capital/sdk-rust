@@ -70,7 +70,7 @@ pub enum SearchStrategiesQuotesError {
 }
 
 
-/// This endpoint return the last quote received by the shareholder for the specific instrument and strategy. 
+/// Permits to get the last quote received by the shareholder for the specific instrument and strategy.
 pub async fn last_strategy_quote(configuration: &configuration::Configuration, ticker: &str, strategy: &str) -> Result<models::V1StrategiesQuoteResponse, Error<LastStrategyQuoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
@@ -116,6 +116,7 @@ pub async fn last_strategy_quote(configuration: &configuration::Configuration, t
     }
 }
 
+/// Permits to get the last quotes received by the shareholder for the specific instruments.
 pub async fn lasts_strategy_quotes(configuration: &configuration::Configuration, lasts_strategy_quotes_request: models::LastsStrategyQuotesRequest) -> Result<models::LastsStrategyQuotes200Response, Error<LastsStrategyQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_lasts_strategy_quotes_request = lasts_strategy_quotes_request;
@@ -236,7 +237,7 @@ pub async fn options_search_strategies_quotes(configuration: &configuration::Con
     }
 }
 
-/// This endpoint return a list of Quotes aggregated by interval (daily, weekly, monthly, quartely, yearly). 
+/// Permits to search quotes by instruments and period
 pub async fn search_strategies_quotes(configuration: &configuration::Configuration, v1_screener_np_request: models::V1ScreenerNpRequest) -> Result<models::SearchStrategiesQuotes200Response, Error<SearchStrategiesQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_np_request = v1_screener_np_request;

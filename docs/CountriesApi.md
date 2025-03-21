@@ -5,7 +5,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**country**](CountriesApi.md#country) | **GET** /v1/country/{ticker} | Get Country properties
-[**country_events**](CountriesApi.md#country_events) | **GET** /v1/country/{ticker}/events | List Country Events properties
+[**country_events**](CountriesApi.md#country_events) | **GET** /v1/country/{ticker}/events | Get Country Macro Economic Events
 [**options_country**](CountriesApi.md#options_country) | **OPTIONS** /v1/country/{ticker} | Options Country properties
 [**options_country_events**](CountriesApi.md#options_country_events) | **OPTIONS** /v1/country/{ticker}/events | Options Country Events properties
 
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 
 > models::Country200Response country(ticker)
 Get Country properties
+
+Permits to get the country properties
 
 ### Parameters
 
@@ -42,7 +44,9 @@ Name | Type | Description  | Required | Notes
 ## country_events
 
 > models::CountryEvents200Response country_events(ticker)
-List Country Events properties
+Get Country Macro Economic Events
+
+Permits to get the macro economic events for the targeted country
 
 ### Parameters
 

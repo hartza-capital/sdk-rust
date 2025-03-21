@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`last_quote_by_ticker`]
+/// struct for typed errors of method [`last_quote`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum LastQuoteByTickerError {
+pub enum LastQuoteError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -44,10 +44,10 @@ pub enum OptionIntradayQuotesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_last_quote_by_ticker`]
+/// struct for typed errors of method [`options_last_quote`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsLastQuoteByTickerError {
+pub enum OptionsLastQuoteError {
     UnknownValue(serde_json::Value),
 }
 
@@ -106,8 +106,8 @@ pub enum SearchQuotesHistogramError {
 }
 
 
-/// This endpoint return the last quote received by the shareholder for the specific instrument. 
-pub async fn last_quote_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1QuoteResponse, Error<LastQuoteByTickerError>> {
+/// Permits to get the last quote received by the shareholder for the specific instrument.
+pub async fn last_quote(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1QuoteResponse, Error<LastQuoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -146,12 +146,12 @@ pub async fn last_quote_by_ticker(configuration: &configuration::Configuration, 
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<LastQuoteByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<LastQuoteError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// This endpoint return the lasts quotes received by the shareholder for instruments. 
+/// Permits to list lasts quotes for the specific instruments.
 pub async fn lasts_quotes(configuration: &configuration::Configuration, lasts_quotes_portfolios_request: models::LastsQuotesPortfoliosRequest) -> Result<models::LastsQuotesPortfolios200Response, Error<LastsQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_lasts_quotes_portfolios_request = lasts_quotes_portfolios_request;
@@ -222,7 +222,7 @@ pub async fn option_intraday_quotes(configuration: &configuration::Configuration
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_last_quote_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsLastQuoteByTickerError>> {
+pub async fn options_last_quote(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsLastQuoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -242,7 +242,7 @@ pub async fn options_last_quote_by_ticker(configuration: &configuration::Configu
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsLastQuoteByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsLastQuoteError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -319,7 +319,7 @@ pub async fn options_search_quotes_histogram(configuration: &configuration::Conf
     }
 }
 
-/// This endpoint return a list of Quotes aggregated by interval (5 minutes, 15 minutes, 30 minutes, 1 hour, 4 hours, 8 hours and 1 day). 
+/// Permits to search intraday quotes by instruments and period (from, to)
 pub async fn search_intraday_quotes(configuration: &configuration::Configuration, search_intraday_quotes_request: models::SearchIntradayQuotesRequest) -> Result<models::PortfoliosQuotes200Response, Error<SearchIntradayQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_search_intraday_quotes_request = search_intraday_quotes_request;
@@ -365,7 +365,7 @@ pub async fn search_intraday_quotes(configuration: &configuration::Configuration
     }
 }
 
-/// This endpoint return a list of Quotes aggregated by interval (daily, weekly, monthly, quartely, yearly). 
+/// Permits to search quotes by period (from, to)
 pub async fn search_quotes(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::PortfoliosQuotes200Response, Error<SearchQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_interval_request = v1_screener_interval_request;
@@ -411,7 +411,7 @@ pub async fn search_quotes(configuration: &configuration::Configuration, v1_scre
     }
 }
 
-/// This endpoint return a list of Quotes Histogram aggregated by interval (daily, weekly, monthly, quartely, yearly). 
+/// Permits to search quotes histogram
 pub async fn search_quotes_histogram(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::PortfoliosHistogram200Response, Error<SearchQuotesHistogramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_interval_request = v1_screener_interval_request;

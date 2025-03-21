@@ -5,12 +5,12 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_filter**](AccountsFiltersApi.md#create_filter) | **POST** /v1/filters | Create Account Filter
-[**delete_filter_by_ticker**](AccountsFiltersApi.md#delete_filter_by_ticker) | **DELETE** /v1/filter/{ticker} | Delete Account Filter properties
-[**filter_by_ticker**](AccountsFiltersApi.md#filter_by_ticker) | **GET** /v1/filter/{ticker} | Get Account Filter properties
-[**filters**](AccountsFiltersApi.md#filters) | **GET** /v1/filters | List Account Filters properties
-[**options_filter_by_ticker**](AccountsFiltersApi.md#options_filter_by_ticker) | **OPTIONS** /v1/filter/{ticker} | Options Account Filter
+[**delete_filter**](AccountsFiltersApi.md#delete_filter) | **DELETE** /v1/filter/{ticker} | Delete Filter
+[**filter**](AccountsFiltersApi.md#filter) | **GET** /v1/filter/{ticker} | Get Filter properties
+[**filters**](AccountsFiltersApi.md#filters) | **GET** /v1/filters | List Filters
+[**options_filter**](AccountsFiltersApi.md#options_filter) | **OPTIONS** /v1/filter/{ticker} | Options Account Filter
 [**options_filters**](AccountsFiltersApi.md#options_filters) | **OPTIONS** /v1/filters | Options Filters
-[**update_filter_by_ticker**](AccountsFiltersApi.md#update_filter_by_ticker) | **PUT** /v1/filter/{ticker} | Update Account Filter properties
+[**update_filter**](AccountsFiltersApi.md#update_filter) | **PUT** /v1/filter/{ticker} | Update Filter properties
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 > models::V1FilterResponse create_filter(x_account, create_filter_request)
 Create Account Filter
 
-Create Filter permit to create a new filter with properties.
+Permits to create a new filter for the account
 
 ### Parameters
 
@@ -45,12 +45,12 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## delete_filter_by_ticker
+## delete_filter
 
-> delete_filter_by_ticker(x_account, ticker)
-Delete Account Filter properties
+> delete_filter(x_account, ticker)
+Delete Filter
 
-Delete Account Filter permit to delete properties
+Permits to delete filter for the account
 
 ### Parameters
 
@@ -76,12 +76,12 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## filter_by_ticker
+## filter
 
-> models::V1FilterResponse filter_by_ticker(x_account, ticker)
-Get Account Filter properties
+> models::V1FilterResponse filter(x_account, ticker)
+Get Filter properties
 
-Get Account Filter permit to receive properties
+Permits to get properties of filter
 
 ### Parameters
 
@@ -110,9 +110,9 @@ Name | Type | Description  | Required | Notes
 ## filters
 
 > models::Filters200Response filters(x_account, items, page)
-List Account Filters properties
+List Filters
 
-List Filters permit to list all filters with pagination.
+Permits to list filters for the account
 
 ### Parameters
 
@@ -139,9 +139,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_filter_by_ticker
+## options_filter
 
-> options_filter_by_ticker(ticker)
+> options_filter(ticker)
 Options Account Filter
 
 Options method is used to describe the communication options for the targeted resource.
@@ -196,12 +196,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## update_filter_by_ticker
+## update_filter
 
-> models::V1FilterResponse update_filter_by_ticker(x_account, ticker, create_filter_request)
-Update Account Filter properties
+> models::V1FilterResponse update_filter(x_account, ticker, create_filter_request)
+Update Filter properties
 
-Update Filter permit to update properties of filter
+Permits to update properties of filter for the account
 
 ### Parameters
 

@@ -4,17 +4,17 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**filings_by_cik**](FilingsApi.md#filings_by_cik) | **GET** /v1/filings/us/{proxy} | Get US Filings by CIK (Central Index Key)
+[**filings_us**](FilingsApi.md#filings_us) | **GET** /v1/filings/us/{proxy} | Get US Filings
 [**options_filings_by_cik**](FilingsApi.md#options_filings_by_cik) | **OPTIONS** /v1/filings/us/{proxy} | Options US Filings
 
 
 
-## filings_by_cik
+## filings_us
 
-> models::FilingsByCik200Response filings_by_cik(proxy)
-Get US Filings by CIK (Central Index Key)
+> models::FilingsUs200Response filings_us(proxy)
+Get US Filings
 
-This endpoint return the list of US Filings by CIK (Central Index Key). 
+Permits to get the US filings by CIK
 
 ### Parameters
 
@@ -25,7 +25,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FilingsByCik200Response**](FilingsByCIK_200_response.md)
+[**models::FilingsUs200Response**](FilingsUS_200_response.md)
 
 ### Authorization
 

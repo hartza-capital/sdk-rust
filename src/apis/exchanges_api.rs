@@ -52,7 +52,7 @@ pub enum OptionsExchangesStatusError {
 }
 
 
-/// This endpoint describe: - General informations (Ticker Alternative, primary Index etc...), - Indexes availables, - Statistics (MarketCap global, volume and instrument counter), - TimeZone, - SizeCap (division of business trails), - Holidays, - Trading Hours and Status. 
+/// Permits to get the exchange properties by ticker
 pub async fn exchange(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Exchange200Response, Error<ExchangeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
@@ -97,7 +97,7 @@ pub async fn exchange(configuration: &configuration::Configuration, ticker: &str
     }
 }
 
-/// This endpoint return the list of Exchanges with their status. 
+/// Permits to list the exchanges status (open, close, pre-market, post-market...)
 pub async fn exchanges_status(configuration: &configuration::Configuration, ) -> Result<models::ExchangesStatus200Response, Error<ExchangesStatusError>> {
 
     let uri_str = format!("{}/v1/exchanges/status", configuration.base_path);

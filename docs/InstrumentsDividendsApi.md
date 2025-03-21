@@ -4,19 +4,19 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**last_dividend_by_ticker**](InstrumentsDividendsApi.md#last_dividend_by_ticker) | **GET** /v1/dividend/{id}/last | Last Dividend for Instrument
+[**last_dividend**](InstrumentsDividendsApi.md#last_dividend) | **GET** /v1/dividend/{id}/last | Get Last Dividend for Instrument
 [**options_dividends**](InstrumentsDividendsApi.md#options_dividends) | **OPTIONS** /v1/dividends | Options Search Dividends for Instrument
-[**options_last_dividend_by_ticker**](InstrumentsDividendsApi.md#options_last_dividend_by_ticker) | **OPTIONS** /v1/dividend/{id}/last | Options Last Dividend for Instrument
-[**search_dividends**](InstrumentsDividendsApi.md#search_dividends) | **POST** /v1/dividends | Search Dividends by interval and arguments
+[**options_last_dividend**](InstrumentsDividendsApi.md#options_last_dividend) | **OPTIONS** /v1/dividend/{id}/last | Options Last Dividend for Instrument
+[**search_dividends**](InstrumentsDividendsApi.md#search_dividends) | **POST** /v1/dividends | Search Instruments Dividends by interval and arguments
 
 
 
-## last_dividend_by_ticker
+## last_dividend
 
-> models::V1DividendResponse last_dividend_by_ticker(id)
-Last Dividend for Instrument
+> models::V1DividendResponse last_dividend(id)
+Get Last Dividend for Instrument
 
-This endpoint returns the last dividend received by the shareholder for the specific instrument. 
+Permits to get the last dividend received by the shareholder for the specific instrument.
 
 ### Parameters
 
@@ -68,9 +68,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_last_dividend_by_ticker
+## options_last_dividend
 
-> options_last_dividend_by_ticker(id)
+> options_last_dividend(id)
 Options Last Dividend for Instrument
 
 Options method is used to describe the communication options for the targeted resource.
@@ -101,9 +101,9 @@ No authorization required
 ## search_dividends
 
 > models::SearchDividends200Response search_dividends(v1_screener_interval_request)
-Search Dividends by interval and arguments
+Search Instruments Dividends by interval and arguments
 
-This endpoint return: - List Dividends aggregated by interval (monthly, quartely, yearly), - Yield (is a financial ratio that tells you the percentage of a company's share price that it pays out in dividends each year) 
+This endpoint return a list of dividends (Amount, Date, Currency and Type).
 
 ### Parameters
 

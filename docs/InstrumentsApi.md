@@ -4,17 +4,17 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instrument_by_id**](InstrumentsApi.md#instrument_by_id) | **GET** /v1/instrument/{id} | Get properties Instrument by ID
-[**options_instrument_by_id**](InstrumentsApi.md#options_instrument_by_id) | **OPTIONS** /v1/instrument/{id} | Options Get Instrument by ID
+[**instrument**](InstrumentsApi.md#instrument) | **GET** /v1/instrument/{id} | Get Instrument properties
+[**options_instrument**](InstrumentsApi.md#options_instrument) | **OPTIONS** /v1/instrument/{id} | Options Instrument
 
 
 
-## instrument_by_id
+## instrument
 
-> models::InstrumentById200Response instrument_by_id(id)
-Get properties Instrument by ID
+> models::Instrument200Response instrument(id)
+Get Instrument properties
 
-This endpoint return: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
+This endpoint returns the properties of the instrument: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
 
 ### Parameters
 
@@ -25,7 +25,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::InstrumentById200Response**](InstrumentByID_200_response.md)
+[**models::Instrument200Response**](Instrument_200_response.md)
 
 ### Authorization
 
@@ -39,10 +39,10 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_instrument_by_id
+## options_instrument
 
-> options_instrument_by_id(id)
-Options Get Instrument by ID
+> options_instrument(id)
+Options Instrument
 
 Options method is used to describe the communication options for the targeted resource.
 

@@ -4,17 +4,17 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**filter_report_by_id**](AccountsFiltersReportsApi.md#filter_report_by_id) | **GET** /v1/filter/report/{proxy} | Get Account Filter Report properties
-[**options_filter_report_by_id**](AccountsFiltersReportsApi.md#options_filter_report_by_id) | **OPTIONS** /v1/filter/report/{proxy} | Options Account Filters Report by Ticker
+[**filter_report**](AccountsFiltersReportsApi.md#filter_report) | **GET** /v1/filter/report/{proxy} | Get Filter Report properties
+[**options_filter_report**](AccountsFiltersReportsApi.md#options_filter_report) | **OPTIONS** /v1/filter/report/{proxy} | Options Filter Report
 
 
 
-## filter_report_by_id
+## filter_report
 
-> models::FilterReportById200Response filter_report_by_id(proxy)
-Get Account Filter Report properties
+> models::FilterReport200Response filter_report(proxy)
+Get Filter Report properties
 
-Get Account Filter Report permit to receive properties
+Permits to get properties of filter report
 
 ### Parameters
 
@@ -25,7 +25,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FilterReportById200Response**](FilterReportByID_200_response.md)
+[**models::FilterReport200Response**](FilterReport_200_response.md)
 
 ### Authorization
 
@@ -39,10 +39,10 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_filter_report_by_id
+## options_filter_report
 
-> options_filter_report_by_id(proxy)
-Options Account Filters Report by Ticker
+> options_filter_report(proxy)
+Options Filter Report
 
 Options method is used to describe the communication options for the targeted resource.
 

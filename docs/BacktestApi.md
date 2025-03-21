@@ -4,9 +4,9 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**backtest**](BacktestApi.md#backtest) | **POST** /v1/backtest | Backtest Strategy for instruments by interval and arguments
-[**last_backtest**](BacktestApi.md#last_backtest) | **GET** /v1/backtest/{strategy}/{ticker}/last | Get last trend available
-[**lasts_backtest**](BacktestApi.md#lasts_backtest) | **POST** /v1/backtest/lasts | List lasts backtest available for instruments and strategies
+[**backtest**](BacktestApi.md#backtest) | **POST** /v1/backtest | Backtest Strategy
+[**last_backtest**](BacktestApi.md#last_backtest) | **GET** /v1/backtest/{strategy}/{ticker}/last | Last trend available
+[**lasts_backtest**](BacktestApi.md#lasts_backtest) | **POST** /v1/backtest/lasts | Lasts backtest available
 [**options_backtest**](BacktestApi.md#options_backtest) | **OPTIONS** /v1/backtest | Options Backtest Strategy
 [**options_last_backtest**](BacktestApi.md#options_last_backtest) | **OPTIONS** /v1/backtest/{strategy}/{ticker}/last | Options last trend available
 [**options_lasts_backtest**](BacktestApi.md#options_lasts_backtest) | **OPTIONS** /v1/backtest/lasts | Options lasts backtest available
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 ## backtest
 
 > models::Backtest200Response backtest(x_account, backtest_request, accumulation)
-Backtest Strategy for instruments by interval and arguments
+Backtest Strategy
 
-This endpoint return the backtest received by the shareholder for instruments and strategies. 
+Permits to backtest a strategy
 
 ### Parameters
 
@@ -48,7 +48,9 @@ Name | Type | Description  | Required | Notes
 ## last_backtest
 
 > models::V1BacktestStrategiesResult last_backtest(ticker, strategy)
-Get last trend available
+Last trend available
+
+Permits to get the last trend received by the shareholder for instruments and strategies.
 
 ### Parameters
 
@@ -77,9 +79,9 @@ Name | Type | Description  | Required | Notes
 ## lasts_backtest
 
 > models::LastsBacktest200Response lasts_backtest(lasts_strategy_quotes_request)
-List lasts backtest available for instruments and strategies
+Lasts backtest available
 
-This endpoint return the lasts backtest received by the shareholder for instruments and strategies. 
+Permits to get the last trends received by the shareholder for instruments and strategies.
 
 ### Parameters
 

@@ -34,7 +34,7 @@ pub enum OptionsForexError {
 }
 
 
-/// This endpoint return: - Global informations (Central Bank, Exchanges/Countries where the currency is used...), - Last Quote (last End of Day (EOD)), - Stats (Pricing). 
+/// Permits to get the forex properties
 pub async fn forex(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Forex200Response, Error<ForexError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;

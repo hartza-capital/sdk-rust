@@ -4,21 +4,21 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**last_strategy_quote**](StrategiesQuotesApi.md#last_strategy_quote) | **GET** /v1/quotes/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote for Instrument
-[**lasts_strategy_quotes**](StrategiesQuotesApi.md#lasts_strategy_quotes) | **POST** /v1/quotes/strategy/lasts | Get Lasts Strategy Quotes for Instruments
-[**options_last_strategy_quote**](StrategiesQuotesApi.md#options_last_strategy_quote) | **OPTIONS** /v1/quotes/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote for Instrument
+[**last_strategy_quote**](StrategiesQuotesApi.md#last_strategy_quote) | **GET** /v1/quotes/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote
+[**lasts_strategy_quotes**](StrategiesQuotesApi.md#lasts_strategy_quotes) | **POST** /v1/quotes/strategy/lasts | Lasts Strategy Quotes for Instruments
+[**options_last_strategy_quote**](StrategiesQuotesApi.md#options_last_strategy_quote) | **OPTIONS** /v1/quotes/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote
 [**options_lasts_strategy_quotes**](StrategiesQuotesApi.md#options_lasts_strategy_quotes) | **OPTIONS** /v1/quotes/strategy/lasts | Options Lasts Strategy Quotes for Instruments
 [**options_search_strategies_quotes**](StrategiesQuotesApi.md#options_search_strategies_quotes) | **OPTIONS** /v1/quotes/strategies | Options Strategy Quotes for Instruments
-[**search_strategies_quotes**](StrategiesQuotesApi.md#search_strategies_quotes) | **POST** /v1/quotes/strategies | Search Strategy Quotes for Instruments
+[**search_strategies_quotes**](StrategiesQuotesApi.md#search_strategies_quotes) | **POST** /v1/quotes/strategies | Search Strategies Quotes for Instruments
 
 
 
 ## last_strategy_quote
 
 > models::V1StrategiesQuoteResponse last_strategy_quote(ticker, strategy)
-Get Last Strategy Quote for Instrument
+Get Last Strategy Quote
 
-This endpoint return the last quote received by the shareholder for the specific instrument and strategy. 
+Permits to get the last quote received by the shareholder for the specific instrument and strategy.
 
 ### Parameters
 
@@ -47,7 +47,9 @@ Name | Type | Description  | Required | Notes
 ## lasts_strategy_quotes
 
 > models::LastsStrategyQuotes200Response lasts_strategy_quotes(lasts_strategy_quotes_request)
-Get Lasts Strategy Quotes for Instruments
+Lasts Strategy Quotes for Instruments
+
+Permits to get the last quotes received by the shareholder for the specific instruments.
 
 ### Parameters
 
@@ -75,7 +77,7 @@ Name | Type | Description  | Required | Notes
 ## options_last_strategy_quote
 
 > options_last_strategy_quote(ticker, strategy)
-Options Last Strategy Quote for Instrument
+Options Last Strategy Quote
 
 Options method is used to describe the communication options for the targeted resource.
 
@@ -160,9 +162,9 @@ No authorization required
 ## search_strategies_quotes
 
 > models::SearchStrategiesQuotes200Response search_strategies_quotes(v1_screener_np_request)
-Search Strategy Quotes for Instruments
+Search Strategies Quotes for Instruments
 
-This endpoint return a list of Quotes aggregated by interval (daily, weekly, monthly, quartely, yearly). 
+Permits to search quotes by instruments and period
 
 ### Parameters
 

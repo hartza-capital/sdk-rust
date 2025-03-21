@@ -34,7 +34,7 @@ pub enum OptionsIndexError {
 }
 
 
-/// This endpoint permit to receive: - General informations (Name, Exchange...), - Activities, - SizeCap (majority), - Last Quote of the day, - Statistics. 
+/// Permits to get the index properties
 pub async fn index(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Index200Response, Error<IndexError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;

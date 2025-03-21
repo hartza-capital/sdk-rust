@@ -4,7 +4,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**exchange**](ExchangesApi.md#exchange) | **GET** /v1/exchange/{ticker} | Get Exchange properties
+[**exchange**](ExchangesApi.md#exchange) | **GET** /v1/exchange/{ticker} | Get Exchange properties by Ticker
 [**exchanges_status**](ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchanges Status
 [**options_exchange**](ExchangesApi.md#options_exchange) | **OPTIONS** /v1/exchange/{ticker} | Options Exchange properties
 [**options_exchanges_status**](ExchangesApi.md#options_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchanges Status
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 ## exchange
 
 > models::Exchange200Response exchange(ticker)
-Get Exchange properties
+Get Exchange properties by Ticker
 
-This endpoint describe: - General informations (Ticker Alternative, primary Index etc...), - Indexes availables, - Statistics (MarketCap global, volume and instrument counter), - TimeZone, - SizeCap (division of business trails), - Holidays, - Trading Hours and Status. 
+Permits to get the exchange properties by ticker
 
 ### Parameters
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Required | Notes
 > models::ExchangesStatus200Response exchanges_status()
 List Exchanges Status
 
-This endpoint return the list of Exchanges with their status. 
+Permits to list the exchanges status (open, close, pre-market, post-market...)
 
 ### Parameters
 

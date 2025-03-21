@@ -5,7 +5,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**options_user**](UsersApi.md#options_user) | **OPTIONS** /v1/user | Options User methods
-[**user**](UsersApi.md#user) | **GET** /v1/user | Get User properties
+[**user**](UsersApi.md#user) | **GET** /v1/user | Get User information
 
 
 
@@ -39,7 +39,9 @@ No authorization required
 ## user
 
 > models::User200Response user()
-Get User properties
+Get User information
+
+Permits to get the user information
 
 ### Parameters
 

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 > models::AccountById200Response account_by_id(x_account)
 Get Account properties by ID
 
-Get Account permit to receive Account properties and strategy applicated on the portfolios
+Permits to get Account properties, filters and strategy applicated on the portfolios
 
 ### Parameters
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 > models::Accounts200Response accounts(items, page)
 List Accounts properties
 
-List Accounts permit to list all account with pagination.
+Permits to list positions, cash and value of the portfolios
 
 ### Parameters
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Required | Notes
 > models::AccountById200Response archive_account_by_id(x_account)
 Archive Account by ID
 
-Archive Account permit to archive Account properties and strategy applicated on the portfolios
+Permits to archive Account and disable strategy applicated on the portfolios
 
 ### Parameters
 
@@ -194,7 +194,7 @@ No authorization required
 > models::AccountById200Response patch_account_by_id(x_account, patch_account_by_id_request)
 Patch Account properties by ID
 
-Patch Account permit to update Account properties and strategy applicated on the portfolios
+Permits to patch Account properties, filters and strategy applicated on the portfolios
 
 ### Parameters
 

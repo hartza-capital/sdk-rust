@@ -52,6 +52,7 @@ pub enum OptionsCountryEventsError {
 }
 
 
+/// Permits to get the country properties
 pub async fn country(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Country200Response, Error<CountryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
@@ -96,6 +97,7 @@ pub async fn country(configuration: &configuration::Configuration, ticker: &str)
     }
 }
 
+/// Permits to get the macro economic events for the targeted country
 pub async fn country_events(configuration: &configuration::Configuration, ticker: &str) -> Result<models::CountryEvents200Response, Error<CountryEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;

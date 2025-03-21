@@ -34,7 +34,7 @@ pub enum OptionsCurrencyError {
 }
 
 
-/// This endpoint allow to receive: - General informations (Ticker, Central Bank...), - Exchanges/Countries where the currency is used. 
+/// Permits to get the currency properties
 pub async fn currency(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1CurrencyResponse, Error<CurrencyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;

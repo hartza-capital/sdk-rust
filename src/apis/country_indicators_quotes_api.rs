@@ -70,6 +70,7 @@ pub enum SearchQuotesCountryIndicatorsError {
 }
 
 
+/// Permits to get the last quote for the targeted Country Indicators.
 pub async fn last_quote_country_indicator(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1CountryIndicatorsQuotesResponseResult, Error<LastQuoteCountryIndicatorError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
@@ -114,7 +115,7 @@ pub async fn last_quote_country_indicator(configuration: &configuration::Configu
     }
 }
 
-/// This endpoint return the lasts quotes received by the shareholder for the targeted Country Indicators. 
+/// Permits to get the lasts quotes for the targeted Country Indicators.
 pub async fn lasts_quotes_country_indicators(configuration: &configuration::Configuration, tickers: &str) -> Result<models::LastsQuotesCountryIndicators200Response, Error<LastsQuotesCountryIndicatorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_tickers = tickers;
@@ -234,7 +235,7 @@ pub async fn options_search_quotes_country_indicators(configuration: &configurat
     }
 }
 
-/// This endpoint permit to receive the quotes of the day for the targeted Country Indicators. 
+/// Permits to search quotes for the targeted Country Indicators.
 pub async fn search_quotes_country_indicators(configuration: &configuration::Configuration, v1_screener_np_request: models::V1ScreenerNpRequest) -> Result<models::SearchQuotesCountryIndicators200Response, Error<SearchQuotesCountryIndicatorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_np_request = v1_screener_np_request;

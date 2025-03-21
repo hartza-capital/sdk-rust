@@ -4,19 +4,19 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**last_split_by_ticker**](InstrumentsSplitsApi.md#last_split_by_ticker) | **GET** /v1/split/{id}/last | Get Last Split for Instrument
-[**options_last_split_by_ticker**](InstrumentsSplitsApi.md#options_last_split_by_ticker) | **OPTIONS** /v1/split/{id}/last | Options Last Split for Instrument
+[**last_split**](InstrumentsSplitsApi.md#last_split) | **GET** /v1/split/{id}/last | Last Split for Instrument
+[**options_last_split**](InstrumentsSplitsApi.md#options_last_split) | **OPTIONS** /v1/split/{id}/last | Options Last Split for Instrument
 [**options_splits**](InstrumentsSplitsApi.md#options_splits) | **OPTIONS** /v1/splits | Options Search Splits for Instrument
 [**search_splits**](InstrumentsSplitsApi.md#search_splits) | **POST** /v1/splits | Search Instruments Splits by interval and arguments
 
 
 
-## last_split_by_ticker
+## last_split
 
-> models::V1SplitResponse last_split_by_ticker(id)
-Get Last Split for Instrument
+> models::V1SplitResponse last_split(id)
+Last Split for Instrument
 
-This endpoint return the last split received by the shareholder for the specific instrument. 
+Permits to get the last split received by the shareholder for the specific instrument.
 
 ### Parameters
 
@@ -41,9 +41,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## options_last_split_by_ticker
+## options_last_split
 
-> options_last_split_by_ticker(id)
+> options_last_split(id)
 Options Last Split for Instrument
 
 Options method is used to describe the communication options for the targeted resource.
@@ -103,7 +103,7 @@ No authorization required
 > models::SearchSplits200Response search_splits(v1_screener_np_request)
 Search Instruments Splits by interval and arguments
 
-This endpoint return a list of splits (From, To, Coef and Date).
+Permits to search splits by interval and arguments
 
 ### Parameters
 

@@ -4,7 +4,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**currency**](CurrenciesApi.md#currency) | **GET** /v1/currency/{ticker} | Get Currency properties by Ticker
+[**currency**](CurrenciesApi.md#currency) | **GET** /v1/currency/{ticker} | Get Currency properties
 [**options_currency**](CurrenciesApi.md#options_currency) | **OPTIONS** /v1/currency/{ticker} | Options Currency properties
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 ## currency
 
 > models::V1CurrencyResponse currency(ticker)
-Get Currency properties by Ticker
+Get Currency properties
 
-This endpoint allow to receive: - General informations (Ticker, Central Bank...), - Exchanges/Countries where the currency is used. 
+Permits to get the currency properties
 
 ### Parameters
 

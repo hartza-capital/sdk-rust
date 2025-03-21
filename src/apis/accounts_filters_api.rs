@@ -26,10 +26,10 @@ pub enum CreateFilterError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_filter_by_ticker`]
+/// struct for typed errors of method [`delete_filter`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteFilterByTickerError {
+pub enum DeleteFilterError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -37,10 +37,10 @@ pub enum DeleteFilterByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`filter_by_ticker`]
+/// struct for typed errors of method [`filter`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FilterByTickerError {
+pub enum FilterError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -59,10 +59,10 @@ pub enum FiltersError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_filter_by_ticker`]
+/// struct for typed errors of method [`options_filter`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsFilterByTickerError {
+pub enum OptionsFilterError {
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum OptionsFiltersError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_filter_by_ticker`]
+/// struct for typed errors of method [`update_filter`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateFilterByTickerError {
+pub enum UpdateFilterError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -85,7 +85,7 @@ pub enum UpdateFilterByTickerError {
 }
 
 
-/// Create Filter permit to create a new filter with properties.
+/// Permits to create a new filter for the account
 pub async fn create_filter(configuration: &configuration::Configuration, x_account: &str, create_filter_request: models::CreateFilterRequest) -> Result<models::V1FilterResponse, Error<CreateFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
@@ -133,8 +133,8 @@ pub async fn create_filter(configuration: &configuration::Configuration, x_accou
     }
 }
 
-/// Delete Account Filter permit to delete properties
-pub async fn delete_filter_by_ticker(configuration: &configuration::Configuration, x_account: &str, ticker: &str) -> Result<(), Error<DeleteFilterByTickerError>> {
+/// Permits to delete filter for the account
+pub async fn delete_filter(configuration: &configuration::Configuration, x_account: &str, ticker: &str) -> Result<(), Error<DeleteFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
     let p_ticker = ticker;
@@ -164,13 +164,13 @@ pub async fn delete_filter_by_ticker(configuration: &configuration::Configuratio
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<DeleteFilterByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteFilterError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Get Account Filter permit to receive properties
-pub async fn filter_by_ticker(configuration: &configuration::Configuration, x_account: &str, ticker: &str) -> Result<models::V1FilterResponse, Error<FilterByTickerError>> {
+/// Permits to get properties of filter
+pub async fn filter(configuration: &configuration::Configuration, x_account: &str, ticker: &str) -> Result<models::V1FilterResponse, Error<FilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
     let p_ticker = ticker;
@@ -211,12 +211,12 @@ pub async fn filter_by_ticker(configuration: &configuration::Configuration, x_ac
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FilterByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<FilterError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// List Filters permit to list all filters with pagination.
+/// Permits to list filters for the account
 pub async fn filters(configuration: &configuration::Configuration, x_account: &str, items: i64, page: i64) -> Result<models::Filters200Response, Error<FiltersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
@@ -267,7 +267,7 @@ pub async fn filters(configuration: &configuration::Configuration, x_account: &s
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_filter_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsFilterByTickerError>> {
+pub async fn options_filter(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -287,7 +287,7 @@ pub async fn options_filter_by_ticker(configuration: &configuration::Configurati
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsFilterByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsFilterError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -316,8 +316,8 @@ pub async fn options_filters(configuration: &configuration::Configuration, ) -> 
     }
 }
 
-/// Update Filter permit to update properties of filter
-pub async fn update_filter_by_ticker(configuration: &configuration::Configuration, x_account: &str, ticker: &str, create_filter_request: models::CreateFilterRequest) -> Result<models::V1FilterResponse, Error<UpdateFilterByTickerError>> {
+/// Permits to update properties of filter for the account
+pub async fn update_filter(configuration: &configuration::Configuration, x_account: &str, ticker: &str, create_filter_request: models::CreateFilterRequest) -> Result<models::V1FilterResponse, Error<UpdateFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
     let p_ticker = ticker;
@@ -360,7 +360,7 @@ pub async fn update_filter_by_ticker(configuration: &configuration::Configuratio
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UpdateFilterByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<UpdateFilterError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

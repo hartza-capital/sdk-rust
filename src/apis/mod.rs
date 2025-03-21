@@ -130,6 +130,7 @@ pub mod instruments_dividends_api;
 pub mod instruments_splits_api;
 pub mod news_api;
 pub mod portfolios_api;
+pub mod portfolios_analysis_api;
 pub mod portfolios_quotes_api;
 pub mod search_api;
 pub mod strategies_api;

@@ -33,10 +33,10 @@ pub enum OptionsLastsPortfoliosQuotesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_portfolio_last_quote_by_ticker`]
+/// struct for typed errors of method [`options_portfolio_last_quote`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsPortfolioLastQuoteByTickerError {
+pub enum OptionsPortfolioLastQuoteError {
     UnknownValue(serde_json::Value),
 }
 
@@ -54,10 +54,10 @@ pub enum OptionsPortfoliosQuotesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`portfolio_last_quote_by_ticker`]
+/// struct for typed errors of method [`portfolio_last_quote`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PortfolioLastQuoteByTickerError {
+pub enum PortfolioLastQuoteError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -88,7 +88,7 @@ pub enum PortfoliosQuotesError {
 }
 
 
-/// This endpoint return the lasts quotes received by the shareholder for portfolios. 
+/// Permits to list lasts quotes for the portfolios
 pub async fn lasts_quotes_portfolios(configuration: &configuration::Configuration, lasts_quotes_portfolios_request: models::LastsQuotesPortfoliosRequest) -> Result<models::LastsQuotesPortfolios200Response, Error<LastsQuotesPortfoliosError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_lasts_quotes_portfolios_request = lasts_quotes_portfolios_request;
@@ -159,7 +159,7 @@ pub async fn options_lasts_portfolios_quotes(configuration: &configuration::Conf
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_portfolio_last_quote_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsPortfolioLastQuoteByTickerError>> {
+pub async fn options_portfolio_last_quote(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsPortfolioLastQuoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -179,7 +179,7 @@ pub async fn options_portfolio_last_quote_by_ticker(configuration: &configuratio
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsPortfolioLastQuoteByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsPortfolioLastQuoteError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -232,8 +232,8 @@ pub async fn options_portfolios_quotes(configuration: &configuration::Configurat
     }
 }
 
-/// Last Quote permit to get the last quote for a currency
-pub async fn portfolio_last_quote_by_ticker(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1QuoteResponse, Error<PortfolioLastQuoteByTickerError>> {
+/// Permits to get the last quote received by the shareholder for a portfolio.
+pub async fn portfolio_last_quote(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1QuoteResponse, Error<PortfolioLastQuoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_ticker = ticker;
 
@@ -272,11 +272,12 @@ pub async fn portfolio_last_quote_by_ticker(configuration: &configuration::Confi
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<PortfolioLastQuoteByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<PortfolioLastQuoteError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
+/// Permits to search quotes histogram by Portfolio and period
 pub async fn portfolios_histogram(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::PortfoliosHistogram200Response, Error<PortfoliosHistogramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_interval_request = v1_screener_interval_request;
@@ -322,7 +323,7 @@ pub async fn portfolios_histogram(configuration: &configuration::Configuration, 
     }
 }
 
-/// Search Quotes permit to search quotes for a currency
+/// Permits to search quotes by currency and period
 pub async fn portfolios_quotes(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::PortfoliosQuotes200Response, Error<PortfoliosQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_interval_request = v1_screener_interval_request;

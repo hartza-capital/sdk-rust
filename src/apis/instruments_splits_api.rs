@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`last_split_by_ticker`]
+/// struct for typed errors of method [`last_split`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum LastSplitByTickerError {
+pub enum LastSplitError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::AccountById404Response),
@@ -26,10 +26,10 @@ pub enum LastSplitByTickerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_last_split_by_ticker`]
+/// struct for typed errors of method [`options_last_split`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsLastSplitByTickerError {
+pub enum OptionsLastSplitError {
     UnknownValue(serde_json::Value),
 }
 
@@ -52,8 +52,8 @@ pub enum SearchSplitsError {
 }
 
 
-/// This endpoint return the last split received by the shareholder for the specific instrument. 
-pub async fn last_split_by_ticker(configuration: &configuration::Configuration, id: &str) -> Result<models::V1SplitResponse, Error<LastSplitByTickerError>> {
+/// Permits to get the last split received by the shareholder for the specific instrument.
+pub async fn last_split(configuration: &configuration::Configuration, id: &str) -> Result<models::V1SplitResponse, Error<LastSplitError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -92,13 +92,13 @@ pub async fn last_split_by_ticker(configuration: &configuration::Configuration, 
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<LastSplitByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<LastSplitError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_last_split_by_ticker(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsLastSplitByTickerError>> {
+pub async fn options_last_split(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsLastSplitError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
 
@@ -118,7 +118,7 @@ pub async fn options_last_split_by_ticker(configuration: &configuration::Configu
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsLastSplitByTickerError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsLastSplitError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -147,7 +147,7 @@ pub async fn options_splits(configuration: &configuration::Configuration, ) -> R
     }
 }
 
-/// This endpoint return a list of splits (From, To, Coef and Date).
+/// Permits to search splits by interval and arguments
 pub async fn search_splits(configuration: &configuration::Configuration, v1_screener_np_request: models::V1ScreenerNpRequest) -> Result<models::SearchSplits200Response, Error<SearchSplitsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_np_request = v1_screener_np_request;
