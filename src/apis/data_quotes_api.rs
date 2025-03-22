@@ -21,7 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum LastQuoteError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -32,7 +32,7 @@ pub enum LastQuoteError {
 pub enum LastsQuotesError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -78,7 +78,7 @@ pub enum OptionsSearchQuotesHistogramError {
 pub enum SearchIntradayQuotesError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -89,7 +89,7 @@ pub enum SearchIntradayQuotesError {
 pub enum SearchQuotesError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -100,7 +100,7 @@ pub enum SearchQuotesError {
 pub enum SearchQuotesHistogramError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }

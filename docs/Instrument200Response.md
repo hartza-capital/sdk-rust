@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ticker_alternative** | Option<**String**> | TickerAlternative is the alternative identifier for the security. | [optional]
 **name** | Option<**String**> | Name is the name of the security. | [optional]
 **description** | Option<**String**> | Description is the description of the security. | [optional]
-**exchange** | Option<[**models::V1ExchangeBulkResponse**](v1ExchangeBulkResponse.md)> |  | [optional]
+**exchange** | Option<[**models::V1ExchangesBulkResponse**](v1ExchangesBulkResponse.md)> |  | [optional]
 **asset** | Option<**String**> | Asset is the asset class of the security. | [optional]
 **cik** | Option<**String**> | CIK is the Central Index Key (CIK) is a number used to identify the filings of a business. | [optional]
 **isin** | Option<**String**> | ISIN is the International Securities Identification Number (ISIN) is a code that uniquely identifies a specific securities issue. | [optional]

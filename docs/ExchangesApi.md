@@ -5,9 +5,9 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**exchange**](ExchangesApi.md#exchange) | **GET** /v1/exchange/{ticker} | Get Exchange properties by Ticker
-[**exchanges_status**](ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchanges Status
+[**exchanges_status**](ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchange Status
 [**options_exchange**](ExchangesApi.md#options_exchange) | **OPTIONS** /v1/exchange/{ticker} | Options Exchange properties
-[**options_exchanges_status**](ExchangesApi.md#options_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchanges Status
+[**options_exchanges_status**](ExchangesApi.md#options_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchange Status
 
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 ## exchanges_status
 
 > models::ExchangesStatus200Response exchanges_status()
-List Exchanges Status
+List Exchange Status
 
 Permits to list the exchanges status (open, close, pre-market, post-market...)
 
@@ -101,7 +101,7 @@ No authorization required
 ## options_exchanges_status
 
 > options_exchanges_status()
-Options Exchanges Status
+Options Exchange Status
 
 Options method is used to describe the communication options for the targeted resource.
 

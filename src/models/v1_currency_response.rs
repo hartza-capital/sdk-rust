@@ -24,7 +24,7 @@ pub struct V1CurrencyResponse {
     pub central_bank: Option<Box<models::V1CurrencyResponseCentralBank>>,
     /// Exchanges is the list of exchanges used in the country.
     #[serde(rename = "exchanges", skip_serializing_if = "Option::is_none")]
-    pub exchanges: Option<Vec<models::V1ExchangeBulkResponse>>,
+    pub exchanges: Option<Vec<models::V1ExchangesBulkResponse>>,
     /// Countries is the list of countries using the currency.
     #[serde(rename = "countries", skip_serializing_if = "Option::is_none")]
     pub countries: Option<Vec<models::V1CountryBulkResponse>>,

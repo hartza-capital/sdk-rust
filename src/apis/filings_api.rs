@@ -21,7 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum FilingsUsError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }

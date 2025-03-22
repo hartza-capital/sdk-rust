@@ -17,7 +17,7 @@ pub struct Country200ResponseEconomic {
     #[serde(rename = "currencies", skip_serializing_if = "Option::is_none")]
     pub currencies: Option<Vec<String>>,
     #[serde(rename = "exchanges", skip_serializing_if = "Option::is_none")]
-    pub exchanges: Option<Vec<models::V1ExchangeBulkResponse>>,
+    pub exchanges: Option<Vec<models::V1ExchangesBulkResponse>>,
     /// Indexes is the list of indexes used in the country.
     #[serde(rename = "indexes", skip_serializing_if = "Option::is_none")]
     pub indexes: Option<Vec<models::V1IndexResponse>>,

@@ -30,7 +30,7 @@ pub struct Instrument200Response {
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     #[serde(rename = "exchange", skip_serializing_if = "Option::is_none")]
-    pub exchange: Option<Box<models::V1ExchangeBulkResponse>>,
+    pub exchange: Option<Box<models::V1ExchangesBulkResponse>>,
     /// Asset is the asset class of the security.
     #[serde(rename = "asset", skip_serializing_if = "Option::is_none")]
     pub asset: Option<String>,

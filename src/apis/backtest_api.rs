@@ -21,7 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum BacktestError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -32,7 +32,7 @@ pub enum BacktestError {
 pub enum LastBacktestError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -43,7 +43,7 @@ pub enum LastBacktestError {
 pub enum LastsBacktestError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }

@@ -30,25 +30,25 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountsApi* | [**account_by_id**](docs/AccountsApi.md#account_by_id) | **GET** /v1/account | Get Account properties by ID
+*AccountsApi* | [**account**](docs/AccountsApi.md#account) | **GET** /v1/account | Get Account properties by ID
 *AccountsApi* | [**accounts**](docs/AccountsApi.md#accounts) | **GET** /v1/accounts | List Accounts properties
-*AccountsApi* | [**archive_account_by_id**](docs/AccountsApi.md#archive_account_by_id) | **DELETE** /v1/account | Archive Account by ID
+*AccountsApi* | [**archive_account**](docs/AccountsApi.md#archive_account) | **DELETE** /v1/account | Archive Account by ID
 *AccountsApi* | [**create_account**](docs/AccountsApi.md#create_account) | **POST** /v1/accounts | Create Account
-*AccountsApi* | [**options_account_by_id**](docs/AccountsApi.md#options_account_by_id) | **OPTIONS** /v1/account | Options Account methods by ID
+*AccountsApi* | [**options_account**](docs/AccountsApi.md#options_account) | **OPTIONS** /v1/account | Options Account methods by ID
 *AccountsApi* | [**options_accounts**](docs/AccountsApi.md#options_accounts) | **OPTIONS** /v1/accounts | Options List Accounts properties
-*AccountsApi* | [**patch_account_by_id**](docs/AccountsApi.md#patch_account_by_id) | **PATCH** /v1/account | Patch Account properties by ID
-*AccountsFiltersApi* | [**create_filter**](docs/AccountsFiltersApi.md#create_filter) | **POST** /v1/filters | Create Account Filter
-*AccountsFiltersApi* | [**delete_filter**](docs/AccountsFiltersApi.md#delete_filter) | **DELETE** /v1/filter/{ticker} | Delete Filter
-*AccountsFiltersApi* | [**filter**](docs/AccountsFiltersApi.md#filter) | **GET** /v1/filter/{ticker} | Get Filter properties
-*AccountsFiltersApi* | [**filters**](docs/AccountsFiltersApi.md#filters) | **GET** /v1/filters | List Filters
-*AccountsFiltersApi* | [**options_filter**](docs/AccountsFiltersApi.md#options_filter) | **OPTIONS** /v1/filter/{ticker} | Options Account Filter
-*AccountsFiltersApi* | [**options_filters**](docs/AccountsFiltersApi.md#options_filters) | **OPTIONS** /v1/filters | Options Filters
-*AccountsFiltersApi* | [**update_filter**](docs/AccountsFiltersApi.md#update_filter) | **PUT** /v1/filter/{ticker} | Update Filter properties
-*AccountsFiltersReportsApi* | [**filter_report**](docs/AccountsFiltersReportsApi.md#filter_report) | **GET** /v1/filter/report/{proxy} | Get Filter Report properties
-*AccountsFiltersReportsApi* | [**options_filter_report**](docs/AccountsFiltersReportsApi.md#options_filter_report) | **OPTIONS** /v1/filter/report/{proxy} | Options Filter Report
+*AccountsApi* | [**patch_account**](docs/AccountsApi.md#patch_account) | **PATCH** /v1/account | Patch Account properties by ID
 *AccountsOrdersApi* | [**create_orders**](docs/AccountsOrdersApi.md#create_orders) | **POST** /v1/orders | Create Orders by Account
 *AccountsOrdersApi* | [**options_orders**](docs/AccountsOrdersApi.md#options_orders) | **OPTIONS** /v1/orders | Options Orders
 *AccountsOrdersApi* | [**orders**](docs/AccountsOrdersApi.md#orders) | **GET** /v1/orders | List Orders by Account
+*AccountsWatchlistsApi* | [**create_watchlist**](docs/AccountsWatchlistsApi.md#create_watchlist) | **POST** /v1/watchlists | Create Account Watchlist
+*AccountsWatchlistsApi* | [**delete_watchlist**](docs/AccountsWatchlistsApi.md#delete_watchlist) | **DELETE** /v1/watchlist/{ticker} | Delete Watchlist
+*AccountsWatchlistsApi* | [**options_watchlist**](docs/AccountsWatchlistsApi.md#options_watchlist) | **OPTIONS** /v1/watchlist/{ticker} | Options Account Watchlist
+*AccountsWatchlistsApi* | [**options_watchlists**](docs/AccountsWatchlistsApi.md#options_watchlists) | **OPTIONS** /v1/watchlists | Options Watchlists
+*AccountsWatchlistsApi* | [**update_watchlist**](docs/AccountsWatchlistsApi.md#update_watchlist) | **PUT** /v1/watchlist/{ticker} | Update Watchlist properties
+*AccountsWatchlistsApi* | [**watchlist**](docs/AccountsWatchlistsApi.md#watchlist) | **GET** /v1/watchlist/{ticker} | Get Watchlist properties
+*AccountsWatchlistsApi* | [**watchlists**](docs/AccountsWatchlistsApi.md#watchlists) | **GET** /v1/watchlists | List Watchlists
+*AccountsWatchlistsReportsApi* | [**options_watchlist_report**](docs/AccountsWatchlistsReportsApi.md#options_watchlist_report) | **OPTIONS** /v1/watchlist/report/{proxy} | Options Watchlist Report
+*AccountsWatchlistsReportsApi* | [**watchlist_report**](docs/AccountsWatchlistsReportsApi.md#watchlist_report) | **GET** /v1/watchlist/report/{proxy} | Get Watchlist Report properties
 *BacktestApi* | [**backtest**](docs/BacktestApi.md#backtest) | **POST** /v1/backtest | Backtest Strategy
 *BacktestApi* | [**last_backtest**](docs/BacktestApi.md#last_backtest) | **GET** /v1/backtest/{strategy}/{ticker}/last | Last trend available
 *BacktestApi* | [**lasts_backtest**](docs/BacktestApi.md#lasts_backtest) | **POST** /v1/backtest/lasts | Lasts backtest available
@@ -80,9 +80,9 @@ Class | Method | HTTP request | Description
 *DataQuotesApi* | [**search_quotes**](docs/DataQuotesApi.md#search_quotes) | **POST** /v1/quotes | Search Quotes in interval and period
 *DataQuotesApi* | [**search_quotes_histogram**](docs/DataQuotesApi.md#search_quotes_histogram) | **POST** /v1/quotes/histogram | Search Quotes Histogram
 *ExchangesApi* | [**exchange**](docs/ExchangesApi.md#exchange) | **GET** /v1/exchange/{ticker} | Get Exchange properties by Ticker
-*ExchangesApi* | [**exchanges_status**](docs/ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchanges Status
+*ExchangesApi* | [**exchanges_status**](docs/ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchange Status
 *ExchangesApi* | [**options_exchange**](docs/ExchangesApi.md#options_exchange) | **OPTIONS** /v1/exchange/{ticker} | Options Exchange properties
-*ExchangesApi* | [**options_exchanges_status**](docs/ExchangesApi.md#options_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchanges Status
+*ExchangesApi* | [**options_exchanges_status**](docs/ExchangesApi.md#options_exchanges_status) | **OPTIONS** /v1/exchanges/status | Options Exchange Status
 *FilingsApi* | [**filings_us**](docs/FilingsApi.md#filings_us) | **GET** /v1/filings/us/{proxy} | Get US Filings
 *FilingsApi* | [**options_filings_by_cik**](docs/FilingsApi.md#options_filings_by_cik) | **OPTIONS** /v1/filings/us/{proxy} | Options US Filings
 *ForexApi* | [**forex**](docs/ForexApi.md#forex) | **GET** /v1/forex/{ticker} | Get Forex properties
@@ -133,8 +133,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AccountById200Response](docs/AccountById200Response.md)
- - [AccountById404Response](docs/AccountById404Response.md)
+ - [Account200Response](docs/Account200Response.md)
+ - [Account404Response](docs/Account404Response.md)
  - [Accounts200Response](docs/Accounts200Response.md)
  - [Backtest200Response](docs/Backtest200Response.md)
  - [Backtest200ResponseDataInner](docs/Backtest200ResponseDataInner.md)
@@ -154,8 +154,8 @@ Class | Method | HTTP request | Description
  - [CountryEvents200ResponseDataInner](docs/CountryEvents200ResponseDataInner.md)
  - [CreateAccount409Response](docs/CreateAccount409Response.md)
  - [CreateAccountRequest](docs/CreateAccountRequest.md)
- - [CreateFilterRequest](docs/CreateFilterRequest.md)
  - [CreateOrdersRequest](docs/CreateOrdersRequest.md)
+ - [CreateWatchlistRequest](docs/CreateWatchlistRequest.md)
  - [Exchange200Response](docs/Exchange200Response.md)
  - [Exchange200ResponseHolidaysInner](docs/Exchange200ResponseHolidaysInner.md)
  - [Exchange200ResponseStats](docs/Exchange200ResponseStats.md)
@@ -165,17 +165,6 @@ Class | Method | HTTP request | Description
  - [FilingsUs200ResponseFormsValueInner](docs/FilingsUs200ResponseFormsValueInner.md)
  - [FilingsUs200ResponseFormsValueInnerObjects](docs/FilingsUs200ResponseFormsValueInnerObjects.md)
  - [FilingsUs200ResponseFormsValueInnerObjectsPrincipal](docs/FilingsUs200ResponseFormsValueInnerObjectsPrincipal.md)
- - [FilterReport200Response](docs/FilterReport200Response.md)
- - [FilterReport200ResponseAllocation](docs/FilterReport200ResponseAllocation.md)
- - [FilterReport200ResponseAllocationOrdersValue](docs/FilterReport200ResponseAllocationOrdersValue.md)
- - [FilterReport200ResponseAssetValue](docs/FilterReport200ResponseAssetValue.md)
- - [FilterReport200ResponseCurrencyValue](docs/FilterReport200ResponseCurrencyValue.md)
- - [FilterReport200ResponseGeographic](docs/FilterReport200ResponseGeographic.md)
- - [FilterReport200ResponsePerformance](docs/FilterReport200ResponsePerformance.md)
- - [FilterReport200ResponsePerformanceHoldInner](docs/FilterReport200ResponsePerformanceHoldInner.md)
- - [FilterReport200ResponseRef](docs/FilterReport200ResponseRef.md)
- - [Filters200Response](docs/Filters200Response.md)
- - [Filters200ResponseDataInner](docs/Filters200ResponseDataInner.md)
  - [Forex200Response](docs/Forex200Response.md)
  - [Forex200ResponseStats](docs/Forex200ResponseStats.md)
  - [Index200Response](docs/Index200Response.md)
@@ -201,7 +190,7 @@ Class | Method | HTTP request | Description
  - [Orders400Response](docs/Orders400Response.md)
  - [Orders401Response](docs/Orders401Response.md)
  - [Orders500Response](docs/Orders500Response.md)
- - [PatchAccountByIdRequest](docs/PatchAccountByIdRequest.md)
+ - [PatchAccountRequest](docs/PatchAccountRequest.md)
  - [Portfolios200Response](docs/Portfolios200Response.md)
  - [PortfoliosHistogram200Response](docs/PortfoliosHistogram200Response.md)
  - [PortfoliosHistogram200ResponseData](docs/PortfoliosHistogram200ResponseData.md)
@@ -222,6 +211,7 @@ Class | Method | HTTP request | Description
  - [Strategies200Response](docs/Strategies200Response.md)
  - [Strategies200ResponseDataInner](docs/Strategies200ResponseDataInner.md)
  - [Time200Response](docs/Time200Response.md)
+ - [UpdateWatchlistRequest](docs/UpdateWatchlistRequest.md)
  - [User200Response](docs/User200Response.md)
  - [User200ResponseConfig](docs/User200ResponseConfig.md)
  - [User200ResponseContact](docs/User200ResponseContact.md)
@@ -233,10 +223,8 @@ Class | Method | HTTP request | Description
  - [V1CurrencyResponse](docs/V1CurrencyResponse.md)
  - [V1CurrencyResponseCentralBank](docs/V1CurrencyResponseCentralBank.md)
  - [V1DividendResponse](docs/V1DividendResponse.md)
- - [V1ExchangeBulkResponse](docs/V1ExchangeBulkResponse.md)
+ - [V1ExchangesBulkResponse](docs/V1ExchangesBulkResponse.md)
  - [V1ExchangesStatusResult](docs/V1ExchangesStatusResult.md)
- - [V1FilterResponse](docs/V1FilterResponse.md)
- - [V1FilterResponseStats](docs/V1FilterResponseStats.md)
  - [V1GetResponseSizeCap](docs/V1GetResponseSizeCap.md)
  - [V1IndexResponse](docs/V1IndexResponse.md)
  - [V1IndicatorResponse](docs/V1IndicatorResponse.md)
@@ -262,6 +250,19 @@ Class | Method | HTTP request | Description
  - [V1StatsResponse](docs/V1StatsResponse.md)
  - [V1StrategiesQuoteResponse](docs/V1StrategiesQuoteResponse.md)
  - [V1StrategyResponse](docs/V1StrategyResponse.md)
+ - [V1WatchlistResponse](docs/V1WatchlistResponse.md)
+ - [V1WatchlistResponseStats](docs/V1WatchlistResponseStats.md)
+ - [WatchlistReport200Response](docs/WatchlistReport200Response.md)
+ - [WatchlistReport200ResponseAllocation](docs/WatchlistReport200ResponseAllocation.md)
+ - [WatchlistReport200ResponseAllocationOrdersValue](docs/WatchlistReport200ResponseAllocationOrdersValue.md)
+ - [WatchlistReport200ResponseAssetValue](docs/WatchlistReport200ResponseAssetValue.md)
+ - [WatchlistReport200ResponseCurrencyValue](docs/WatchlistReport200ResponseCurrencyValue.md)
+ - [WatchlistReport200ResponseGeographic](docs/WatchlistReport200ResponseGeographic.md)
+ - [WatchlistReport200ResponsePerformance](docs/WatchlistReport200ResponsePerformance.md)
+ - [WatchlistReport200ResponsePerformanceHoldInner](docs/WatchlistReport200ResponsePerformanceHoldInner.md)
+ - [WatchlistReport200ResponseRef](docs/WatchlistReport200ResponseRef.md)
+ - [Watchlists200Response](docs/Watchlists200Response.md)
+ - [Watchlists200ResponseDataInner](docs/Watchlists200ResponseDataInner.md)
 
 
 To get access to the crate's generated documentation, use:

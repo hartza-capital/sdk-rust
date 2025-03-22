@@ -21,7 +21,7 @@ use super::{Error, configuration, ContentType};
 pub enum LastsQuotesPortfoliosError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -60,7 +60,7 @@ pub enum OptionsPortfoliosQuotesError {
 pub enum PortfolioLastQuoteError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -71,7 +71,7 @@ pub enum PortfolioLastQuoteError {
 pub enum PortfoliosHistogramError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -82,7 +82,7 @@ pub enum PortfoliosHistogramError {
 pub enum PortfoliosQuotesError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }

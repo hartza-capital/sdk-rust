@@ -15,13 +15,13 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`account_by_id`]
+/// struct for typed errors of method [`account`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AccountByIdError {
+pub enum AccountError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -31,18 +31,18 @@ pub enum AccountByIdError {
 #[serde(untagged)]
 pub enum AccountsError {
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`archive_account_by_id`]
+/// struct for typed errors of method [`archive_account`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ArchiveAccountByIdError {
+pub enum ArchiveAccountError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
@@ -58,10 +58,10 @@ pub enum CreateAccountError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_account_by_id`]
+/// struct for typed errors of method [`options_account`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OptionsAccountByIdError {
+pub enum OptionsAccountError {
     UnknownValue(serde_json::Value),
 }
 
@@ -72,20 +72,20 @@ pub enum OptionsAccountsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`patch_account_by_id`]
+/// struct for typed errors of method [`patch_account`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PatchAccountByIdError {
+pub enum PatchAccountError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
-    Status404(models::AccountById404Response),
+    Status404(models::Account404Response),
     Status500(models::Orders500Response),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Permits to get Account properties, filters and strategy applicated on the portfolios
-pub async fn account_by_id(configuration: &configuration::Configuration, x_account: &str) -> Result<models::AccountById200Response, Error<AccountByIdError>> {
+/// Permits to get Account properties, watchlists and strategy applicated on the portfolios
+pub async fn account(configuration: &configuration::Configuration, x_account: &str) -> Result<models::Account200Response, Error<AccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
 
@@ -120,12 +120,12 @@ pub async fn account_by_id(configuration: &configuration::Configuration, x_accou
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AccountById200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AccountById200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Account200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Account200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AccountByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<AccountError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -179,7 +179,7 @@ pub async fn accounts(configuration: &configuration::Configuration, items: i64, 
 }
 
 /// Permits to archive Account and disable strategy applicated on the portfolios
-pub async fn archive_account_by_id(configuration: &configuration::Configuration, x_account: &str) -> Result<models::AccountById200Response, Error<ArchiveAccountByIdError>> {
+pub async fn archive_account(configuration: &configuration::Configuration, x_account: &str) -> Result<models::Account200Response, Error<ArchiveAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
 
@@ -214,18 +214,18 @@ pub async fn archive_account_by_id(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AccountById200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AccountById200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Account200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Account200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ArchiveAccountByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<ArchiveAccountError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Create Account permit to create a new account with strategy and properties.
-pub async fn create_account(configuration: &configuration::Configuration, create_account_request: Option<models::CreateAccountRequest>) -> Result<models::AccountById200Response, Error<CreateAccountError>> {
+pub async fn create_account(configuration: &configuration::Configuration, create_account_request: Option<models::CreateAccountRequest>) -> Result<models::Account200Response, Error<CreateAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_create_account_request = create_account_request;
 
@@ -260,8 +260,8 @@ pub async fn create_account(configuration: &configuration::Configuration, create
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AccountById200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AccountById200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Account200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Account200Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -271,7 +271,7 @@ pub async fn create_account(configuration: &configuration::Configuration, create
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_account_by_id(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsAccountByIdError>> {
+pub async fn options_account(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsAccountError>> {
 
     let uri_str = format!("{}/v1/account", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
@@ -289,7 +289,7 @@ pub async fn options_account_by_id(configuration: &configuration::Configuration,
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<OptionsAccountByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<OptionsAccountError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -318,11 +318,11 @@ pub async fn options_accounts(configuration: &configuration::Configuration, ) ->
     }
 }
 
-/// Permits to patch Account properties, filters and strategy applicated on the portfolios
-pub async fn patch_account_by_id(configuration: &configuration::Configuration, x_account: &str, patch_account_by_id_request: Option<models::PatchAccountByIdRequest>) -> Result<models::AccountById200Response, Error<PatchAccountByIdError>> {
+/// Permits to patch Account properties, watchlists and strategy applicated on the portfolios
+pub async fn patch_account(configuration: &configuration::Configuration, x_account: &str, patch_account_request: Option<models::PatchAccountRequest>) -> Result<models::Account200Response, Error<PatchAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_x_account = x_account;
-    let p_patch_account_by_id_request = patch_account_by_id_request;
+    let p_patch_account_request = patch_account_request;
 
     let uri_str = format!("{}/v1/account", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -339,7 +339,7 @@ pub async fn patch_account_by_id(configuration: &configuration::Configuration, x
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_patch_account_by_id_request);
+    req_builder = req_builder.json(&p_patch_account_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -356,12 +356,12 @@ pub async fn patch_account_by_id(configuration: &configuration::Configuration, x
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AccountById200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AccountById200Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::Account200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::Account200Response`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<PatchAccountByIdError> = serde_json::from_str(&content).ok();
+        let entity: Option<PatchAccountError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

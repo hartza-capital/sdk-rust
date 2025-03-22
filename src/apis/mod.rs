@@ -112,9 +112,9 @@ impl From<&str> for ContentType {
 }
 
 pub mod accounts_api;
-pub mod accounts_filters_api;
-pub mod accounts_filters_reports_api;
 pub mod accounts_orders_api;
+pub mod accounts_watchlists_api;
+pub mod accounts_watchlists_reports_api;
 pub mod backtest_api;
 pub mod commodities_api;
 pub mod countries_api;
