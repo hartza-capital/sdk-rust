@@ -175,7 +175,7 @@ pub async fn lasts_backtest(configuration: &configuration::Configuration, strate
     let p_tickers = tickers;
 
     let uri_str = format!("{}/v1/backtest/lasts", configuration.base_path, strategy=crate::apis::urlencode(p_strategy));
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_tickers {
         req_builder = req_builder.query(&[("tickers", &param_value.to_string())]);

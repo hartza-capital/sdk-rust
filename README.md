@@ -51,7 +51,7 @@ Class | Method | HTTP request | Description
 *AccountsWatchlistsReportsApi* | [**watchlist_report**](docs/AccountsWatchlistsReportsApi.md#watchlist_report) | **GET** /v1/watchlist/report/{proxy} | Get Watchlist Report properties
 *BacktestApi* | [**backtest**](docs/BacktestApi.md#backtest) | **POST** /v1/backtest | Backtest Strategy
 *BacktestApi* | [**last_backtest**](docs/BacktestApi.md#last_backtest) | **GET** /v1/backtest/{strategy}/{ticker}/last | Last trend available
-*BacktestApi* | [**lasts_backtest**](docs/BacktestApi.md#lasts_backtest) | **POST** /v1/backtest/lasts | Lasts backtest available
+*BacktestApi* | [**lasts_backtest**](docs/BacktestApi.md#lasts_backtest) | **GET** /v1/backtest/lasts | Lasts backtest available
 *BacktestApi* | [**options_backtest**](docs/BacktestApi.md#options_backtest) | **OPTIONS** /v1/backtest | Options Backtest Strategy
 *BacktestApi* | [**options_last_backtest**](docs/BacktestApi.md#options_last_backtest) | **OPTIONS** /v1/backtest/{strategy}/{ticker}/last | Options last trend available
 *BacktestApi* | [**options_lasts_backtest**](docs/BacktestApi.md#options_lasts_backtest) | **OPTIONS** /v1/backtest/lasts | Options lasts backtest available

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**backtest**](BacktestApi.md#backtest) | **POST** /v1/backtest | Backtest Strategy
 [**last_backtest**](BacktestApi.md#last_backtest) | **GET** /v1/backtest/{strategy}/{ticker}/last | Last trend available
-[**lasts_backtest**](BacktestApi.md#lasts_backtest) | **POST** /v1/backtest/lasts | Lasts backtest available
+[**lasts_backtest**](BacktestApi.md#lasts_backtest) | **GET** /v1/backtest/lasts | Lasts backtest available
 [**options_backtest**](BacktestApi.md#options_backtest) | **OPTIONS** /v1/backtest | Options Backtest Strategy
 [**options_last_backtest**](BacktestApi.md#options_last_backtest) | **OPTIONS** /v1/backtest/{strategy}/{ticker}/last | Options last trend available
 [**options_lasts_backtest**](BacktestApi.md#options_lasts_backtest) | **OPTIONS** /v1/backtest/lasts | Options lasts backtest available
