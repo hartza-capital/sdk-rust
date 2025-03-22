@@ -122,9 +122,10 @@ pub async fn lasts_strategy_quotes(configuration: &configuration::Configuration,
     let p_strategy = strategy;
     let p_tickers = tickers;
 
-    let uri_str = format!("{}/v1/quotes/strategy/lasts", configuration.base_path, strategy=crate::apis::urlencode(p_strategy));
+    let uri_str = format!("{}/v1/quotes/strategy/lasts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("strategy", &p_strategy.to_string())]);
     if let Some(ref param_value) = p_tickers {
         req_builder = req_builder.query(&[("tickers", &param_value.to_string())]);
     }
