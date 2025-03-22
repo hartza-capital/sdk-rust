@@ -70,7 +70,7 @@ Class | Method | HTTP request | Description
 *CurrenciesApi* | [**currency**](docs/CurrenciesApi.md#currency) | **GET** /v1/currency/{ticker} | Get Currency properties
 *CurrenciesApi* | [**options_currency**](docs/CurrenciesApi.md#options_currency) | **OPTIONS** /v1/currency/{ticker} | Options Currency properties
 *DataQuotesApi* | [**last_quote**](docs/DataQuotesApi.md#last_quote) | **GET** /v1/quotes/{ticker}/last | Get Last Quote for Instrument
-*DataQuotesApi* | [**lasts_quotes**](docs/DataQuotesApi.md#lasts_quotes) | **POST** /v1/quotes/lasts | List lasts quotes for Instruments
+*DataQuotesApi* | [**lasts_quotes**](docs/DataQuotesApi.md#lasts_quotes) | **GET** /v1/quotes/lasts | List lasts quotes for data
 *DataQuotesApi* | [**option_intraday_quotes**](docs/DataQuotesApi.md#option_intraday_quotes) | **OPTIONS** /v1/quotes/intraday | Options Search Quotes by Instruments and period
 *DataQuotesApi* | [**options_last_quote**](docs/DataQuotesApi.md#options_last_quote) | **OPTIONS** /v1/quotes/{ticker}/last | Options Last Quote for Instrument by Ticker
 *DataQuotesApi* | [**options_lasts_quotes**](docs/DataQuotesApi.md#options_lasts_quotes) | **OPTIONS** /v1/quotes/lasts | Options List lasts quote for Instruments
@@ -89,14 +89,14 @@ Class | Method | HTTP request | Description
 *ForexApi* | [**options_forex**](docs/ForexApi.md#options_forex) | **OPTIONS** /v1/forex/{ticker} | Options Forex properties
 *IndexesApi* | [**index**](docs/IndexesApi.md#index) | **GET** /v1/index/{ticker} | Get Index properties
 *IndexesApi* | [**options_index**](docs/IndexesApi.md#options_index) | **OPTIONS** /v1/index/{ticker} | Options Get Index
-*InstrumentsApi* | [**instrument**](docs/InstrumentsApi.md#instrument) | **GET** /v1/instrument/{id} | Get Instrument properties
-*InstrumentsApi* | [**options_instrument**](docs/InstrumentsApi.md#options_instrument) | **OPTIONS** /v1/instrument/{id} | Options Instrument
-*InstrumentsDividendsApi* | [**last_dividend**](docs/InstrumentsDividendsApi.md#last_dividend) | **GET** /v1/dividend/{id}/last | Get Last Dividend for Instrument
+*InstrumentsApi* | [**instrument**](docs/InstrumentsApi.md#instrument) | **GET** /v1/instrument/{ticker} | Get Instrument properties
+*InstrumentsApi* | [**options_instrument**](docs/InstrumentsApi.md#options_instrument) | **OPTIONS** /v1/instrument/{ticker} | Options Instrument
+*InstrumentsDividendsApi* | [**last_dividend**](docs/InstrumentsDividendsApi.md#last_dividend) | **GET** /v1/dividend/{ticker}/last | Get Last Dividend for Instrument
 *InstrumentsDividendsApi* | [**options_dividends**](docs/InstrumentsDividendsApi.md#options_dividends) | **OPTIONS** /v1/dividends | Options Search Dividends for Instrument
-*InstrumentsDividendsApi* | [**options_last_dividend**](docs/InstrumentsDividendsApi.md#options_last_dividend) | **OPTIONS** /v1/dividend/{id}/last | Options Last Dividend for Instrument
+*InstrumentsDividendsApi* | [**options_last_dividend**](docs/InstrumentsDividendsApi.md#options_last_dividend) | **OPTIONS** /v1/dividend/{ticker}/last | Options Last Dividend for Instrument
 *InstrumentsDividendsApi* | [**search_dividends**](docs/InstrumentsDividendsApi.md#search_dividends) | **POST** /v1/dividends | Search Instruments Dividends by interval and arguments
-*InstrumentsSplitsApi* | [**last_split**](docs/InstrumentsSplitsApi.md#last_split) | **GET** /v1/split/{id}/last | Last Split for Instrument
-*InstrumentsSplitsApi* | [**options_last_split**](docs/InstrumentsSplitsApi.md#options_last_split) | **OPTIONS** /v1/split/{id}/last | Options Last Split for Instrument
+*InstrumentsSplitsApi* | [**last_split**](docs/InstrumentsSplitsApi.md#last_split) | **GET** /v1/split/{ticker}/last | Last Split for Instrument
+*InstrumentsSplitsApi* | [**options_last_split**](docs/InstrumentsSplitsApi.md#options_last_split) | **OPTIONS** /v1/split/{ticker}/last | Options Last Split for Instrument
 *InstrumentsSplitsApi* | [**options_splits**](docs/InstrumentsSplitsApi.md#options_splits) | **OPTIONS** /v1/splits | Options Search Splits for Instrument
 *InstrumentsSplitsApi* | [**search_splits**](docs/InstrumentsSplitsApi.md#search_splits) | **POST** /v1/splits | Search Instruments Splits by interval and arguments
 *NewsApi* | [**options_search_news**](docs/NewsApi.md#options_search_news) | **OPTIONS** /v1/news | Options Search News
@@ -105,7 +105,7 @@ Class | Method | HTTP request | Description
 *PortfoliosApi* | [**portfolios**](docs/PortfoliosApi.md#portfolios) | **GET** /v1/portfolios | List Portfolios
 *PortfoliosAnalysisApi* | [**options_portfolios_analysis**](docs/PortfoliosAnalysisApi.md#options_portfolios_analysis) | **OPTIONS** /v1/portfolios/analysis | Options Portfolios Analysis
 *PortfoliosAnalysisApi* | [**portfolio_analysis**](docs/PortfoliosAnalysisApi.md#portfolio_analysis) | **GET** /v1/portfolios/analysis | Launch Portfolio Analysis
-*PortfoliosQuotesApi* | [**lasts_quotes_portfolios**](docs/PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **POST** /v1/quotes/portfolios/lasts | List lasts quote for Portfolios
+*PortfoliosQuotesApi* | [**lasts_quotes_portfolios**](docs/PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **GET** /v1/quotes/portfolios/lasts | List lasts quotes for Portfolios
 *PortfoliosQuotesApi* | [**options_lasts_portfolios_quotes**](docs/PortfoliosQuotesApi.md#options_lasts_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios/lasts | Options List lasts quote for Portfolios
 *PortfoliosQuotesApi* | [**options_portfolio_last_quote**](docs/PortfoliosQuotesApi.md#options_portfolio_last_quote) | **OPTIONS** /v1/quotes/portfolio/{ticker}/last | Options Last Quote for Account Portfolio by Ticker
 *PortfoliosQuotesApi* | [**options_portfolios_histogram**](docs/PortfoliosQuotesApi.md#options_portfolios_histogram) | **OPTIONS** /v1/quotes/portfolios/histogram | Options Portfolios Histogram
@@ -179,7 +179,6 @@ Class | Method | HTTP request | Description
  - [LastsBacktest200Response](docs/LastsBacktest200Response.md)
  - [LastsQuotesCountryIndicators200Response](docs/LastsQuotesCountryIndicators200Response.md)
  - [LastsQuotesPortfolios200Response](docs/LastsQuotesPortfolios200Response.md)
- - [LastsQuotesPortfoliosRequest](docs/LastsQuotesPortfoliosRequest.md)
  - [LastsStrategyQuotes200Response](docs/LastsStrategyQuotes200Response.md)
  - [LastsStrategyQuotes200ResponseDataValue](docs/LastsStrategyQuotes200ResponseDataValue.md)
  - [LastsStrategyQuotesRequest](docs/LastsStrategyQuotesRequest.md)

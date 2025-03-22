@@ -89,13 +89,16 @@ pub enum PortfoliosQuotesError {
 
 
 /// Permits to list lasts quotes for the portfolios
-pub async fn lasts_quotes_portfolios(configuration: &configuration::Configuration, lasts_quotes_portfolios_request: models::LastsQuotesPortfoliosRequest) -> Result<models::LastsQuotesPortfolios200Response, Error<LastsQuotesPortfoliosError>> {
+pub async fn lasts_quotes_portfolios(configuration: &configuration::Configuration, tickers: Option<&str>) -> Result<models::LastsQuotesPortfolios200Response, Error<LastsQuotesPortfoliosError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_lasts_quotes_portfolios_request = lasts_quotes_portfolios_request;
+    let p_tickers = tickers;
 
     let uri_str = format!("{}/v1/quotes/portfolios/lasts", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = p_tickers {
+        req_builder = req_builder.query(&[("tickers", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -107,7 +110,6 @@ pub async fn lasts_quotes_portfolios(configuration: &configuration::Configuratio
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_lasts_quotes_portfolios_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

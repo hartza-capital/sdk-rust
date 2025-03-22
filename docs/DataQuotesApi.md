@@ -5,7 +5,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**last_quote**](DataQuotesApi.md#last_quote) | **GET** /v1/quotes/{ticker}/last | Get Last Quote for Instrument
-[**lasts_quotes**](DataQuotesApi.md#lasts_quotes) | **POST** /v1/quotes/lasts | List lasts quotes for Instruments
+[**lasts_quotes**](DataQuotesApi.md#lasts_quotes) | **GET** /v1/quotes/lasts | List lasts quotes for data
 [**option_intraday_quotes**](DataQuotesApi.md#option_intraday_quotes) | **OPTIONS** /v1/quotes/intraday | Options Search Quotes by Instruments and period
 [**options_last_quote**](DataQuotesApi.md#options_last_quote) | **OPTIONS** /v1/quotes/{ticker}/last | Options Last Quote for Instrument by Ticker
 [**options_lasts_quotes**](DataQuotesApi.md#options_lasts_quotes) | **OPTIONS** /v1/quotes/lasts | Options List lasts quote for Instruments
@@ -29,7 +29,7 @@ Permits to get the last quote received by the shareholder for the specific instr
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | id of instrument | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 
@@ -49,17 +49,17 @@ Name | Type | Description  | Required | Notes
 
 ## lasts_quotes
 
-> models::LastsQuotesPortfolios200Response lasts_quotes(lasts_quotes_portfolios_request)
-List lasts quotes for Instruments
+> models::LastsQuotesPortfolios200Response lasts_quotes(tickers)
+List lasts quotes for data
 
-Permits to list lasts quotes for the specific instruments.
+Permits to list lasts quotes for the specific data.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**lasts_quotes_portfolios_request** | [**LastsQuotesPortfoliosRequest**](LastsQuotesPortfoliosRequest.md) | Some Description | [required] |
+**tickers** | Option<**String**> | Some Description |  |
 
 ### Return type
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -116,7 +116,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | id of instrument | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 

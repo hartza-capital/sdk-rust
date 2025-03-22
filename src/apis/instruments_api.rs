@@ -35,11 +35,11 @@ pub enum OptionsInstrumentError {
 
 
 /// This endpoint returns the properties of the instrument: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
-pub async fn instrument(configuration: &configuration::Configuration, id: &str) -> Result<models::Instrument200Response, Error<InstrumentError>> {
+pub async fn instrument(configuration: &configuration::Configuration, ticker: &str) -> Result<models::Instrument200Response, Error<InstrumentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_ticker = ticker;
 
-    let uri_str = format!("{}/v1/instrument/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/v1/instrument/{ticker}", configuration.base_path, ticker=crate::apis::urlencode(p_ticker));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -80,11 +80,11 @@ pub async fn instrument(configuration: &configuration::Configuration, id: &str) 
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_instrument(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsInstrumentError>> {
+pub async fn options_instrument(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsInstrumentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_ticker = ticker;
 
-    let uri_str = format!("{}/v1/instrument/{id}", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/v1/instrument/{ticker}", configuration.base_path, ticker=crate::apis::urlencode(p_ticker));
     let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

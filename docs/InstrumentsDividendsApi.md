@@ -4,16 +4,16 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**last_dividend**](InstrumentsDividendsApi.md#last_dividend) | **GET** /v1/dividend/{id}/last | Get Last Dividend for Instrument
+[**last_dividend**](InstrumentsDividendsApi.md#last_dividend) | **GET** /v1/dividend/{ticker}/last | Get Last Dividend for Instrument
 [**options_dividends**](InstrumentsDividendsApi.md#options_dividends) | **OPTIONS** /v1/dividends | Options Search Dividends for Instrument
-[**options_last_dividend**](InstrumentsDividendsApi.md#options_last_dividend) | **OPTIONS** /v1/dividend/{id}/last | Options Last Dividend for Instrument
+[**options_last_dividend**](InstrumentsDividendsApi.md#options_last_dividend) | **OPTIONS** /v1/dividend/{ticker}/last | Options Last Dividend for Instrument
 [**search_dividends**](InstrumentsDividendsApi.md#search_dividends) | **POST** /v1/dividends | Search Instruments Dividends by interval and arguments
 
 
 
 ## last_dividend
 
-> models::V1DividendResponse last_dividend(id)
+> models::V1DividendResponse last_dividend(ticker)
 Get Last Dividend for Instrument
 
 Permits to get the last dividend received by the shareholder for the specific instrument.
@@ -23,7 +23,7 @@ Permits to get the last dividend received by the shareholder for the specific in
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** | The ID of the instrument to retrieve | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## options_last_dividend
 
-> options_last_dividend(id)
+> options_last_dividend(ticker)
 Options Last Dividend for Instrument
 
 Options method is used to describe the communication options for the targeted resource.
@@ -80,7 +80,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** | The ID of the instrument to retrieve | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 

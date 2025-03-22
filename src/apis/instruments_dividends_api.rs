@@ -53,11 +53,11 @@ pub enum SearchDividendsError {
 
 
 /// Permits to get the last dividend received by the shareholder for the specific instrument.
-pub async fn last_dividend(configuration: &configuration::Configuration, id: &str) -> Result<models::V1DividendResponse, Error<LastDividendError>> {
+pub async fn last_dividend(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1DividendResponse, Error<LastDividendError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_ticker = ticker;
 
-    let uri_str = format!("{}/v1/dividend/{id}/last", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/v1/dividend/{ticker}/last", configuration.base_path, ticker=crate::apis::urlencode(p_ticker));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -122,11 +122,11 @@ pub async fn options_dividends(configuration: &configuration::Configuration, ) -
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_last_dividend(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsLastDividendError>> {
+pub async fn options_last_dividend(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsLastDividendError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_ticker = ticker;
 
-    let uri_str = format!("{}/v1/dividend/{id}/last", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/v1/dividend/{ticker}/last", configuration.base_path, ticker=crate::apis::urlencode(p_ticker));
     let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

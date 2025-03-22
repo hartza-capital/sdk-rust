@@ -4,7 +4,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**lasts_quotes_portfolios**](PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **POST** /v1/quotes/portfolios/lasts | List lasts quote for Portfolios
+[**lasts_quotes_portfolios**](PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **GET** /v1/quotes/portfolios/lasts | List lasts quotes for Portfolios
 [**options_lasts_portfolios_quotes**](PortfoliosQuotesApi.md#options_lasts_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios/lasts | Options List lasts quote for Portfolios
 [**options_portfolio_last_quote**](PortfoliosQuotesApi.md#options_portfolio_last_quote) | **OPTIONS** /v1/quotes/portfolio/{ticker}/last | Options Last Quote for Account Portfolio by Ticker
 [**options_portfolios_histogram**](PortfoliosQuotesApi.md#options_portfolios_histogram) | **OPTIONS** /v1/quotes/portfolios/histogram | Options Portfolios Histogram
@@ -17,8 +17,8 @@ Method | HTTP request | Description
 
 ## lasts_quotes_portfolios
 
-> models::LastsQuotesPortfolios200Response lasts_quotes_portfolios(lasts_quotes_portfolios_request)
-List lasts quote for Portfolios
+> models::LastsQuotesPortfolios200Response lasts_quotes_portfolios(tickers)
+List lasts quotes for Portfolios
 
 Permits to list lasts quotes for the portfolios
 
@@ -27,7 +27,7 @@ Permits to list lasts quotes for the portfolios
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**lasts_quotes_portfolios_request** | [**LastsQuotesPortfoliosRequest**](LastsQuotesPortfoliosRequest.md) | Some Description | [required] |
+**tickers** | Option<**String**> | Some Description |  |
 
 ### Return type
 
@@ -39,7 +39,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

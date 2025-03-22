@@ -4,8 +4,8 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**last_split**](InstrumentsSplitsApi.md#last_split) | **GET** /v1/split/{id}/last | Last Split for Instrument
-[**options_last_split**](InstrumentsSplitsApi.md#options_last_split) | **OPTIONS** /v1/split/{id}/last | Options Last Split for Instrument
+[**last_split**](InstrumentsSplitsApi.md#last_split) | **GET** /v1/split/{ticker}/last | Last Split for Instrument
+[**options_last_split**](InstrumentsSplitsApi.md#options_last_split) | **OPTIONS** /v1/split/{ticker}/last | Options Last Split for Instrument
 [**options_splits**](InstrumentsSplitsApi.md#options_splits) | **OPTIONS** /v1/splits | Options Search Splits for Instrument
 [**search_splits**](InstrumentsSplitsApi.md#search_splits) | **POST** /v1/splits | Search Instruments Splits by interval and arguments
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## last_split
 
-> models::V1SplitResponse last_split(id)
+> models::V1SplitResponse last_split(ticker)
 Last Split for Instrument
 
 Permits to get the last split received by the shareholder for the specific instrument.
@@ -23,7 +23,7 @@ Permits to get the last split received by the shareholder for the specific instr
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** | The ID of the instrument to retrieve | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Required | Notes
 
 ## options_last_split
 
-> options_last_split(id)
+> options_last_split(ticker)
 Options Last Split for Instrument
 
 Options method is used to describe the communication options for the targeted resource.
@@ -53,7 +53,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** | The ID of the instrument to retrieve | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 

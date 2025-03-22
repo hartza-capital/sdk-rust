@@ -90,8 +90,6 @@ pub mod lasts_quotes_country_indicators_200_response;
 pub use self::lasts_quotes_country_indicators_200_response::LastsQuotesCountryIndicators200Response;
 pub mod lasts_quotes_portfolios_200_response;
 pub use self::lasts_quotes_portfolios_200_response::LastsQuotesPortfolios200Response;
-pub mod lasts_quotes_portfolios_request;
-pub use self::lasts_quotes_portfolios_request::LastsQuotesPortfoliosRequest;
 pub mod lasts_strategy_quotes_200_response;
 pub use self::lasts_strategy_quotes_200_response::LastsStrategyQuotes200Response;
 pub mod lasts_strategy_quotes_200_response_data_value;

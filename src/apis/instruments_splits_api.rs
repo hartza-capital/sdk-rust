@@ -53,11 +53,11 @@ pub enum SearchSplitsError {
 
 
 /// Permits to get the last split received by the shareholder for the specific instrument.
-pub async fn last_split(configuration: &configuration::Configuration, id: &str) -> Result<models::V1SplitResponse, Error<LastSplitError>> {
+pub async fn last_split(configuration: &configuration::Configuration, ticker: &str) -> Result<models::V1SplitResponse, Error<LastSplitError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_ticker = ticker;
 
-    let uri_str = format!("{}/v1/split/{id}/last", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/v1/split/{ticker}/last", configuration.base_path, ticker=crate::apis::urlencode(p_ticker));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -98,11 +98,11 @@ pub async fn last_split(configuration: &configuration::Configuration, id: &str) 
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_last_split(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<OptionsLastSplitError>> {
+pub async fn options_last_split(configuration: &configuration::Configuration, ticker: &str) -> Result<(), Error<OptionsLastSplitError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_ticker = ticker;
 
-    let uri_str = format!("{}/v1/split/{id}/last", configuration.base_path, id=crate::apis::urlencode(p_id));
+    let uri_str = format!("{}/v1/split/{ticker}/last", configuration.base_path, ticker=crate::apis::urlencode(p_ticker));
     let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

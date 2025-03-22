@@ -4,14 +4,14 @@ All URIs are relative to *https://management.api.hartza.capital*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instrument**](InstrumentsApi.md#instrument) | **GET** /v1/instrument/{id} | Get Instrument properties
-[**options_instrument**](InstrumentsApi.md#options_instrument) | **OPTIONS** /v1/instrument/{id} | Options Instrument
+[**instrument**](InstrumentsApi.md#instrument) | **GET** /v1/instrument/{ticker} | Get Instrument properties
+[**options_instrument**](InstrumentsApi.md#options_instrument) | **OPTIONS** /v1/instrument/{ticker} | Options Instrument
 
 
 
 ## instrument
 
-> models::Instrument200Response instrument(id)
+> models::Instrument200Response instrument(ticker)
 Get Instrument properties
 
 This endpoint returns the properties of the instrument: - General Properties (Ticker, Referencies (ISIN, CIK), type of asset...), - Exchange Properties (Exchange, Currency and status of exchange), - Activities (Look TRBC Classification, https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification) - Last Quote (EOD, End of Day), - Last 5 years of Dividends, - Statistics (Yield, Beta, Volumes Avg...), - Contact (Email, Physical Address...), 
@@ -21,7 +21,7 @@ This endpoint returns the properties of the instrument: - General Properties (Ti
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** | The ID of the instrument to retrieve | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## options_instrument
 
-> options_instrument(id)
+> options_instrument(ticker)
 Options Instrument
 
 Options method is used to describe the communication options for the targeted resource.
@@ -51,7 +51,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** | The ID of the instrument to retrieve | [required] |
+**ticker** | **String** | Ticker of the instrument | [required] |
 
 ### Return type
 
