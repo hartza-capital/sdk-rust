@@ -120,7 +120,7 @@ Class | Method | HTTP request | Description
 *StrategiesApi* | [**strategies**](docs/StrategiesApi.md#strategies) | **GET** /v1/strategies | List Strategies
 *StrategiesApi* | [**strategy**](docs/StrategiesApi.md#strategy) | **GET** /v1/strategy/{strategy} | Get Strategy properties
 *StrategiesQuotesApi* | [**last_strategy_quote**](docs/StrategiesQuotesApi.md#last_strategy_quote) | **GET** /v1/quotes/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote
-*StrategiesQuotesApi* | [**lasts_strategy_quotes**](docs/StrategiesQuotesApi.md#lasts_strategy_quotes) | **POST** /v1/quotes/strategy/lasts | Lasts Strategy Quotes for Instruments
+*StrategiesQuotesApi* | [**lasts_strategy_quotes**](docs/StrategiesQuotesApi.md#lasts_strategy_quotes) | **GET** /v1/quotes/strategy/lasts | Lasts Strategy Quotes for Instruments
 *StrategiesQuotesApi* | [**options_last_strategy_quote**](docs/StrategiesQuotesApi.md#options_last_strategy_quote) | **OPTIONS** /v1/quotes/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote
 *StrategiesQuotesApi* | [**options_lasts_strategy_quotes**](docs/StrategiesQuotesApi.md#options_lasts_strategy_quotes) | **OPTIONS** /v1/quotes/strategy/lasts | Options Lasts Strategy Quotes for Instruments
 *StrategiesQuotesApi* | [**options_search_strategies_quotes**](docs/StrategiesQuotesApi.md#options_search_strategies_quotes) | **OPTIONS** /v1/quotes/strategies | Options Strategy Quotes for Instruments
@@ -181,7 +181,6 @@ Class | Method | HTTP request | Description
  - [LastsQuotesPortfolios200Response](docs/LastsQuotesPortfolios200Response.md)
  - [LastsStrategyQuotes200Response](docs/LastsStrategyQuotes200Response.md)
  - [LastsStrategyQuotes200ResponseDataValue](docs/LastsStrategyQuotes200ResponseDataValue.md)
- - [LastsStrategyQuotesRequest](docs/LastsStrategyQuotesRequest.md)
  - [Orders200Response](docs/Orders200Response.md)
  - [Orders200ResponseDataInner](docs/Orders200ResponseDataInner.md)
  - [Orders200ResponseDataInnerPrice](docs/Orders200ResponseDataInnerPrice.md)

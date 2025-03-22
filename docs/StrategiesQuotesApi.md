@@ -5,7 +5,7 @@ All URIs are relative to *https://management.api.hartza.capital*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**last_strategy_quote**](StrategiesQuotesApi.md#last_strategy_quote) | **GET** /v1/quotes/{ticker}/strategy/{strategy}/last | Get Last Strategy Quote
-[**lasts_strategy_quotes**](StrategiesQuotesApi.md#lasts_strategy_quotes) | **POST** /v1/quotes/strategy/lasts | Lasts Strategy Quotes for Instruments
+[**lasts_strategy_quotes**](StrategiesQuotesApi.md#lasts_strategy_quotes) | **GET** /v1/quotes/strategy/lasts | Lasts Strategy Quotes for Instruments
 [**options_last_strategy_quote**](StrategiesQuotesApi.md#options_last_strategy_quote) | **OPTIONS** /v1/quotes/{ticker}/strategy/{strategy}/last | Options Last Strategy Quote
 [**options_lasts_strategy_quotes**](StrategiesQuotesApi.md#options_lasts_strategy_quotes) | **OPTIONS** /v1/quotes/strategy/lasts | Options Lasts Strategy Quotes for Instruments
 [**options_search_strategies_quotes**](StrategiesQuotesApi.md#options_search_strategies_quotes) | **OPTIONS** /v1/quotes/strategies | Options Strategy Quotes for Instruments
@@ -46,7 +46,7 @@ Name | Type | Description  | Required | Notes
 
 ## lasts_strategy_quotes
 
-> models::LastsStrategyQuotes200Response lasts_strategy_quotes(lasts_strategy_quotes_request)
+> models::LastsStrategyQuotes200Response lasts_strategy_quotes(strategy, tickers)
 Lasts Strategy Quotes for Instruments
 
 Permits to get the last quotes received by the shareholder for the specific instruments.
@@ -56,7 +56,8 @@ Permits to get the last quotes received by the shareholder for the specific inst
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**lasts_strategy_quotes_request** | [**LastsStrategyQuotesRequest**](LastsStrategyQuotesRequest.md) | Some Description | [required] |
+**strategy** | **String** | ticker name of strategy | [required] |
+**tickers** | Option<**String**> | Some Description |  |
 
 ### Return type
 
@@ -68,7 +69,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

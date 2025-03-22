@@ -169,13 +169,17 @@ pub async fn last_backtest(configuration: &configuration::Configuration, ticker:
 }
 
 /// Permits to get the last trends received by the shareholder for instruments and strategies.
-pub async fn lasts_backtest(configuration: &configuration::Configuration, lasts_strategy_quotes_request: models::LastsStrategyQuotesRequest) -> Result<models::LastsBacktest200Response, Error<LastsBacktestError>> {
+pub async fn lasts_backtest(configuration: &configuration::Configuration, strategy: &str, tickers: Option<&str>) -> Result<models::LastsBacktest200Response, Error<LastsBacktestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_lasts_strategy_quotes_request = lasts_strategy_quotes_request;
+    let p_strategy = strategy;
+    let p_tickers = tickers;
 
-    let uri_str = format!("{}/v1/backtest/lasts", configuration.base_path);
+    let uri_str = format!("{}/v1/backtest/lasts", configuration.base_path, strategy=crate::apis::urlencode(p_strategy));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = p_tickers {
+        req_builder = req_builder.query(&[("tickers", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -187,7 +191,6 @@ pub async fn lasts_backtest(configuration: &configuration::Configuration, lasts_
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_lasts_strategy_quotes_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

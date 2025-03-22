@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ## lasts_backtest
 
-> models::LastsBacktest200Response lasts_backtest(lasts_strategy_quotes_request)
+> models::LastsBacktest200Response lasts_backtest(strategy, tickers)
 Lasts backtest available
 
 Permits to get the last trends received by the shareholder for instruments and strategies.
@@ -88,7 +88,8 @@ Permits to get the last trends received by the shareholder for instruments and s
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**lasts_strategy_quotes_request** | [**LastsStrategyQuotesRequest**](LastsStrategyQuotesRequest.md) | Some Description | [required] |
+**strategy** | **String** | ticker name of strategy | [required] |
+**tickers** | Option<**String**> | Some Description |  |
 
 ### Return type
 
@@ -100,7 +101,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

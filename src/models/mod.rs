@@ -94,8 +94,6 @@ pub mod lasts_strategy_quotes_200_response;
 pub use self::lasts_strategy_quotes_200_response::LastsStrategyQuotes200Response;
 pub mod lasts_strategy_quotes_200_response_data_value;
 pub use self::lasts_strategy_quotes_200_response_data_value::LastsStrategyQuotes200ResponseDataValue;
-pub mod lasts_strategy_quotes_request;
-pub use self::lasts_strategy_quotes_request::LastsStrategyQuotesRequest;
 pub mod orders_200_response;
 pub use self::orders_200_response::Orders200Response;
 pub mod orders_200_response_data_inner;

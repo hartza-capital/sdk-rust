@@ -117,13 +117,17 @@ pub async fn last_strategy_quote(configuration: &configuration::Configuration, t
 }
 
 /// Permits to get the last quotes received by the shareholder for the specific instruments.
-pub async fn lasts_strategy_quotes(configuration: &configuration::Configuration, lasts_strategy_quotes_request: models::LastsStrategyQuotesRequest) -> Result<models::LastsStrategyQuotes200Response, Error<LastsStrategyQuotesError>> {
+pub async fn lasts_strategy_quotes(configuration: &configuration::Configuration, strategy: &str, tickers: Option<&str>) -> Result<models::LastsStrategyQuotes200Response, Error<LastsStrategyQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_lasts_strategy_quotes_request = lasts_strategy_quotes_request;
+    let p_strategy = strategy;
+    let p_tickers = tickers;
 
-    let uri_str = format!("{}/v1/quotes/strategy/lasts", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/v1/quotes/strategy/lasts", configuration.base_path, strategy=crate::apis::urlencode(p_strategy));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = p_tickers {
+        req_builder = req_builder.query(&[("tickers", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -135,7 +139,6 @@ pub async fn lasts_strategy_quotes(configuration: &configuration::Configuration,
         };
         req_builder = req_builder.header("Authorization", value);
     };
-    req_builder = req_builder.json(&p_lasts_strategy_quotes_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

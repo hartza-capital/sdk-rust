@@ -68,7 +68,6 @@ docs/LastsQuotesCountryIndicators200Response.md
 docs/LastsQuotesPortfolios200Response.md
 docs/LastsStrategyQuotes200Response.md
 docs/LastsStrategyQuotes200ResponseDataValue.md
-docs/LastsStrategyQuotesRequest.md
 docs/NewsApi.md
 docs/Orders200Response.md
 docs/Orders200ResponseDataInner.md
@@ -236,7 +235,6 @@ src/models/lasts_quotes_country_indicators_200_response.rs
 src/models/lasts_quotes_portfolios_200_response.rs
 src/models/lasts_strategy_quotes_200_response.rs
 src/models/lasts_strategy_quotes_200_response_data_value.rs
-src/models/lasts_strategy_quotes_request.rs
 src/models/mod.rs
 src/models/orders_200_response.rs
 src/models/orders_200_response_data_inner.rs
