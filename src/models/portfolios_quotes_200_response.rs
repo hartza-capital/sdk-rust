@@ -15,6 +15,9 @@ use serde::{Deserialize, Serialize};
 pub struct PortfoliosQuotes200Response {
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
     pub data: Option<Vec<models::V1QuoteResponse>>,
+    /// Histogram is a list of values for the histogram.
+    #[serde(rename = "distribution", skip_serializing_if = "Option::is_none")]
+    pub distribution: Option<Vec<models::PortfoliosHistogram200ResponseDataDistributionInner>>,
     /// Total is the total number of results.
     #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
     pub total: Option<i32>,
@@ -24,6 +27,7 @@ impl PortfoliosQuotes200Response {
     pub fn new() -> PortfoliosQuotes200Response {
         PortfoliosQuotes200Response {
             data: None,
+            distribution: None,
             total: None,
         }
     }

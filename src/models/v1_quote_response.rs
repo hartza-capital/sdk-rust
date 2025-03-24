@@ -16,6 +16,9 @@ pub struct V1QuoteResponse {
     /// Change is the change in the price of the security.
     #[serde(rename = "change", skip_serializing_if = "Option::is_none")]
     pub change: Option<f64>,
+    /// Performance is the performance of the security.
+    #[serde(rename = "performance", skip_serializing_if = "Option::is_none")]
+    pub performance: Option<f64>,
     /// MarketCap is the market capitalization of the security.
     #[serde(rename = "market_cap", skip_serializing_if = "Option::is_none")]
     pub market_cap: Option<f64>,
@@ -43,6 +46,7 @@ impl V1QuoteResponse {
     pub fn new() -> V1QuoteResponse {
         V1QuoteResponse {
             change: None,
+            performance: None,
             market_cap: None,
             open: None,
             high: None,

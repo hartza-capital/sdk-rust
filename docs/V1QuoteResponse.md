@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **change** | Option<**f64**> | Change is the change in the price of the security. | [optional]
+**performance** | Option<**f64**> | Performance is the performance of the security. | [optional]
 **market_cap** | Option<**f64**> | MarketCap is the market capitalization of the security. | [optional]
 **open** | Option<**f64**> | Open is the opening price of the security. | [optional]
 **high** | Option<**f64**> | High is the high price of the security. | [optional]

@@ -368,13 +368,17 @@ pub async fn search_intraday_quotes(configuration: &configuration::Configuration
 }
 
 /// Permits to search quotes by period (from, to)
-pub async fn search_quotes(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::PortfoliosQuotes200Response, Error<SearchQuotesError>> {
+pub async fn search_quotes(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest, distribution: Option<&str>) -> Result<models::PortfoliosQuotes200Response, Error<SearchQuotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_v1_screener_interval_request = v1_screener_interval_request;
+    let p_distribution = distribution;
 
     let uri_str = format!("{}/v1/quotes", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = p_distribution {
+        req_builder = req_builder.query(&[("distribution", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

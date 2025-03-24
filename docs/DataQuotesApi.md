@@ -247,7 +247,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_quotes
 
-> models::PortfoliosQuotes200Response search_quotes(v1_screener_interval_request)
+> models::PortfoliosQuotes200Response search_quotes(v1_screener_interval_request, distribution)
 Search Quotes in interval and period
 
 Permits to search quotes by period (from, to)
@@ -258,6 +258,7 @@ Permits to search quotes by period (from, to)
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **v1_screener_interval_request** | [**V1ScreenerIntervalRequest**](V1ScreenerIntervalRequest.md) | Body of the request to search quotes by instruments and period | [required] |
+**distribution** | Option<**String**> | Distribution is the distribution of the histogram. |  |[default to false]
 
 ### Return type
 
