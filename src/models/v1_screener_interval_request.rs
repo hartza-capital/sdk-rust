@@ -20,8 +20,6 @@ pub struct V1ScreenerIntervalRequest {
     /// Filters is a list of filters.
     #[serde(rename = "filters", skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<models::V1ScreenerFilter>>,
-    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
-    pub sort: Option<Box<models::V1ScreenerSort>>,
 }
 
 impl V1ScreenerIntervalRequest {
@@ -30,7 +28,6 @@ impl V1ScreenerIntervalRequest {
         V1ScreenerIntervalRequest {
             interval: None,
             filters: None,
-            sort: None,
         }
     }
 }
