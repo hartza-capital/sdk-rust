@@ -1,4 +1,4 @@
-# PortfoliosHistogram200ResponseDataDistributionInner
+# PortfoliosQuotes200ResponseDistributionInner
 
 ## Properties
 

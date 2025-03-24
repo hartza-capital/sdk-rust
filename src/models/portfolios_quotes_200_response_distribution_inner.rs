@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PortfoliosHistogram200ResponseDataDistributionInner {
+pub struct PortfoliosQuotes200ResponseDistributionInner {
     /// Max is the maximum value of the histogram.
     #[serde(rename = "max", skip_serializing_if = "Option::is_none")]
     pub max: Option<f64>,
@@ -24,9 +24,9 @@ pub struct PortfoliosHistogram200ResponseDataDistributionInner {
     pub count: Option<i32>,
 }
 
-impl PortfoliosHistogram200ResponseDataDistributionInner {
-    pub fn new() -> PortfoliosHistogram200ResponseDataDistributionInner {
-        PortfoliosHistogram200ResponseDataDistributionInner {
+impl PortfoliosQuotes200ResponseDistributionInner {
+    pub fn new() -> PortfoliosQuotes200ResponseDistributionInner {
+        PortfoliosQuotes200ResponseDistributionInner {
             max: None,
             min: None,
             count: None,

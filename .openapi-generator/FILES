@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 Cargo.toml
 README.md
@@ -79,11 +80,8 @@ docs/PatchAccountRequest.md
 docs/Portfolios200Response.md
 docs/PortfoliosAnalysisApi.md
 docs/PortfoliosApi.md
-docs/PortfoliosHistogram200Response.md
-docs/PortfoliosHistogram200ResponseData.md
-docs/PortfoliosHistogram200ResponseDataDistributionInner.md
-docs/PortfoliosHistogram200ResponseDataPerformanceInner.md
 docs/PortfoliosQuotes200Response.md
+docs/PortfoliosQuotes200ResponseDistributionInner.md
 docs/PortfoliosQuotesApi.md
 docs/Search200Response.md
 docs/SearchApi.md
@@ -244,11 +242,8 @@ src/models/orders_401_response.rs
 src/models/orders_500_response.rs
 src/models/patch_account_request.rs
 src/models/portfolios_200_response.rs
-src/models/portfolios_histogram_200_response.rs
-src/models/portfolios_histogram_200_response_data.rs
-src/models/portfolios_histogram_200_response_data_distribution_inner.rs
-src/models/portfolios_histogram_200_response_data_performance_inner.rs
 src/models/portfolios_quotes_200_response.rs
+src/models/portfolios_quotes_200_response_distribution_inner.rs
 src/models/search_200_response.rs
 src/models/search_dividends_200_response.rs
 src/models/search_intraday_quotes_request.rs

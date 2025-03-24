@@ -75,10 +75,8 @@ Class | Method | HTTP request | Description
 *DataQuotesApi* | [**options_last_quote**](docs/DataQuotesApi.md#options_last_quote) | **OPTIONS** /v1/quotes/{ticker}/last | Options Last Quote for Instrument by Ticker
 *DataQuotesApi* | [**options_lasts_quotes**](docs/DataQuotesApi.md#options_lasts_quotes) | **OPTIONS** /v1/quotes/lasts | Options List lasts quote for Instruments
 *DataQuotesApi* | [**options_search_quotes**](docs/DataQuotesApi.md#options_search_quotes) | **OPTIONS** /v1/quotes | Options Search Quotes by Instruments and period
-*DataQuotesApi* | [**options_search_quotes_histogram**](docs/DataQuotesApi.md#options_search_quotes_histogram) | **OPTIONS** /v1/quotes/histogram | Options generate Histogram by period
 *DataQuotesApi* | [**search_intraday_quotes**](docs/DataQuotesApi.md#search_intraday_quotes) | **POST** /v1/quotes/intraday | Search Intraday Quotes by Instruments and period
 *DataQuotesApi* | [**search_quotes**](docs/DataQuotesApi.md#search_quotes) | **POST** /v1/quotes | Search Quotes in interval and period
-*DataQuotesApi* | [**search_quotes_histogram**](docs/DataQuotesApi.md#search_quotes_histogram) | **POST** /v1/quotes/histogram | Search Quotes Histogram
 *ExchangesApi* | [**exchange**](docs/ExchangesApi.md#exchange) | **GET** /v1/exchange/{ticker} | Get Exchange properties by Ticker
 *ExchangesApi* | [**exchanges_status**](docs/ExchangesApi.md#exchanges_status) | **GET** /v1/exchanges/status | List Exchange Status
 *ExchangesApi* | [**options_exchange**](docs/ExchangesApi.md#options_exchange) | **OPTIONS** /v1/exchange/{ticker} | Options Exchange properties
@@ -108,10 +106,8 @@ Class | Method | HTTP request | Description
 *PortfoliosQuotesApi* | [**lasts_quotes_portfolios**](docs/PortfoliosQuotesApi.md#lasts_quotes_portfolios) | **GET** /v1/quotes/portfolios/lasts | List lasts quotes for Portfolios
 *PortfoliosQuotesApi* | [**options_lasts_portfolios_quotes**](docs/PortfoliosQuotesApi.md#options_lasts_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios/lasts | Options List lasts quote for Portfolios
 *PortfoliosQuotesApi* | [**options_portfolio_last_quote**](docs/PortfoliosQuotesApi.md#options_portfolio_last_quote) | **OPTIONS** /v1/quotes/portfolio/{ticker}/last | Options Last Quote for Account Portfolio by Ticker
-*PortfoliosQuotesApi* | [**options_portfolios_histogram**](docs/PortfoliosQuotesApi.md#options_portfolios_histogram) | **OPTIONS** /v1/quotes/portfolios/histogram | Options Portfolios Histogram
 *PortfoliosQuotesApi* | [**options_portfolios_quotes**](docs/PortfoliosQuotesApi.md#options_portfolios_quotes) | **OPTIONS** /v1/quotes/portfolios | Options Quotes by currency and period
 *PortfoliosQuotesApi* | [**portfolio_last_quote**](docs/PortfoliosQuotesApi.md#portfolio_last_quote) | **GET** /v1/quotes/portfolio/{ticker}/last | Last Quote for Account Portfolio
-*PortfoliosQuotesApi* | [**portfolios_histogram**](docs/PortfoliosQuotesApi.md#portfolios_histogram) | **POST** /v1/quotes/portfolios/histogram | Search Quotes Histogram by Portfolio and period
 *PortfoliosQuotesApi* | [**portfolios_quotes**](docs/PortfoliosQuotesApi.md#portfolios_quotes) | **POST** /v1/quotes/portfolios | Search Quotes by currency and period
 *SearchApi* | [**options_search**](docs/SearchApi.md#options_search) | **OPTIONS** /v1/search | Options Search
 *SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /v1/search | Search Instruments, Exchanges, Index, ETFs, Funds, Bonds, Options, Futures, Currencies, Cryptocurrencies
@@ -190,11 +186,8 @@ Class | Method | HTTP request | Description
  - [Orders500Response](docs/Orders500Response.md)
  - [PatchAccountRequest](docs/PatchAccountRequest.md)
  - [Portfolios200Response](docs/Portfolios200Response.md)
- - [PortfoliosHistogram200Response](docs/PortfoliosHistogram200Response.md)
- - [PortfoliosHistogram200ResponseData](docs/PortfoliosHistogram200ResponseData.md)
- - [PortfoliosHistogram200ResponseDataDistributionInner](docs/PortfoliosHistogram200ResponseDataDistributionInner.md)
- - [PortfoliosHistogram200ResponseDataPerformanceInner](docs/PortfoliosHistogram200ResponseDataPerformanceInner.md)
  - [PortfoliosQuotes200Response](docs/PortfoliosQuotes200Response.md)
+ - [PortfoliosQuotes200ResponseDistributionInner](docs/PortfoliosQuotes200ResponseDistributionInner.md)
  - [Search200Response](docs/Search200Response.md)
  - [SearchDividends200Response](docs/SearchDividends200Response.md)
  - [SearchIntradayQuotesRequest](docs/SearchIntradayQuotesRequest.md)

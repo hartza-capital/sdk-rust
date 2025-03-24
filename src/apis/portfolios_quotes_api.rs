@@ -40,13 +40,6 @@ pub enum OptionsPortfolioLastQuoteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`options_portfolios_histogram`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OptionsPortfoliosHistogramError {
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`options_portfolios_quotes`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -58,17 +51,6 @@ pub enum OptionsPortfoliosQuotesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PortfolioLastQuoteError {
-    Status400(models::Orders400Response),
-    Status401(models::Orders401Response),
-    Status404(models::Account404Response),
-    Status500(models::Orders500Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`portfolios_histogram`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PortfoliosHistogramError {
     Status400(models::Orders400Response),
     Status401(models::Orders401Response),
     Status404(models::Account404Response),
@@ -187,30 +169,6 @@ pub async fn options_portfolio_last_quote(configuration: &configuration::Configu
 }
 
 /// Options method is used to describe the communication options for the targeted resource.
-pub async fn options_portfolios_histogram(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsPortfoliosHistogramError>> {
-
-    let uri_str = format!("{}/v1/quotes/portfolios/histogram", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<OptionsPortfoliosHistogramError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Options method is used to describe the communication options for the targeted resource.
 pub async fn options_portfolios_quotes(configuration: &configuration::Configuration, ) -> Result<(), Error<OptionsPortfoliosQuotesError>> {
 
     let uri_str = format!("{}/v1/quotes/portfolios", configuration.base_path);
@@ -275,52 +233,6 @@ pub async fn portfolio_last_quote(configuration: &configuration::Configuration, 
     } else {
         let content = resp.text().await?;
         let entity: Option<PortfolioLastQuoteError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Permits to search quotes histogram by Portfolio and period
-pub async fn portfolios_histogram(configuration: &configuration::Configuration, v1_screener_interval_request: models::V1ScreenerIntervalRequest) -> Result<models::PortfoliosHistogram200Response, Error<PortfoliosHistogramError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_v1_screener_interval_request = v1_screener_interval_request;
-
-    let uri_str = format!("{}/v1/quotes/portfolios/histogram", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref apikey) = configuration.api_key {
-        let key = apikey.key.clone();
-        let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
-            None => key,
-        };
-        req_builder = req_builder.header("Authorization", value);
-    };
-    req_builder = req_builder.json(&p_v1_screener_interval_request);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PortfoliosHistogram200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PortfoliosHistogram200Response`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<PortfoliosHistogramError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
