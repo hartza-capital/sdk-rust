@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **cost** | Option<[**models::V1ListPortfoliosResponseResultInstrumentsInnerCost**](v1ListPortfoliosResponseResult_instruments_inner_cost.md)> |  | [optional]
 **performance** | Option<[**models::V1ListPortfoliosResponseResultInstrumentsInnerPerformance**](v1ListPortfoliosResponseResult_instruments_inner_performance.md)> |  | [optional]
 **created_at** | Option<**i64**> | CreatedAt is the creation date of the position. | [optional]
-**updated_at** | Option<**i64**> | UpdatedAt is the last update date of the position. | [optional]
+**updated_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was last modified. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

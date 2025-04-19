@@ -1,7 +1,7 @@
 /*
  * API Hartza Capital
  *
- * ## Welcome on the Hartza Capital API documentation  For production use, you must obtain an oAuth2 token. To have this token, please authenticate and use your token.    The token has a lifespan of 15 minutes, after this period please renew it with the refresh token. 
+ * ## Welcome to the Hartza Capital API documentation  This comprehensive financial data API provides access to market information, portfolio management capabilities, and sophisticated trading tools.  For production use, an OAuth2 token is required. After authentication, you'll receive a token with a 15-minute lifespan.  When this period expires, please use your refresh token to obtain a new access token. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@hartza.capital
@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 /// V1ExchangesBulkResponse : Exchanges is the list of exchanges used in the country.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1ExchangesBulkResponse {
-    /// Ticker is the unique identifier for the country.
+    /// Unique identifier symbol (Market identifier codes (ISO 10383)) for this financial instrument, following standard market conventions.
     #[serde(rename = "ticker", skip_serializing_if = "Option::is_none")]
     pub ticker: Option<String>,
     /// TickerAlternatives is a list of alternative identifiers for the country.

@@ -1,7 +1,7 @@
 /*
  * API Hartza Capital
  *
- * ## Welcome on the Hartza Capital API documentation  For production use, you must obtain an oAuth2 token. To have this token, please authenticate and use your token.    The token has a lifespan of 15 minutes, after this period please renew it with the refresh token. 
+ * ## Welcome to the Hartza Capital API documentation  This comprehensive financial data API provides access to market information, portfolio management capabilities, and sophisticated trading tools.  For production use, an OAuth2 token is required. After authentication, you'll receive a token with a 15-minute lifespan.  When this period expires, please use your refresh token to obtain a new access token. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@hartza.capital
@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// V1AccountResponse : ListAccountsResponseResult is used to specify the response for the ListAccounts API.
+/// V1AccountResponse : Contains comprehensive account information including identification, configuration settings, base currency, account status, and creation/modification timestamps.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1AccountResponse {
     /// Ref is the unique identifier for the account.
@@ -32,13 +32,13 @@ pub struct V1AccountResponse {
     /// CreatedAt is the creation date of the account.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,
-    /// UpdatedAt is the last update date of the account.
+    /// Timestamp (in Unix epoch seconds) when this resource was last modified.
     #[serde(rename = "updated_at", skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<i64>,
 }
 
 impl V1AccountResponse {
-    /// ListAccountsResponseResult is used to specify the response for the ListAccounts API.
+    /// Contains comprehensive account information including identification, configuration settings, base currency, account status, and creation/modification timestamps.
     pub fn new() -> V1AccountResponse {
         V1AccountResponse {
             r#ref: None,

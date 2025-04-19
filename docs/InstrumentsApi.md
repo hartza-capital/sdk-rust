@@ -21,7 +21,7 @@ This endpoint returns the properties of the instrument: - General Properties (Ti
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | Ticker of the instrument | [required] |
+**ticker** | **String** | Internal ticker name of the instrument | [required] |
 
 ### Return type
 
@@ -51,7 +51,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | Ticker of the instrument | [required] |
+**ticker** | **String** | Internal ticker name of the instrument | [required] |
 
 ### Return type
 

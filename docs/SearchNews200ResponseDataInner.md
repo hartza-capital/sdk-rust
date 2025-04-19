@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **url** | Option<**String**> | URL of the news. | [optional]
 **source** | Option<**String**> | Source name of the news. | [optional]
 **language** | Option<**String**> | Language of the news. | [optional]
-**created_at** | Option<**i64**> | CreatedAt is the date and time of the last update. | [optional]
+**created_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was initially created in the system. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

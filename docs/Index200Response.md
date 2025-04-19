@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticker** | Option<**String**> | Ticker is the unique identifier for the security. | [optional]
+**ticker** | Option<**String**> | Unique identifier symbol for this financial instrument, following standard market conventions. | [optional]
 **name** | Option<**String**> | Name is the name of the security. | [optional]
 **exchange** | Option<**String**> | Exchange is the exchange where the security is traded. | [optional]
 **country** | Option<**bool**> | Country is a boolean value that indicates if the security is the principal country index. | [optional]

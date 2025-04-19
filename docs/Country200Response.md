@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticker** | Option<**String**> | Ticker is the unique identifier for the country. | [optional]
+**ticker** | Option<**String**> | Ticker is the unique identifier for the country (alpha 2). | [optional]
 **ticker_alternative** | Option<**String**> | TickerAlternative is the alternative unique identifier for the country. | [optional]
 **name** | Option<**String**> | Name is the name of the country. It is the human readable name of the country. | [optional]
 **languages** | Option<**std::collections::HashMap<String, String>**> | Languages is the list of languages used in the country. Example: French for France. | [optional]

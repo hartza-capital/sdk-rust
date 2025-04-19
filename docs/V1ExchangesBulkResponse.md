@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticker** | Option<**String**> | Ticker is the unique identifier for the country. | [optional]
+**ticker** | Option<**String**> | Unique identifier symbol (Market identifier codes (ISO 10383)) for this financial instrument, following standard market conventions. | [optional]
 **ticker_alternatives** | Option<**Vec<String>**> | TickerAlternatives is a list of alternative identifiers for the country. | [optional]
 **routing** | Option<**String**> | Routing is the routing code for the exchange. It is the code used to route orders to the exchange. | [optional]
 **name** | Option<**String**> | Name is the name of the exchange. | [optional]

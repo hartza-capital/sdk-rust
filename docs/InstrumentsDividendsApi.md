@@ -23,7 +23,7 @@ Permits to get the last dividend received by the shareholder for the specific in
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | Ticker of the instrument | [required] |
+**ticker** | **String** | Internal ticker name of the instrument | [required] |
 
 ### Return type
 
@@ -80,7 +80,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | Ticker of the instrument | [required] |
+**ticker** | **String** | Internal ticker name of the instrument | [required] |
 
 ### Return type
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> | Id is the unique identifier for the instrument. | [optional]
-**ticker** | Option<**String**> | Ticker is the unique identifier for the instrument. | [optional]
+**ticker** | Option<**String**> | Unique identifier symbol for this financial instrument, following standard market conventions. | [optional]
 **exchange** | Option<**String**> | Exchange is the exchange where the instrument is traded. | [optional]
 **asset** | Option<**String**> | Asset is the asset class of the instrument. | [optional]
 

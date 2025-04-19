@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **from** | Option<**f64**> | From is the number of shares before the split. | [optional]
 **to** | Option<**f64**> | To is the number of shares after the split. | [optional]
 **coef** | Option<**f64**> | Coef is the coefficient of the split. | [optional]
-**created_at** | Option<**i64**> | CreatedAt is the time at which the quote was created. | [optional]
+**created_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was initially created in the system. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> | Id is the unique identifier for the instrument. | [optional]
-**ticker** | Option<**String**> | Ticker is the unique identifier for the instrument. | [optional]
+**ticker** | Option<**String**> | Unique identifier symbol for this financial instrument, following standard market conventions. | [optional]
 **ticker_alternative** | Option<**String**> | TickerAlternative is an alternative identifier for the instrument. | [optional]
 **exchange** | Option<**String**> | Exchange is the exchange where the instrument is traded. | [optional]
 **name** | Option<**String**> | Name is the name of the instrument. | [optional]
@@ -32,8 +32,8 @@ Name | Type | Description | Notes
 **return_year** | Option<**f64**> | ReturnYear is the return of the instrument over the last year. | [optional]
 **dividend_yield** | Option<**f64**> | DividendYield is the dividend yield of the instrument. | [optional]
 **beta5y** | Option<**f64**> | Beta5y is the beta of the instrument over the last 5 years. | [optional]
-**created_at** | Option<**i64**> | CreatedAt is the date and time of the creation of the instrument. | [optional]
-**updated_at** | Option<**i64**> | UpdatedAt is the date and time of the last update. | [optional]
+**created_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was initially created in the system. | [optional]
+**updated_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was last modified. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

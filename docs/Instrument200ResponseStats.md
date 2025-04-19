@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **dividend_yield** | Option<**f64**> | DividendYield is the dividend yield of the security. | [optional]
 **price** | Option<[**models::StatsResponsePrice**](StatsResponsePrice.md)> |  | [optional]
 **volumes** | Option<[**models::StatsResponseVolumes**](StatsResponseVolumes.md)> |  | [optional]
-**updated_at** | Option<**i64**> | UpdatedAt is the date and time when the stats were last updated. | [optional]
+**updated_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was last modified. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

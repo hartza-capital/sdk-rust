@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **geographic** | Option<[**models::WatchlistReport200ResponseGeographic**](WatchlistReport_200_response_geographic.md)> |  | [optional]
 **performance** | Option<[**models::WatchlistReport200ResponsePerformance**](WatchlistReport_200_response_performance.md)> |  | [optional]
 **allocation** | Option<[**models::WatchlistReport200ResponseAllocation**](WatchlistReport_200_response_allocation.md)> |  | [optional]
-**created_at** | Option<**i64**> |  | [optional]
+**created_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was initially created in the system. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

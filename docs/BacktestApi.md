@@ -57,7 +57,7 @@ Permits to get the last trend received by the shareholder for instruments and st
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | Ticker of the instrument | [required] |
+**ticker** | **String** | Internal ticker name of the instrument | [required] |
 **strategy** | **String** | ticker name of strategy | [required] |
 
 ### Return type
@@ -146,7 +146,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | Ticker of the instrument | [required] |
+**ticker** | **String** | Internal ticker name of the instrument | [required] |
 **strategy** | **String** | ticker name of strategy | [required] |
 
 ### Return type

@@ -1,9 +1,11 @@
 # Rust API client for openapi
 
-## Welcome on the Hartza Capital API documentation
+## Welcome to the Hartza Capital API documentation
 
-For production use, you must obtain an oAuth2 token. To have this token, please authenticate and use your token.   
-The token has a lifespan of 15 minutes, after this period please renew it with the refresh token.
+This comprehensive financial data API provides access to market information, portfolio management capabilities, and sophisticated trading tools.
+
+For production use, an OAuth2 token is required. After authentication, you'll receive a token with a 15-minute lifespan. 
+When this period expires, please use your refresh token to obtain a new access token.
 
 
 

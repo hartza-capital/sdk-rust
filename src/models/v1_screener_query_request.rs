@@ -1,7 +1,7 @@
 /*
  * API Hartza Capital
  *
- * ## Welcome on the Hartza Capital API documentation  For production use, you must obtain an oAuth2 token. To have this token, please authenticate and use your token.    The token has a lifespan of 15 minutes, after this period please renew it with the refresh token. 
+ * ## Welcome to the Hartza Capital API documentation  This comprehensive financial data API provides access to market information, portfolio management capabilities, and sophisticated trading tools.  For production use, an OAuth2 token is required. After authentication, you'll receive a token with a 15-minute lifespan.  When this period expires, please use your refresh token to obtain a new access token. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@hartza.capital
@@ -11,13 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// V1ScreenerQueryRequest : GetFilterResponse is used to specify the response for the GetFilter API.
+/// V1ScreenerQueryRequest : Defines the structure for filtering and querying financial instruments, allowing precise control over data retrieval with support for field selection, filtering criteria, sorting options, and pagination.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1ScreenerQueryRequest {
-    /// Fields is the list of fields to return.
+    /// Specifies which data fields to include in the response, allowing clients to retrieve only the information they need.
     #[serde(rename = "fields", skip_serializing_if = "Option::is_none")]
     pub fields: Option<Vec<String>>,
-    /// Filters is a list of filters.
+    /// Specifies a list of filters used to refine or limit the data based on certain criteria.
     #[serde(rename = "filters", skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<models::V1ScreenerFilter>>,
     #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
@@ -27,7 +27,7 @@ pub struct V1ScreenerQueryRequest {
 }
 
 impl V1ScreenerQueryRequest {
-    /// GetFilterResponse is used to specify the response for the GetFilter API.
+    /// Defines the structure for filtering and querying financial instruments, allowing precise control over data retrieval with support for field selection, filtering criteria, sorting options, and pagination.
     pub fn new() -> V1ScreenerQueryRequest {
         V1ScreenerQueryRequest {
             fields: None,

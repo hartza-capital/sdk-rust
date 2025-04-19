@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **low** | Option<**f64**> | Low is the low price of the security. | [optional]
 **close** | Option<**f64**> | Close is the closing price of the security. | [optional]
 **volume** | Option<**i64**> | Volume is the volume of the security. | [optional]
-**created_at** | Option<**i64**> | CreatedAt is the date and time of the quote. | [optional]
+**created_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was initially created in the system. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> | Id is the unique identifier for the security. | [optional]
-**ticker** | Option<**String**> | Ticker is the unique identifier for the security. | [optional]
+**ticker** | Option<**String**> | Unique identifier symbol for this financial instrument, following standard market conventions. | [optional]
 **ticker_alternative** | Option<**String**> | TickerAlternative is the alternative identifier for the security. | [optional]
 **name** | Option<**String**> | Name is the name of the security. | [optional]
 **description** | Option<**String**> | Description is the description of the security. | [optional]
@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **tax** | Option<[**models::Instrument200ResponseTax**](Instrument_200_response_tax.md)> |  | [optional]
 **contact** | Option<[**models::Instrument200ResponseContact**](Instrument_200_response_contact.md)> |  | [optional]
 **address** | Option<[**models::Instrument200ResponseAddress**](Instrument_200_response_address.md)> |  | [optional]
-**created_at** | Option<**i64**> | CreatedAt is the time at which the instrument was created. | [optional]
-**updated_at** | Option<**i64**> | UpdatedAt is the time at which the instrument was last updated. | [optional]
+**created_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was initially created in the system. | [optional]
+**updated_at** | Option<**i64**> | Timestamp (in Unix epoch seconds) when this resource was last modified. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

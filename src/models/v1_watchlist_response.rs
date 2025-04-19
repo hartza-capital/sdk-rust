@@ -1,7 +1,7 @@
 /*
  * API Hartza Capital
  *
- * ## Welcome on the Hartza Capital API documentation  For production use, you must obtain an oAuth2 token. To have this token, please authenticate and use your token.    The token has a lifespan of 15 minutes, after this period please renew it with the refresh token. 
+ * ## Welcome to the Hartza Capital API documentation  This comprehensive financial data API provides access to market information, portfolio management capabilities, and sophisticated trading tools.  For production use, an OAuth2 token is required. After authentication, you'll receive a token with a 15-minute lifespan.  When this period expires, please use your refresh token to obtain a new access token. 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@hartza.capital
@@ -11,16 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// V1WatchlistResponse : GetFilterResponse is used to specify the response for the GetFilter API.
+/// V1WatchlistResponse : Represents a customized collection of financial instruments that users can monitor, including filtering criteria, sorting preferences, and statistical summaries of the included securities.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1WatchlistResponse {
-    /// Ticker is the unique identifier for the filter.
+    /// Ticker is the unique identifier for the watchlist.
     #[serde(rename = "ticker", skip_serializing_if = "Option::is_none")]
     pub ticker: Option<String>,
     /// Description is the description of the filter.
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    /// Filters is a list of filters.
+    /// List of instruments in the watchlist.
     #[serde(rename = "filters", skip_serializing_if = "Option::is_none")]
     pub filters: Option<Vec<models::V1ScreenerFilter>>,
     #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
@@ -29,19 +29,19 @@ pub struct V1WatchlistResponse {
     pub results: Option<Vec<models::V1SearchResponse>>,
     #[serde(rename = "stats", skip_serializing_if = "Option::is_none")]
     pub stats: Option<Box<models::V1WatchlistResponseStats>>,
-    /// UUID of report
+    /// UUID of report generated for the watchlist.
     #[serde(rename = "report_id", skip_serializing_if = "Option::is_none")]
     pub report_id: Option<uuid::Uuid>,
-    /// CreatedAt is the creation date of the filter.
+    /// Timestamp (in Unix epoch seconds) when this resource was initially created in the system.
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<i64>,
-    /// UpdatedAt is the last update date of the filter.
+    /// Timestamp (in Unix epoch seconds) when this resource was last modified.
     #[serde(rename = "updated_at", skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<i64>,
 }
 
 impl V1WatchlistResponse {
-    /// GetFilterResponse is used to specify the response for the GetFilter API.
+    /// Represents a customized collection of financial instruments that users can monitor, including filtering criteria, sorting preferences, and statistical summaries of the included securities.
     pub fn new() -> V1WatchlistResponse {
         V1WatchlistResponse {
             ticker: None,

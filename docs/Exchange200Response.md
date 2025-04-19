@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticker** | Option<**String**> | Ticker is the unique identifier for the exchange. | [optional]
+**ticker** | Option<**String**> | Unique identifier symbol for this financial instrument, following standard market conventions. | [optional]
 **ticker_alternatives** | Option<**Vec<String>**> | TickerAlternatives is a list of alternative identifiers for the exchange. | [optional]
 **name** | Option<**String**> | Name is the name of the exchange. | [optional]
 **description** | Option<**String**> | Description is the description of the exchange. | [optional]

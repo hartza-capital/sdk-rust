@@ -23,7 +23,7 @@ Permits to get the country properties
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | ticker name of country (format alpha2 or alpha3) | [required] |
+**ticker** | **String** | Ticker name of country (format alpha2 or alpha3) | [required] |
 
 ### Return type
 
@@ -53,7 +53,7 @@ Permits to get the macro economic events for the targeted country
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | ticker name of country (format alpha2 or alpha3) | [required] |
+**ticker** | **String** | Ticker name of country (format alpha2 or alpha3) | [required] |
 
 ### Return type
 
@@ -83,7 +83,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | ticker name of country (format alpha2 or alpha3) | [required] |
+**ticker** | **String** | Ticker name of country (format alpha2 or alpha3) | [required] |
 
 ### Return type
 
@@ -113,7 +113,7 @@ Options method is used to describe the communication options for the targeted re
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ticker** | **String** | ticker name of country (format alpha2 or alpha3) | [required] |
+**ticker** | **String** | Ticker name of country (format alpha2 or alpha3) | [required] |
 
 ### Return type
 
