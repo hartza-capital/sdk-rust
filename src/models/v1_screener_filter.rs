@@ -14,10 +14,10 @@ use serde::{Deserialize, Serialize};
 /// V1ScreenerFilter : Filter is used to specify the filter for a search.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1ScreenerFilter {
-    #[serde(rename = "operator", skip_serializing_if = "Option::is_none")]
-    pub operator: Option<Operator>,
-    #[serde(rename = "argument", skip_serializing_if = "Option::is_none")]
-    pub argument: Option<Argument>,
+    #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
+    pub condition: Option<Condition>,
+    #[serde(rename = "field", skip_serializing_if = "Option::is_none")]
+    pub field: Option<Field>,
     #[serde(rename = "values", skip_serializing_if = "Option::is_none")]
     pub values: Option<Vec<String>>,
 }
@@ -26,15 +26,15 @@ impl V1ScreenerFilter {
     /// Filter is used to specify the filter for a search.
     pub fn new() -> V1ScreenerFilter {
         V1ScreenerFilter {
-            operator: None,
-            argument: None,
+            condition: None,
+            field: None,
             values: None,
         }
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Operator {
+pub enum Condition {
     #[serde(rename = "Equal")]
     Equal,
     #[serde(rename = "GreaterEqual")]
@@ -53,14 +53,14 @@ pub enum Operator {
     NotIn,
 }
 
-impl Default for Operator {
-    fn default() -> Operator {
+impl Default for Condition {
+    fn default() -> Condition {
         Self::Equal
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Argument {
+pub enum Field {
     #[serde(rename = "id")]
     Id,
     #[serde(rename = "ticker")]
@@ -93,8 +93,8 @@ pub enum Argument {
     To,
 }
 
-impl Default for Argument {
-    fn default() -> Argument {
+impl Default for Field {
+    fn default() -> Field {
         Self::Id
     }
 }

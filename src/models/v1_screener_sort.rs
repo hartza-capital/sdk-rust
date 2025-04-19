@@ -14,26 +14,26 @@ use serde::{Deserialize, Serialize};
 /// V1ScreenerSort : ScreenerRequestSort is used to specify the sort for a search.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V1ScreenerSort {
-    /// Argument is the argument to sort by.
-    #[serde(rename = "argument", skip_serializing_if = "Option::is_none")]
-    pub argument: Option<Argument>,
-    /// Orientation is the orientation of the sort.
-    #[serde(rename = "orientation", skip_serializing_if = "Option::is_none")]
-    pub orientation: Option<Orientation>,
+    /// Field is the field to sort by.
+    #[serde(rename = "field", skip_serializing_if = "Option::is_none")]
+    pub field: Option<Field>,
+    /// Orientation is the direction of the sort.
+    #[serde(rename = "direction", skip_serializing_if = "Option::is_none")]
+    pub direction: Option<Direction>,
 }
 
 impl V1ScreenerSort {
     /// ScreenerRequestSort is used to specify the sort for a search.
     pub fn new() -> V1ScreenerSort {
         V1ScreenerSort {
-            argument: None,
-            orientation: None,
+            field: None,
+            direction: None,
         }
     }
 }
-/// Argument is the argument to sort by.
+/// Field is the field to sort by.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Argument {
+pub enum Field {
     #[serde(rename = "time")]
     Time,
     #[serde(rename = "id")]
@@ -46,22 +46,22 @@ pub enum Argument {
     Change,
 }
 
-impl Default for Argument {
-    fn default() -> Argument {
+impl Default for Field {
+    fn default() -> Field {
         Self::Time
     }
 }
-/// Orientation is the orientation of the sort.
+/// Orientation is the direction of the sort.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Orientation {
+pub enum Direction {
     #[serde(rename = "ASC")]
     Asc,
     #[serde(rename = "DESC")]
     Desc,
 }
 
-impl Default for Orientation {
-    fn default() -> Orientation {
+impl Default for Direction {
+    fn default() -> Direction {
         Self::Asc
     }
 }

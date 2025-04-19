@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**argument** | Option<**String**> | Argument is the argument to sort by. | [optional]
-**orientation** | Option<**String**> | Orientation is the orientation of the sort. | [optional]
+**field** | Option<**String**> | Field is the field to sort by. | [optional]
+**direction** | Option<**String**> | Orientation is the direction of the sort. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
